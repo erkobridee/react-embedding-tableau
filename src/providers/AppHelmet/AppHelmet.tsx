@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HelmetProvider, Helmet as HelmetAsync } from 'react-helmet-async';
 
-import styles from 'global-inline.css?inline';
+import styles from 'assets/styles/global-inline.css?inline';
 
 import { author, appName, appNameMeaning, keywords } from 'app/definitions';
 
