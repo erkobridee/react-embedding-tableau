@@ -99,3 +99,9 @@ npm run preview
 - [[GitHub] pd4d10 / vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr) - Vite plugin to transform SVGs into React components
 
 - [[GitHub] hmsk / vite-plugin-markdown](https://github.com/hmsk/vite-plugin-markdown) - A vite plugin to import a Markdown file in various formats like Front Matter, HTML, ToC, and React/Vue Component
+
+### [React](https://reactjs.org/)
+
+- [React Router](https://reactrouter.com/)
+
+  - [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router) - [examples](https://github.com/remix-run/react-router/tree/main/examples)
