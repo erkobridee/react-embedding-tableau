@@ -1,10 +1,7 @@
 import { useState } from 'react';
 
 import reactLogo from 'assets/react.svg';
-
-// https://vitejs.dev/guide/assets.html#explicit-url-imports
-// that looks on the public directory
-import viteLogo from '/vite.svg?url';
+import viteLogo from 'assets/vite.svg';
 
 import './App.css';
 
