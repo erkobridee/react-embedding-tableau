@@ -1,6 +1,7 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import svgr from 'vite-plugin-svgr';
 
 import { name } from './package.json';
 
@@ -16,6 +17,6 @@ export default defineConfig({
   ...(isProduction ? { base: `/${name}/` } : { build: { sourcemap: true } }),
 
   plugins: isProduction
-    ? [splitVendorChunkPlugin(), react(), tsconfigPaths()]
-    : [react(), tsconfigPaths()],
+    ? [splitVendorChunkPlugin(), svgr(), react(), tsconfigPaths()]
+    : [svgr(), react(), tsconfigPaths()],
 });
