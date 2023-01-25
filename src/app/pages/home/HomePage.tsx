@@ -1,6 +1,7 @@
 import cn from 'clsx';
 
 import { ExternalLink } from 'app/components/ui/ExternalLink';
+import { DarkModeToggler } from 'app/components/ui/DarkModeToggler';
 
 import {
   appName,
@@ -49,6 +50,10 @@ export const HomePage = () => (
           <IconComponent />
         </ExternalLink>
       ))}
+    </div>
+
+    <div className="flex justify-center space-x-5">
+      <DarkModeToggler />
     </div>
   </div>
 );
