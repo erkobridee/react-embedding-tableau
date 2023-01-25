@@ -1,7 +1,7 @@
 import './App.css';
 
-import { HomePage } from 'app/pages/home';
+import { Routes } from 'app/pages';
 
-export const App = () => <HomePage />;
+export const App = () => <Routes />;
 
 export default App;
