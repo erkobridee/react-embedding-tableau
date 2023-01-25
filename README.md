@@ -105,3 +105,9 @@ npm run preview
 - [React Router](https://reactrouter.com/)
 
   - [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router) - [examples](https://github.com/remix-run/react-router/tree/main/examples)
+
+### [TailwindCSS](https://tailwindcss.com/)
+
+- [Build a JavaScript and Tailwind CSS Theme Switcher - DEV Community 👩‍💻👨‍💻](https://dev.to/brandymedia/build-a-javascript-and-tailwind-css-theme-switcher-4hbc)(2021/02/04)
+
+  - [[GitHub] brandymedia / tailwind-theme-switcher](https://github.com/brandymedia/tailwind-theme-switcher)
