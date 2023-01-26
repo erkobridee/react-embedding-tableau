@@ -8,6 +8,8 @@
   https://github.com/remix-run/react-router/blob/dev/examples/lazy-loading/src/App.tsx
 
   https://github.com/umair-mirza/safetyapp
+
+  https://github.com/rafgraph/spa-github-pages
 */
 import * as React from 'react';
 
