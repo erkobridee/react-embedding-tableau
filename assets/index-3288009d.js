@@ -1,1 +1,0 @@
-import{j as e}from"./index-3dd47be4.js";import"./vendor-ccfece42.js";const d=()=>e("div",{children:"TODO: define the Tableau Embedded Analytics page"}),i=d;export{d as EmbeddedAnalyticsPage,i as default};
