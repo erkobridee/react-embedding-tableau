@@ -15,8 +15,10 @@ export const useSafeLocalStorage = <T>(
   });
 
   const setValue = (value?: T): void => {
+    if (value === undefined) return;
+
     try {
-      value ?? window.localStorage.setItem(key, JSON.stringify(value));
+      window.localStorage.setItem(key, JSON.stringify(value));
       setValueProxy(value);
     } catch {
       setValueProxy(value);
