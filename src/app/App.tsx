@@ -6,6 +6,8 @@
   https://github.com/remix-run/react-router/blob/main/examples/notes/src/app.jsx#L11
 
   https://github.com/remix-run/react-router/blob/dev/examples/lazy-loading/src/App.tsx
+
+  https://github.com/umair-mirza/safetyapp
 */
 import * as React from 'react';
 
