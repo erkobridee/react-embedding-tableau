@@ -11,7 +11,7 @@ interface DarkModeTogglerProps {
 }
 
 export const DarkModeToggler: React.FunctionComponent<DarkModeTogglerProps> = ({
-  className = 'hidden mt-1 transition-transform ease-in-out focus:outline-none sm:block hover:text-accent hover:-translate-y-1 focus-visible:outline-accent',
+  className = 'hidden mt-1 mb-1 transition-transform ease-in-out focus:outline-none sm:block hover:text-accent hover:-translate-y-1 focus-visible:outline-accent',
 }) => {
   const [isDark, setIsDark] = useDarkMode();
 

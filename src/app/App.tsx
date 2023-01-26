@@ -8,8 +8,6 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import './App.css';
-
 import { PageLayoutType, PageLayout } from 'app/components/layout';
 
 import { HomePage } from 'app/pages/home';

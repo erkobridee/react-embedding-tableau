@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
 export const ContentLayout = () => (
-  <main id="content" role="main" className="flex-1">
+  <main id="content" role="main" className="flex-1 px-3 md:px-6 lg:px-0">
     <Outlet />
   </main>
 );
