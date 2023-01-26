@@ -27,6 +27,10 @@ const router = createBrowserRouter(
   }
 );
 
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => router.dispose());
+}
+
 export const App = () => <RouterProvider router={router} />;
 
 export default App;
