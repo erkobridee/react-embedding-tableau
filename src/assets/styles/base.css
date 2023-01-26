@@ -1,6 +1,8 @@
 @layer base {
   html {
     @apply font-body;
+
+    background-color: var(--color-bg-app);
   }
 
   html,
@@ -11,5 +13,7 @@
 
   #root {
     @apply mx-auto flex max-w-7xl;
+
+    @apply text-gray-600 dark:text-gray-300;
   }
 }
