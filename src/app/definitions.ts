@@ -9,6 +9,8 @@ import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
 
 //----------------------------------------------------------------------------//
 
+export const currentYear = new Date().getFullYear();
+
 export const author = 'Erko Bridee';
 
 export const appName = 'POC-R+TEA';

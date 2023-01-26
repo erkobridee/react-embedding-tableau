@@ -3,12 +3,7 @@ import cn from 'clsx';
 import { ExternalLink } from 'app/components/ui/ExternalLink';
 import { DarkModeToggler } from 'app/components/ui/DarkModeToggler';
 
-import {
-  appName,
-  appNameMeaning,
-  techStack,
-  socialLinks,
-} from 'app/definitions';
+import { appName, appNameMeaning, techStack } from 'app/definitions';
 
 import './HomePage.css';
 
@@ -36,21 +31,6 @@ export const HomePage = () => (
     </div>
 
     <p className="text-gray-400">Click on the logos to learn more</p>
-
-    <div className="flex justify-center space-x-5">
-      {socialLinks.map(({ href, IconComponent, className, alt }) => (
-        <ExternalLink
-          key={alt}
-          href={href}
-          className={cn(
-            'h-5 w-5 text-gray-400 hover:text-gray-500 sm:h-6 sm:w-6',
-            className
-          )}
-        >
-          <IconComponent />
-        </ExternalLink>
-      ))}
-    </div>
 
     <div className="flex justify-center space-x-5">
       <DarkModeToggler />
