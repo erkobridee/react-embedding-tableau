@@ -40,6 +40,10 @@ npm run preview
 
 ## Useful References
 
+- [bookmarks](src/content/bookmarks/)
+
+<!--
+
 ### [Tableau](https://www.tableau.com/)
 
 - [[GitHub Organization] tableau](https://github.com/tableau)
@@ -63,7 +67,9 @@ npm run preview
 - [[Domestika] Introduction to Data Visualization](https://www.domestika.org/en/courses/64-introduction-to-data-visualization) - A course by [Victor Pascual](https://www.domestika.org/en/victorpascual), Data Visualization Specialist
 
   - Level: Beginner
+
   - Audio: Spanish
+
   - Subtitles: English
 
 - [[YouTube] What is Tableau ? Explained in under 10 mins! | Tableau Tim](https://www.youtube.com/watch?v=7Jl-RwkzqQ4) (2020/04/18)
@@ -104,7 +110,17 @@ npm run preview
 
 - [React Router](https://reactrouter.com/)
 
-  - [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router) - [examples](https://github.com/remix-run/react-router/tree/main/examples)
+  - [createBrowserRouter | React Router Docs](https://reactrouter.com/en/main/routers/create-browser-router)
+
+  - [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router)
+
+    - [examples](https://github.com/remix-run/react-router/tree/main/examples)
+
+      - [notes](https://github.com/remix-run/react-router/blob/main/examples/notes/src/app.jsx) - which uses the createBrowser Router
+
+      - [lazy loading](https://github.com/remix-run/react-router/blob/main/examples/lazy-loading/src/App.tsx)
+
+      - [auth](https://github.com/remix-run/react-router/blob/main/examples/auth/src/App.tsx)
 
 ### [TailwindCSS](https://tailwindcss.com/)
 
@@ -131,3 +147,5 @@ npm run preview
 - [Create a Dark Mode toggler with Tailwind | DevDojo](https://devdojo.com/savio/create-a-dark-mode-toggler-with-tailwind) (2021/06/12)
 
 - [[StackOverflow] TailwindCSS - Switch color theme between "Light", "Dark" OR "System setting"](https://stackoverflow.com/a/66499064)
+
+-->
