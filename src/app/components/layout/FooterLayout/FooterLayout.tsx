@@ -5,19 +5,34 @@ import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
 
 import { ExternalLink } from 'app/components/ui/ExternalLink';
 
-import { currentYear, author, socialLinks } from 'app/definitions';
+import {
+  currentYear,
+  author,
+  socialLinks,
+  appName,
+  appNameMeaning,
+} from 'app/definitions';
 
 export const FooterLayout: React.FunctionComponent<LayoutProps> = ({
   type = PageLayoutType.CONTENT,
 }) => {
-  // TODO: define the footer items when it's not the home page
   return (
     <footer className="py-6 lg:py-8">
       {type !== PageLayoutType.HOME ? (
-        <div className="px-3 md:px-6 xl:px-0">footer - general app info</div>
+        <div className="flex flex-col space-y-6 px-3 md:px-6 lg:flex-row lg:justify-between xl:px-0">
+          <div className="flex flex-col space-y-2 px-6 xl:px-0">
+            <div className="text-sm font-bold">{appName}</div>
+            <div className="text-sm italic">{appNameMeaning}</div>
+          </div>
+
+          <div className="flex flex-col items-center justify-center space-y-2 lg:justify-end">
+            <div className="text-sm">Tech Stack</div>
+            <div>???</div>
+          </div>
+        </div>
       ) : null}
 
-      <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+      <hr className="my-4 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-6" />
 
       <div className="flex flex-col justify-between space-y-6 px-6 md:flex-row md:space-y-0 xl:px-0">
         <div className="flex-1 text-center text-sm text-gray-500 dark:text-gray-400 md:text-left">

@@ -5,6 +5,7 @@
   https://preline.co/examples/navigations-navbars.html
 */
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
 
@@ -15,12 +16,13 @@ import { appName } from 'app/definitions';
 export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
   type = PageLayoutType.CONTENT,
 }) => {
-  // TODO: define a navigation link on the app name to return to the home page
   return (
     <header className="flex items-center space-x-3 py-6 px-6 lg:space-x-6 lg:py-8 xl:px-0">
       <div className="flex-1">
         {type !== PageLayoutType.HOME ? (
-          <span className="font-bold">{appName}</span>
+          <Link to="/">
+            <span className="font-bold">{appName}</span>
+          </Link>
         ) : null}
       </div>
 
