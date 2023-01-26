@@ -23,6 +23,24 @@ export const keywords =
 
 //----------------------------------------------------------------------------//
 
+interface IHeaderMenuItem {
+  to: string;
+  label: string;
+}
+
+export const headerMenuItems: IHeaderMenuItem[] = [
+  {
+    to: '/bookmarks',
+    label: 'Bookmarks',
+  },
+  {
+    to: '/embedded-tableau',
+    label: 'Embedded Tableau',
+  },
+];
+
+//----------------------------------------------------------------------------//
+
 interface IImageItem {
   href: string;
   src: string;

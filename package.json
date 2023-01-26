@@ -21,6 +21,7 @@
     "deploy": "run-s ci deploy:gh-pages"
   },
   "dependencies": {
+    "@preline/collapse": "^1.3.0",
     "clsx": "1.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

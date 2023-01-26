@@ -23,8 +23,8 @@ import { NotFoundPage } from 'app/pages/notfound';
 //----------------------------------------------------------------------------//
 
 const BookmarksPage = React.lazy(() => import('app/pages/bookmarks'));
-const EmbeddedAnalyticsPage = React.lazy(
-  () => import('app/pages/embedded-analytics')
+const EmbeddedTableauPage = React.lazy(
+  () => import('app/pages/embedded-tableau')
 );
 
 //----------------------------------------------------------------------------//
@@ -49,10 +49,10 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: 'embedded-analytics',
+          path: 'embedded-tableau',
           element: (
             <React.Suspense fallback={<>Loading...</>}>
-              <EmbeddedAnalyticsPage />
+              <EmbeddedTableauPage />
             </React.Suspense>
           ),
         },

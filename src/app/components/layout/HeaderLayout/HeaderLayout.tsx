@@ -11,7 +11,7 @@ import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
 
 import { DarkModeToggler } from 'app/components/ui/DarkModeToggler';
 
-import { appName } from 'app/definitions';
+import { appName, headerMenuItems } from 'app/definitions';
 
 export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
   type = PageLayoutType.CONTENT,
@@ -26,7 +26,13 @@ export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
         ) : null}
       </div>
 
-      <div className="hidden lg:block">menu items</div>
+      <div className="hidden lg:flex lg:space-x-3">
+        {headerMenuItems.map(({ to, label }, index) => (
+          <Link key={index} to={to}>
+            {label}
+          </Link>
+        ))}
+      </div>
 
       <DarkModeToggler />
 
