@@ -13,6 +13,8 @@ import { DarkModeToggler } from 'app/components/ui/DarkModeToggler';
 
 import { appName, headerMenuItems } from 'app/definitions';
 
+import { NavBar } from './NavBar';
+
 export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
   type = PageLayoutType.CONTENT,
 }) => {
@@ -26,7 +28,7 @@ export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
         ) : null}
       </div>
 
-      <div className="hidden lg:flex lg:space-x-3">
+      <div className="hidden lg:flex lg:space-x-6">
         {headerMenuItems.map(({ to, label }, index) => (
           <Link key={index} to={to}>
             {label}
@@ -36,7 +38,9 @@ export const HeaderLayout: React.FunctionComponent<LayoutProps> = ({
 
       <DarkModeToggler />
 
-      <div className="block lg:hidden">navbar</div>
+      <div className="block lg:hidden">
+        <NavBar />
+      </div>
     </header>
   );
 };
