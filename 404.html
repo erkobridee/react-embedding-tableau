@@ -32,7 +32,7 @@
           (l.port ? ':' + l.port : '') +
           l.pathname
             .split('/')
-            .slice(0, 1 + pathSegmentsToKeep)
+            .slice(0, 2 + pathSegmentsToKeep)
             .join('/') +
           '/?/' +
           l.pathname
