@@ -3,10 +3,11 @@ import cn from 'clsx';
 
 import { IBreadcrumbItem, Breadcrumbs } from 'app/components/ui/Breadcrumbs';
 
-export interface PageContentProps {
+import { ContainerProps, Container } from './container';
+
+export interface PageContentProps extends ContainerProps {
   className?: string;
   breadcrumbs?: IBreadcrumbItem[];
-  children: React.ReactNode;
 }
 
 interface InnerPageContentProps extends PageContentProps {
@@ -20,17 +21,20 @@ export const PageContent: React.FunctionComponent<InnerPageContentProps> = ({
   className,
   breadcrumbs,
   defaultBreadcrumb,
-  children,
-}) => (
-  <div className={cn('flex flex-col space-y-4 xl:space-y-6', className)}>
-    <Breadcrumbs
-      items={
-        breadcrumbs ? [defaultBreadcrumb, ...breadcrumbs] : [defaultBreadcrumb]
-      }
-    />
 
-    {children}
-  </div>
-);
+  ...props
+}) => {
+  breadcrumbs = breadcrumbs
+    ? [defaultBreadcrumb, ...breadcrumbs]
+    : [defaultBreadcrumb];
+
+  return (
+    <div className={cn('flex flex-col space-y-4 xl:space-y-6', className)}>
+      <Breadcrumbs items={breadcrumbs} />
+
+      <Container {...props} />
+    </div>
+  );
+};
 
 export default PageContent;

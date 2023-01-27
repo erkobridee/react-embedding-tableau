@@ -25,54 +25,20 @@ import { PageLayout } from 'app/components/layout';
 import { HomePage } from 'app/pages/home';
 import { NotFoundPage } from 'app/pages/notfound';
 
-import { LazyContent } from 'app/components/ui/LazyContent';
+import { LazyContent } from 'app/components/content/LazyContent';
+
+import { lazyDelayed } from 'utils/lazyDelayed';
 
 //----------------------------------------------------------------------------//
 
-const BookmarksPage = React.lazy(() => import('app/pages/bookmarks'));
-const EmbeddedTableauPage = React.lazy(
+const BookmarksPage = lazyDelayed(() => import('app/pages/bookmarks'));
+const EmbeddedTableauPage = lazyDelayed(
   () => import('app/pages/embedded-tableau')
 );
 
 //----------------------------------------------------------------------------//
 
 const router = createBrowserRouter(
-  /*
-  [
-    {
-      path: '/',
-      element: <PageLayout />,
-      children: [
-        {
-          index: true,
-          element: <HomePage />,
-        },
-
-        {
-          path: 'bookmarks',
-          element: (
-            <React.Suspense fallback={<>Loading...</>}>
-              <BookmarksPage />
-            </React.Suspense>
-          ),
-        },
-        {
-          path: 'embedded-tableau',
-          element: (
-            <React.Suspense fallback={<>Loading...</>}>
-              <EmbeddedTableauPage />
-            </React.Suspense>
-          ),
-        },
-
-        {
-          path: '*',
-          element: <NotFoundPage />,
-        },
-      ],
-    },
-  ],
-  */
   createRoutesFromElements(
     <Route path="/" element={<PageLayout />}>
       <Route index element={<HomePage />} />

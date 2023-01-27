@@ -8,7 +8,6 @@
 
 import * as React from 'react';
 import cn from 'clsx';
-import DOMPurify from 'dompurify';
 
 interface RenderHtmlProps {
   className?: string;
@@ -20,8 +19,11 @@ export const RenderHtml: React.FunctionComponent<RenderHtmlProps> = ({
   content,
 }) => (
   <article
-    className={cn('prose prose-slate dark:prose-invert', className)}
-    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+    className={cn(
+      'prose prose-sm prose-slate prose-a:no-underline hover:prose-a:underline dark:prose-invert lg:prose-base',
+      className
+    )}
+    dangerouslySetInnerHTML={{ __html: content }}
   />
 );
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface LazyContentProps {
+export interface LazyContentProps {
   loading?: React.ReactNode;
   children: React.ReactNode;
 }

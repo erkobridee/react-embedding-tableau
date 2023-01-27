@@ -1,17 +1,39 @@
 # [React](https://reactjs.org/)
 
-- [React Router](https://reactrouter.com/)
+## [React Suspense](https://beta.reactjs.org/reference/react/Suspense)
 
-  - [tutorial | React Router Docs](https://reactrouter.com/en/main/start/tutorial)
+- [Code Splitting | React Docs](https://reactjs.org/docs/code-splitting.html)
 
-  - [createBrowserRouter | React Router Docs](https://reactrouter.com/en/main/routers/create-browser-router)
+- [Suspense in React 18 | DEV Community 👩‍💻👨‍💻](https://dev.to/heyitsarpit/suspense-in-react-18-4ca0) (2023/01/27)
 
-  - [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router)
+- [All You Need To Know About React Suspense | CopyCat Blog](https://www.copycat.dev/blog/react-suspense/) (2022/11/17) - In this article, we’re going to explore what is a React Suspense, a React Suspense Fallback UI, and how to use them in your React application.
 
-    - [examples](https://github.com/remix-run/react-router/tree/main/examples)
+  - [[GitHub] unclebay143/user-dashboard-with-react-suspense](https://github.com/unclebay143/user-dashboard-with-react-suspense)
 
-      - [notes](https://github.com/remix-run/react-router/blob/main/examples/notes/src/app.jsx) - which uses the createBrowser Router
+- [Using React 18’s Suspense to Improve Code Quality of Web Loaders | by Manusha Chethiyawardhana - Rootcode - Medium](https://medium.com/rootcodelabs/using-react-18s-suspense-to-improve-code-quality-of-web-loaders-6fbb1dd5ab2a) (2022/06/23)
 
-      - [lazy loading](https://github.com/remix-run/react-router/blob/main/examples/lazy-loading/src/App.tsx)
+- [How Suspense Works in React 18 | by Jose Granja - Better Programming](https://betterprogramming.pub/how-suspense-works-in-react-18-c7617a50447f) (2022/04/05) - Know the new Concurrent Suspense and Transition API
 
-      - [auth](https://github.com/remix-run/react-router/blob/main/examples/auth/src/App.tsx)
+## [Loadable Components](https://loadable-components.com/)
+
+- [Loadable Components Docs](https://loadable-components.com/docs)
+
+- [[GitHub] gregberge / loadable-components](https://github.com/gregberge/loadable-components) - The recommended Code Splitting library for React
+
+## [React Router](https://reactrouter.com/)
+
+- [tutorial | React Router Docs](https://reactrouter.com/en/main/start/tutorial)
+
+- [createBrowserRouter | React Router Docs](https://reactrouter.com/en/main/routers/create-browser-router)
+
+- [await | React Router Docs](https://reactrouter.com/en/main/components/await)
+
+- [[GitHub] remix-run / react-router](https://github.com/remix-run/react-router)
+
+  - [examples](https://github.com/remix-run/react-router/tree/main/examples)
+
+    - [notes](https://github.com/remix-run/react-router/blob/main/examples/notes/src/app.jsx) - which uses the createBrowser Router
+
+    - [lazy loading](https://github.com/remix-run/react-router/blob/main/examples/lazy-loading/src/App.tsx)
+
+    - [auth](https://github.com/remix-run/react-router/blob/main/examples/auth/src/App.tsx)

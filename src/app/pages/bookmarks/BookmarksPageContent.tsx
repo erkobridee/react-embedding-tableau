@@ -1,22 +1,22 @@
 import * as React from 'react';
 
-import { PageContent, PageContentProps } from 'app/components/ui/PageContent';
+import {
+  PageContent,
+  PageContentProps,
+} from 'app/components/content/PageContent';
 
-export const BookmarksPageContent: React.FunctionComponent<
-  PageContentProps
-> = ({ className, breadcrumbs, children }) => (
+export const BookmarksPageContent: React.FunctionComponent<PageContentProps> = (
+  props
+) => (
   <PageContent
     {...{
-      className,
-      breadcrumbs,
+      ...props,
       defaultBreadcrumb: {
         to: '/bookmarks',
         label: 'Bookmarks',
       },
     }}
-  >
-    {children}
-  </PageContent>
+  />
 );
 
 export default BookmarksPageContent;

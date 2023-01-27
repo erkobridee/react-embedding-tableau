@@ -1,23 +1,30 @@
-import { Link } from 'react-router-dom';
+import { IndexItem, IndexContent } from 'app/components/content/IndexContent';
+
+const items: IndexItem[] = [
+  {
+    to: 'tableau',
+    label: 'Tableau',
+  },
+  {
+    to: 'react',
+    label: 'React.js',
+  },
+  {
+    to: 'vite',
+    label: 'Vite.js',
+  },
+  {
+    to: 'typescript',
+    label: 'TypeScript',
+  },
+  {
+    to: 'tailwind',
+    label: 'TailwindCSS',
+  },
+];
 
 export const BookmarksPageIndex = () => (
-  <div className="flex flex-col space-y-6 p-8">
-    <Link className="hover:underline" to="tableau">
-      Tableau
-    </Link>
-
-    <Link className="hover:underline" to="react">
-      React.js
-    </Link>
-
-    <Link className="hover:underline" to="tailwind">
-      TailwindCSS
-    </Link>
-
-    <Link className="hover:underline" to="vite">
-      Vite.js
-    </Link>
-  </div>
+  <IndexContent className="space-y-6" items={items} />
 );
 
 export default BookmarksPageIndex;

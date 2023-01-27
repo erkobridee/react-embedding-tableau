@@ -4,3 +4,4 @@ node_modules
 dist
 coverage
 
+src/vite-env.d.ts

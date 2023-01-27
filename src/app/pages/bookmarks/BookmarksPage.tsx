@@ -4,74 +4,83 @@ import { Routes, Route } from 'react-router-dom';
 
 import { NotFoundPage } from 'app/pages/notfound';
 
-import { LazyContent } from 'app/components/ui/LazyContent';
-
 import { BookmarksPageContent } from './BookmarksPageContent';
 import { BookmarksPageIndex } from './BookmarksPageIndex';
 
-//----------------------------------------------------------------------------//
-
-const ReactPage = React.lazy(() => import('./react'));
-const TableauPage = React.lazy(() => import('./tableau'));
-const TailwindPage = React.lazy(() => import('./tailwind'));
-const VitePage = React.lazy(() => import('./vite'));
+import { lazyDelayed } from 'utils/lazyDelayed';
 
 //----------------------------------------------------------------------------//
+
+const TableauPage = lazyDelayed(() => import('./tableau'));
+const ReactPage = lazyDelayed(() => import('./react'));
+const VitePage = lazyDelayed(() => import('./vite'));
+const TypescriptPage = lazyDelayed(() => import('./typescript'));
+const TailwindPage = lazyDelayed(() => import('./tailwind'));
+
+//----------------------------------------------------------------------------//
+
+interface RouteConfig {
+  path: string;
+  label: string;
+  PageComponent: React.ComponentType;
+}
+
+const routes: RouteConfig[] = [
+  {
+    path: 'tableau',
+    label: 'Tableau',
+    PageComponent: TableauPage,
+  },
+  {
+    path: 'react',
+    label: 'React.js',
+    PageComponent: ReactPage,
+  },
+  {
+    path: 'vite',
+    label: 'Vite.js',
+    PageComponent: VitePage,
+  },
+  {
+    path: 'typescript',
+    label: 'TypeScript',
+    PageComponent: TypescriptPage,
+  },
+  {
+    path: 'tailwind',
+    label: 'TailwindCSS',
+    PageComponent: TailwindPage,
+  },
+];
 
 export const BookmarksPage = () => (
   <Routes>
     <Route
       index
       element={
-        <BookmarksPageContent>
+        <BookmarksPageContent containerClassName="p-8">
           <BookmarksPageIndex />
         </BookmarksPageContent>
       }
     />
 
-    <Route
-      path="react"
-      element={
-        <BookmarksPageContent breadcrumbs={[{ label: 'React.js' }]}>
-          <LazyContent>
-            <ReactPage className="p-6" />
-          </LazyContent>
-        </BookmarksPageContent>
-      }
-    />
-
-    <Route
-      path="tableau"
-      element={
-        <BookmarksPageContent breadcrumbs={[{ label: 'Tableau' }]}>
-          <LazyContent>
-            <TableauPage className="p-6" />
-          </LazyContent>
-        </BookmarksPageContent>
-      }
-    />
-
-    <Route
-      path="tailwind"
-      element={
-        <BookmarksPageContent breadcrumbs={[{ label: 'TailwindCSS' }]}>
-          <LazyContent>
-            <TailwindPage className="p-6" />
-          </LazyContent>
-        </BookmarksPageContent>
-      }
-    />
-
-    <Route
-      path="vite"
-      element={
-        <BookmarksPageContent breadcrumbs={[{ label: 'Vite.js' }]}>
-          <LazyContent>
-            <VitePage className="p-6" />
-          </LazyContent>
-        </BookmarksPageContent>
-      }
-    />
+    {routes.map(({ path, label, PageComponent }, index) => (
+      <Route
+        key={index}
+        {...{
+          path,
+          element: (
+            <BookmarksPageContent
+              lazy
+              containerClassName="p-3 lg:p-6"
+              breadcrumbs={[{ label }]}
+            >
+              <PageComponent />
+            </BookmarksPageContent>
+          ),
+        }}
+      />
+    ))}
 
     <Route
       path="*"
