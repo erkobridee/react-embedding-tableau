@@ -1,1 +1,0 @@
-import{j as o}from"./index-e559af0c.js";import{R as r,a as s}from"./RenderHtml-f87d3bd5.js";import"./vendor-32202a65.js";const a=({className:t})=>o(r,{className:t,content:s.html}),c=a;export{a as TypescriptBookmarksPage,c as default};

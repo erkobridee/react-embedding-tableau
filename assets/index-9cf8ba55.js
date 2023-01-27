@@ -1,1 +1,0 @@
-import{j as o}from"./index-e559af0c.js";import{R as a,r}from"./RenderHtml-f87d3bd5.js";import"./vendor-32202a65.js";const e=({className:t})=>o(a,{className:t,content:r.html}),n=e;export{e as ReactBookmarksPage,n as default};
