@@ -13,7 +13,8 @@ import { EmbeddedTableauPageIndex } from './EmbeddedTableauPageIndex';
 
 //----------------------------------------------------------------------------//
 
-// TODO: Lazy load the inner pages
+const TableauPublicPage = lazyDelayed(() => import('./public'));
+const TableauAnalyticsPage = lazyDelayed(() => import('./analytics'));
 
 //----------------------------------------------------------------------------//
 
@@ -22,14 +23,25 @@ const defaultBreadcrumb: IBreadcrumbItem = {
   label: 'Embedded Tableau',
 };
 
-const routes: RoutePageConfig[] = [];
+const routes: RoutePageConfig[] = [
+  {
+    path: 'public',
+    label: 'Public',
+    PageComponent: TableauPublicPage,
+  },
+  {
+    path: 'analytics',
+    label: 'Analytics',
+    PageComponent: TableauPublicPage,
+  },
+];
 
 export const EmbeddedTableauPage = () => (
   <RoutesContent
     {...{
       defaultBreadcrumb,
       routes: routes,
-      indexPage: { PageComponent: EmbeddedTableauPageIndex },
+      // indexPage: { PageComponent: EmbeddedTableauPageIndex },
     }}
   />
 );
