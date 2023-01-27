@@ -12,4 +12,4 @@
 
 ## [Rollup.js Plugins](https://github.com/rollup/plugins)
 
-- [jackfranklin/rollup-plugin-markdown](https://github.com/jackfranklin/rollup-plugin-markdown)
+- [[GitHub] jackfranklin/rollup-plugin-markdown](https://github.com/jackfranklin/rollup-plugin-markdown)
