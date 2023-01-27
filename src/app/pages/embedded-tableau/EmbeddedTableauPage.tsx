@@ -2,7 +2,12 @@ import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
 //---===---//
 
-import { PageContent } from 'app/components/content/PageContent';
+import { lazyDelayed } from 'utils/lazyDelayed';
+
+import {
+  RoutePageConfig,
+  RoutesContent,
+} from 'app/components/content/RoutesContent';
 
 import { EmbeddedTableauPageIndex } from './EmbeddedTableauPageIndex';
 
@@ -17,10 +22,16 @@ const defaultBreadcrumb: IBreadcrumbItem = {
   label: 'Embedded Tableau',
 };
 
+const routes: RoutePageConfig[] = [];
+
 export const EmbeddedTableauPage = () => (
-  <PageContent breadcrumbs={[defaultBreadcrumb]}>
-    <EmbeddedTableauPageIndex />
-  </PageContent>
+  <RoutesContent
+    {...{
+      defaultBreadcrumb,
+      routes: routes,
+      indexPage: { PageComponent: EmbeddedTableauPageIndex },
+    }}
+  />
 );
 
 export default EmbeddedTableauPage;
