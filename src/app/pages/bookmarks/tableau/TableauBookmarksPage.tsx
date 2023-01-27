@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-import { tableau } from 'content/bookmarks';
-import { RenderHtml } from 'app/components/ui/RenderHtml';
-
 import { DefaultPageProps } from 'app/definitions';
+import { TailwindTypography } from 'app/components/ui/TailwindTypography';
+import { ReactComponent as Markdown } from 'content/bookmarks/tableau.md';
 
 export const TableauBookmarksPage: React.FunctionComponent<
   DefaultPageProps
 > = ({ className }) => (
-  <RenderHtml className={className} content={tableau.html} />
+  <TailwindTypography className={className}>
+    <Markdown />
+  </TailwindTypography>
 );
 
 export default TableauBookmarksPage;

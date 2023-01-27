@@ -2,19 +2,19 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 declare module '*.md' {
-  /** The output HTML from the parsed Markdown. */
-  export const html: string;
+  // "unknown" would be more detailed depends on how you structure frontmatter
+  const attributes: Record<string, unknown>;
 
-  export const metadata: Record<string, any>;
+  // When "Mode.TOC" is requested
+  const toc: { level: string; content: string }[];
 
-  export const filename: string;
-  export const path: string;
+  // When "Mode.HTML" is requested
+  const html: string;
 
-  const markdown: {
-    html: string;
-    metadata: Record<string, any>;
-    filename: string;
-    path: string;
-  };
-  export default markdown;
+  // When "Mode.React" is requested. VFC could take a generic like React.VFC<{ MyComponent: TypeOfMyComponent }>
+  import React from 'react';
+  const ReactComponent: React.VFC;
+
+  // Modify below per your usage
+  export { attributes, toc, html, ReactComponent };
 }

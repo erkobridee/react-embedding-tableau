@@ -44,6 +44,16 @@
 
 - [[YouTube] Tableau For Data Science Full Course - Tableau Projects For Data Science - Tableau | Simplilearn](https://www.youtube.com/watch?v=C116gs2Y1nU) (2021/03/22)
 
+- [Biztory](https://www.biztory.com/)
+
+  - [[GitHub] biztory](https://github.com/biztory)
+
+  - [Discover our practical guides and white papers | Biztory](https://www.biztory.com/learn/resources/white-papers)
+
+- [Toan Hoang](https://tableau.toanhoang.com/) - Tableau Tutorials
+
+  - [Tableau Data Viz Catalogue](https://tabcat.toanhoang.com/) - Tutorials for creating all your required chart types
+
 ## [Product: Tableau Public](https://www.tableau.com/products/public)
 
 - [Tableau Public](https://public.tableau.com/)
@@ -51,3 +61,33 @@
 ## [Product: Tableau Embedded Analytics](https://www.tableau.com/products/embedded-analytics)
 
 > Embed and customize Tableau’s interactive, analytical capabilities to create a seamless experience with your products. Increase your product's engagement and improve customer satisfaction by integrating rich content, data, and analytics directly into your product. Differentiate your product with Embedded Analytics and discover new growth opportunities by monetizing your data.
+
+## [Tableau REST API](https://www.tableau.com/developer/tools/rest-api)
+
+- [Learning](https://www.tableau.com/developer/learning/tableau-rest-api)
+
+- [Documentation](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm)
+
+  - [Concepts](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts.htm)
+
+    - [Fundamentals](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_fundamentals.htm)
+
+    - [Publishing Resources](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_publish.htm)
+
+      - [Overwriting an existing file](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_publish.htm#overwriting)
+
+  - [REST API Example Requests](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_example_requests.htm)
+
+- [[YouTube Playlist] DataDev: The Tableau REST API | Tableau](https://www.youtube.com/playlist?list=PL_qx68DwhYA_5GIyv4I5F6KASz2-j06c8)
+
+- [[GitHub] tableau / rest-api-samples](https://github.com/tableau/rest-api-samples) - Samples for the Tableau REST API
+
+- [[GitHub] divinorum-webb / tableau-api-lib](https://github.com/divinorum-webb/tableau-api-lib) - An API library that allows developers to call on the methods listed in Tableau's REST API documentation.
+
+  - [[YouTube Playlist] tableau-api-lib (detailed) | Devyx](https://www.youtube.com/playlist?list=PLb9SBpBFc19r9dnLkyuAp2EJ7yQB6tFN_) (2022/07/18) - Tutorials on how to make the most out of Tableau Server's REST API. These 'detailed' videos tend to be 10-15 minutes and go into more detail than their 'blitz' versions (~5 minutes). All tutorials are based on the REST API endpoints documented in the Tableau Server REST API Reference and use the tableau-api-lib Python library to tap into those endpoints.
+
+- [Tableau Server on tap: getting started | by Elliott Stam - Devyx - Medium](https://medium.com/snake-charmer-python-and-analytics/tableau-server-on-tap-getting-started-89bc5f0095fa) (2019/12/06) - How to use Python and the Tableau Server REST API to interact with Tableau Server
+
+- [Triggering extract refreshes for Tableau Server workbooks and data sources using the REST API | by Elliott Stam - Devyx - Medium](https://medium.com/snake-charmer-python-and-analytics/triggering-extract-refreshes-for-tableau-server-workbooks-and-data-sources-using-the-rest-api-d4a8b8c001bf) (2020/04/16) - step-by-step guide to refreshing extracts with Python
+
+  - [[YouTube] Triggering Tableau extract refreshes using the REST API | Devyx](https://www.youtube.com/watch?v=bkGf5VSaTQw) (2021/03/08)

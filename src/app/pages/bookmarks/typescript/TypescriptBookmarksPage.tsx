@@ -1,14 +1,15 @@
 import * as React from 'react';
 
-import { typescript } from 'content/bookmarks';
-import { RenderHtml } from 'app/components/ui/RenderHtml';
-
 import { DefaultPageProps } from 'app/definitions';
+import { TailwindTypography } from 'app/components/ui/TailwindTypography';
+import { ReactComponent as Markdown } from 'content/bookmarks/typescript.md';
 
 export const TypescriptBookmarksPage: React.FunctionComponent<
   DefaultPageProps
 > = ({ className }) => (
-  <RenderHtml className={className} content={typescript.html} />
+  <TailwindTypography className={className}>
+    <Markdown />
+  </TailwindTypography>
 );
 
 export default TypescriptBookmarksPage;

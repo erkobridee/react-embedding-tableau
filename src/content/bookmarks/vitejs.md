@@ -12,4 +12,4 @@
 
 ## [Rollup.js Plugins](https://github.com/rollup/plugins)
 
-- [[GitHub] jackfranklin/rollup-plugin-markdown](https://github.com/jackfranklin/rollup-plugin-markdown)
+- [[GitHub] hmsk / vite-plugin-markdown](https://github.com/hmsk/vite-plugin-markdown)

@@ -9,6 +9,8 @@
 import * as React from 'react';
 import cn from 'clsx';
 
+import { DEFAULT_CLASSNAME } from 'app/components/ui/TailwindTypography';
+
 interface RenderHtmlProps {
   className?: string;
   content: string;
@@ -19,10 +21,7 @@ export const RenderHtml: React.FunctionComponent<RenderHtmlProps> = ({
   content,
 }) => (
   <article
-    className={cn(
-      'prose prose-sm prose-slate prose-a:no-underline hover:prose-a:underline dark:prose-invert lg:prose-base',
-      className
-    )}
+    className={cn(DEFAULT_CLASSNAME, className)}
     dangerouslySetInnerHTML={{ __html: content }}
   />
 );
