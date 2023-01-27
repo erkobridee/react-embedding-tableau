@@ -10,31 +10,19 @@ export interface PageContentProps extends ContainerProps {
   breadcrumbs?: IBreadcrumbItem[];
 }
 
-interface InnerPageContentProps extends PageContentProps {
-  defaultBreadcrumb: IBreadcrumbItem;
-}
-
 /**
  * Define a page content which contains breadcrumbs on the top followed by the page content
  */
-export const PageContent: React.FunctionComponent<InnerPageContentProps> = ({
+export const PageContent: React.FunctionComponent<PageContentProps> = ({
   className,
   breadcrumbs,
-  defaultBreadcrumb,
-
   ...props
-}) => {
-  breadcrumbs = breadcrumbs
-    ? [defaultBreadcrumb, ...breadcrumbs]
-    : [defaultBreadcrumb];
+}) => (
+  <div className={cn('flex flex-col space-y-4 xl:space-y-6', className)}>
+    <Breadcrumbs items={breadcrumbs} />
 
-  return (
-    <div className={cn('flex flex-col space-y-4 xl:space-y-6', className)}>
-      <Breadcrumbs items={breadcrumbs} />
-
-      <Container {...props} />
-    </div>
-  );
-};
+    <Container {...props} />
+  </div>
+);
 
 export default PageContent;

@@ -12,10 +12,7 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
   className,
-  items = [
-    { to: '/embedded-tableau', label: 'Tableau' },
-    { to: '/bookmarks', label: 'Bookmarks' },
-  ],
+  items = [],
 }) => {
   const breadcrumbsLength = items.length;
   const lastIndex = breadcrumbsLength - 1;

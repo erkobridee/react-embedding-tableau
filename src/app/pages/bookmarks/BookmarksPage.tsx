@@ -1,13 +1,13 @@
-import * as React from 'react';
+import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
-import { Routes, Route } from 'react-router-dom';
-
-import { NotFoundPage } from 'app/pages/notfound';
-
-import { BookmarksPageContent } from './BookmarksPageContent';
-import { BookmarksPageIndex } from './BookmarksPageIndex';
+//---===---//
 
 import { lazyDelayed } from 'utils/lazyDelayed';
+
+import {
+  RoutePageConfig,
+  RoutesContent,
+} from 'app/components/content/RoutesContent';
 
 //----------------------------------------------------------------------------//
 
@@ -19,13 +19,12 @@ const TailwindPage = lazyDelayed(() => import('./tailwind'));
 
 //----------------------------------------------------------------------------//
 
-interface RouteConfig {
-  path: string;
-  label: string;
-  PageComponent: React.ComponentType;
-}
+const defaultBreadcrumb: IBreadcrumbItem = {
+  to: '/bookmarks',
+  label: 'Bookmarks',
+};
 
-const routes: RouteConfig[] = [
+const routes: RoutePageConfig[] = [
   {
     path: 'tableau',
     label: 'Tableau',
@@ -54,43 +53,7 @@ const routes: RouteConfig[] = [
 ];
 
 export const BookmarksPage = () => (
-  <Routes>
-    <Route
-      index
-      element={
-        <BookmarksPageContent containerClassName="p-8">
-          <BookmarksPageIndex />
-        </BookmarksPageContent>
-      }
-    />
-
-    {routes.map(({ path, label, PageComponent }, index) => (
-      <Route
-        key={index}
-        {...{
-          path,
-          element: (
-            <BookmarksPageContent
-              lazy
-              containerClassName="p-3 lg:p-6"
-              breadcrumbs={[{ label }]}
-            >
-              <PageComponent />
-            </BookmarksPageContent>
-          ),
-        }}
-      />
-    ))}
-
-    <Route
-      path="*"
-      element={
-        <BookmarksPageContent breadcrumbs={[{ label: '404' }]}>
-          <NotFoundPage />
-        </BookmarksPageContent>
-      }
-    />
-  </Routes>
+  <RoutesContent {...{ defaultBreadcrumb, routes: routes }} />
 );
 
 export default BookmarksPage;

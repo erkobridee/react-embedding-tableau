@@ -13,10 +13,21 @@ export interface IndexItem {
 export const IndexItemComponent: React.FunctionComponent<IndexItem> = ({
   to,
   label,
+  icon,
+  description,
 }) => (
-  <Link key={to} className="text-lg hover:underline" to={to}>
-    {label}
-  </Link>
+  <div className="flex items-center space-x-2">
+    {icon}
+
+    <Link key={to} className="text-lg hover:underline" to={to}>
+      {label}
+    </Link>
+    {description ? (
+      <>
+        <span>-</span> <span>{description}</span>
+      </>
+    ) : null}
+  </div>
 );
 
 export default IndexItem;
