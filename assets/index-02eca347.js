@@ -1,1 +1,0 @@
-import{j as e}from"./index-bee0332c.js";import{R as d}from"./RoutesContent-40a6d550.js";import"./vendor-32202a65.js";const a=()=>e("div",{children:"TODO: define the Embedded Tableau page"}),t={to:"/embedded-tableau",label:"Embedded Tableau"},o=[],b=()=>e(d,{defaultBreadcrumb:t,routes:o,indexPage:{PageComponent:a}}),s=b;export{b as EmbeddedTableauPage,s as default};
