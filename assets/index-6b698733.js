@@ -1,4 +1,4 @@
-import{j as i}from"./index-47e199b9.js";import{R as e}from"./RenderHtml-95cac66a.js";import"./vendor-98fba4a9.js";const s={html:`<h1 id="vitejshttpsvitejsdev"><a href="https://vitejs.dev/">Vite.js</a></h1>
+import{j as i}from"./index-f3ffb4e1.js";import{R as e}from"./RenderHtml-c68914eb.js";import"./vendor-98fba4a9.js";const s={html:`<h1 id="vitejshttpsvitejsdev"><a href="https://vitejs.dev/">Vite.js</a></h1>
 <ul>
 <li><a href="https://github.com/vitejs/awesome-vite">[GitHub] vitejs / awesome-vite</a></li>
 </ul>
@@ -10,5 +10,5 @@ import{j as i}from"./index-47e199b9.js";import{R as e}from"./RenderHtml-95cac66a
 <h1 id="rollupjshttpsrollupjsorg"><a href="https://rollupjs.org/">Rollup.js</a></h1>
 <h2 id="rollupjs-pluginshttpsgithubcomrollupplugins"><a href="https://github.com/rollup/plugins">Rollup.js Plugins</a></h2>
 <ul>
-<li><a href="https://github.com/jackfranklin/rollup-plugin-markdown">jackfranklin/rollup-plugin-markdown</a></li>
+<li><a href="https://github.com/jackfranklin/rollup-plugin-markdown">[GitHub] jackfranklin/rollup-plugin-markdown</a></li>
 </ul>`,metadata:{},filename:"vitejs.md",path:"/home/runner/work/react-embedding-tableau/react-embedding-tableau/src/content/bookmarks/vitejs.md"},l=({className:t})=>i(e,{className:t,content:s.html}),p=l;export{l as ViteBookmarksPage,p as default};
