@@ -13,12 +13,19 @@
 */
 import * as React from 'react';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 
 import { PageLayout } from 'app/components/layout';
 
 import { HomePage } from 'app/pages/home';
 import { NotFoundPage } from 'app/pages/notfound';
+
+import { LazyContent } from 'app/components/ui/LazyContent';
 
 //----------------------------------------------------------------------------//
 
@@ -30,6 +37,7 @@ const EmbeddedTableauPage = React.lazy(
 //----------------------------------------------------------------------------//
 
 const router = createBrowserRouter(
+  /*
   [
     {
       path: '/',
@@ -64,6 +72,32 @@ const router = createBrowserRouter(
       ],
     },
   ],
+  */
+  createRoutesFromElements(
+    <Route path="/" element={<PageLayout />}>
+      <Route index element={<HomePage />} />
+
+      <Route
+        path="bookmarks/*"
+        element={
+          <LazyContent>
+            <BookmarksPage />
+          </LazyContent>
+        }
+      />
+
+      <Route
+        path="embedded-tableau/*"
+        element={
+          <LazyContent>
+            <EmbeddedTableauPage />
+          </LazyContent>
+        }
+      />
+
+      <Route path="*" element={<NotFoundPage />} />
+    </Route>
+  ),
   {
     basename: `${import.meta.env.BASE_URL}`,
   }

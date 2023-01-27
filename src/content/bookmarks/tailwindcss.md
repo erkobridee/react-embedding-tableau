@@ -1,5 +1,15 @@
 # [TailwindCSS](https://tailwindcss.com/)
 
+- [Colors | TailwindCSS Docs](https://tailwindcss.com/docs/customizing-colors)
+
+- [Spacing | TailwindCSS Docs](https://tailwindcss.com/docs/customizing-spacing)
+
+- [Typography - Font Family | TailwindCSS Docs](https://tailwindcss.com/docs/font-family)
+
+## [TailwindCSS Plugins](https://tailwindcss.com/docs/plugins)
+
+- [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin)
+
 ## [Dark Mode](https://tailwindcss.com/docs/dark-mode)
 
 - [Tailwind CSS Dark Mode | Flowbite](https://flowbite.com/docs/customize/dark-mode/)

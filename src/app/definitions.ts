@@ -41,6 +41,12 @@ export const headerMenuItems: IHeaderMenuItem[] = [
 
 //----------------------------------------------------------------------------//
 
+export interface DefaultPageProps {
+  className?: string;
+}
+
+//----------------------------------------------------------------------------//
+
 interface IImageItem {
   href: string;
   src: string;

@@ -44,6 +44,10 @@
 
 - [[YouTube] Tableau For Data Science Full Course - Tableau Projects For Data Science - Tableau | Simplilearn](https://www.youtube.com/watch?v=C116gs2Y1nU) (2021/03/22)
 
-## [Tableau Embedded Analytics](https://www.tableau.com/products/embedded-analytics)
+## [Product: Tableau Public](https://www.tableau.com/products/public)
+
+- [Tableau Public](https://public.tableau.com/)
+
+## [Product: Tableau Embedded Analytics](https://www.tableau.com/products/embedded-analytics)
 
 > Embed and customize Tableau’s interactive, analytical capabilities to create a seamless experience with your products. Increase your product's engagement and improve customer satisfaction by integrating rich content, data, and analytics directly into your product. Differentiate your product with Embedded Analytics and discover new growth opportunities by monetizing your data.

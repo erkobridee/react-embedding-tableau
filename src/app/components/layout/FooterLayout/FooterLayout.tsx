@@ -37,10 +37,10 @@ export const FooterLayout: React.FunctionComponent<LayoutProps> = ({
         </div>
       ) : null}
 
-      <hr className="my-4 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-6" />
+      <hr className="border-divider my-4 sm:mx-auto lg:my-6" />
 
       <div className="flex flex-col justify-between space-y-6 px-6 md:flex-row md:space-y-0 xl:px-0">
-        <div className="flex-1 text-center text-sm text-gray-500 dark:text-gray-400 md:text-left">
+        <div className="text-secondary flex-1 text-center text-sm md:text-left">
           © {currentYear} {author}. All Rights Reserved.
         </div>
 
@@ -49,10 +49,7 @@ export const FooterLayout: React.FunctionComponent<LayoutProps> = ({
             <ExternalLink
               key={alt}
               href={href}
-              className={cn(
-                'h-5 w-5 text-gray-400 hover:text-gray-500 sm:h-6 sm:w-6',
-                className
-              )}
+              className={cn('icon-social h-5 w-5 sm:h-6 sm:w-6', className)}
             >
               <IconComponent />
             </ExternalLink>

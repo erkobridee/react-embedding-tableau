@@ -1,0 +1,19 @@
+@layer components {
+  .text {
+    &-primary {
+      @apply text-gray-600 dark:text-gray-300;
+    }
+
+    &-secondary {
+      @apply text-gray-500 dark:text-gray-400;
+    }
+  }
+
+  .border-divider {
+    @apply border-gray-200 dark:border-gray-500;
+  }
+
+  .icon-social {
+    @apply text-gray-400 hover:text-gray-500;
+  }
+}

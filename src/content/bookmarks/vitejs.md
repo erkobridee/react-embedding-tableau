@@ -8,4 +8,8 @@
 
 - [[GitHub] pd4d10 / vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr) - Vite plugin to transform SVGs into React components
 
-- [[GitHub] hmsk / vite-plugin-markdown](https://github.com/hmsk/vite-plugin-markdown) - A vite plugin to import a Markdown file in various formats like Front Matter, HTML, ToC, and React/Vue Component
+# [Rollup.js](https://rollupjs.org/)
+
+## [Rollup.js Plugins](https://github.com/rollup/plugins)
+
+- [jackfranklin/rollup-plugin-markdown](https://github.com/jackfranklin/rollup-plugin-markdown)
