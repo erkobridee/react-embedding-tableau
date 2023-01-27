@@ -1,0 +1,1 @@
+import{a as o}from"./index-0be09b2d.js";import{R as t,b as i}from"./RenderHtml-0123c962.js";import"./vendor-32202a65.js";const m=({className:a})=>o(t,{className:a,content:i.html}),e=m;export{m as TailwindBookmarksPage,e as default};

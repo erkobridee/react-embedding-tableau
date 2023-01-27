@@ -1,0 +1,1 @@
+import{a as o}from"./index-0be09b2d.js";import{R as a,v as e}from"./RenderHtml-0123c962.js";import"./vendor-32202a65.js";const m=({className:t})=>o(a,{className:t,content:e.html}),n=m;export{m as ViteBookmarksPage,n as default};
