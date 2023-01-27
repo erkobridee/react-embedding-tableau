@@ -1,4 +1,4 @@
-import{j as a}from"./index-f3ffb4e1.js";import{R as t}from"./RenderHtml-c68914eb.js";import"./vendor-98fba4a9.js";const e={html:`<h1 id="tailwindcsshttpstailwindcsscom"><a href="https://tailwindcss.com/">TailwindCSS</a></h1>
+import{j as a}from"./index-d90e2421.js";import{R as t}from"./RenderHtml-1e54dbc2.js";import"./vendor-32202a65.js";const e={html:`<h1 id="tailwindcsshttpstailwindcsscom"><a href="https://tailwindcss.com/">TailwindCSS</a></h1>
 <ul>
 <li><p><a href="https://tailwindcss.com/docs/customizing-colors">Colors | TailwindCSS Docs</a></p></li>
 <li><p><a href="https://tailwindcss.com/docs/customizing-spacing">Spacing | TailwindCSS Docs</a></p></li>

@@ -1,4 +1,4 @@
-import{j as e}from"./index-f3ffb4e1.js";import{R as t}from"./RenderHtml-c68914eb.js";import"./vendor-98fba4a9.js";const l={html:`<h1 id="tableauhttpswwwtableaucom"><a href="https://www.tableau.com/">Tableau</a></h1>
+import{j as e}from"./index-d90e2421.js";import{R as t}from"./RenderHtml-1e54dbc2.js";import"./vendor-32202a65.js";const l={html:`<h1 id="tableauhttpswwwtableaucom"><a href="https://www.tableau.com/">Tableau</a></h1>
 <ul>
 <li><p><a href="https://github.com/tableau">[GitHub Organization] tableau</a></p></li>
 <li><p><a href="https://www.youtube.com/@tableau">[YouTube Channel] Tableau</a></p></li>

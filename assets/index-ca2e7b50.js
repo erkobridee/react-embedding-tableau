@@ -1,4 +1,4 @@
-import{j as e}from"./index-f3ffb4e1.js";import{R as r}from"./RenderHtml-c68914eb.js";import"./vendor-98fba4a9.js";const a={html:`<h1 id="reacthttpsreactjsorg"><a href="https://reactjs.org/">React</a></h1>
+import{j as e}from"./index-d90e2421.js";import{R as r}from"./RenderHtml-1e54dbc2.js";import"./vendor-32202a65.js";const a={html:`<h1 id="reacthttpsreactjsorg"><a href="https://reactjs.org/">React</a></h1>
 <ul>
 <li><p><a href="https://reactrouter.com/">React Router</a></p>
 <ul>

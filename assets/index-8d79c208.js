@@ -1,4 +1,4 @@
-import{j as i}from"./index-f3ffb4e1.js";import{R as e}from"./RenderHtml-c68914eb.js";import"./vendor-98fba4a9.js";const s={html:`<h1 id="vitejshttpsvitejsdev"><a href="https://vitejs.dev/">Vite.js</a></h1>
+import{j as i}from"./index-d90e2421.js";import{R as e}from"./RenderHtml-1e54dbc2.js";import"./vendor-32202a65.js";const s={html:`<h1 id="vitejshttpsvitejsdev"><a href="https://vitejs.dev/">Vite.js</a></h1>
 <ul>
 <li><a href="https://github.com/vitejs/awesome-vite">[GitHub] vitejs / awesome-vite</a></li>
 </ul>
