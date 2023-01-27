@@ -1,1 +1,0 @@
-import{a as e}from"./index-0be09b2d.js";import{P as d}from"./PageContent-ce3972df.js";import"./vendor-32202a65.js";const a=()=>e("div",{children:"TODO: define the Embedded Tableau page"}),b={to:"/embedded-tableau",label:"Embedded Tableau"},t=()=>e(d,{breadcrumbs:[b],children:e(a,{})}),r=t;export{t as EmbeddedTableauPage,r as default};

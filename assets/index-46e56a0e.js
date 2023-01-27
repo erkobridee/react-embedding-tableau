@@ -1,1 +1,0 @@
-import{a as o}from"./index-0be09b2d.js";import{R as t,t as e}from"./RenderHtml-0123c962.js";import"./vendor-32202a65.js";const m=({className:a})=>o(t,{className:a,content:e.html}),n=m;export{m as TableauBookmarksPage,n as default};
