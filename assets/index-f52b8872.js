@@ -1,1 +1,0 @@
-import{j as e}from"./index-69753487.js";import"./vendor-32202a65.js";const d=()=>e("div",{children:"TODO: define the Embedded Tableau Public page"}),i=d;export{d as EmbeddedTableauPublicPage,i as default};
