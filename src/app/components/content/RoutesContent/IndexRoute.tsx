@@ -20,13 +20,13 @@ import {
 //----------------------------------------------------------------------------//
 
 interface IndexRouteProps {
-  defaultBreadcrumb: IBreadcrumbItem;
+  breadcrumbs: IBreadcrumbItem[];
   page?: TPartialBasePageConfig<ComponentIndexPage>;
   routes?: RoutePageConfig[];
 }
 
 export const IndexRoute: React.FunctionComponent<IndexRouteProps> = ({
-  defaultBreadcrumb,
+  breadcrumbs,
   page = {},
   routes = [],
 }) => {
@@ -41,7 +41,7 @@ export const IndexRoute: React.FunctionComponent<IndexRouteProps> = ({
       index
       element={
         <PageContent
-          breadcrumbs={[defaultBreadcrumb]}
+          breadcrumbs={breadcrumbs}
           containerClassName={containerClassname}
         >
           {children}

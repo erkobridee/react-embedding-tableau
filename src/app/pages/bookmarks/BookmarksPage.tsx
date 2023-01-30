@@ -53,7 +53,7 @@ const routes: RoutePageConfig[] = [
 ];
 
 export const BookmarksPage = () => (
-  <RoutesContent {...{ defaultBreadcrumb, routes: routes }} />
+  <RoutesContent {...{ breadcrumbs: [defaultBreadcrumb], routes: routes }} />
 );
 
 export default BookmarksPage;

@@ -25,4 +25,6 @@ export interface RoutePageConfig<T = ComponentClassname>
   label: React.ReactNode;
   icon?: React.ReactNode;
   description?: React.ReactNode;
+  lazy?: boolean;
+  hasSubpages?: boolean;
 }

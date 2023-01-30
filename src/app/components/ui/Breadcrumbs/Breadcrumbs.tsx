@@ -5,6 +5,8 @@ import { ReactComponent as HomeIcon } from 'assets/icons/home.svg';
 
 import { IBreadcrumbItem, BreadcrumbItem } from './BreadcrumbItem';
 
+import { useBreadcrumbs } from './BreadcrumbsContext';
+
 interface BreadcrumbsProps {
   className?: string;
   items?: IBreadcrumbItem[];
@@ -14,6 +16,8 @@ export const Breadcrumbs: React.FunctionComponent<BreadcrumbsProps> = ({
   className,
   items = [],
 }) => {
+  items = useBreadcrumbs(items);
+
   const breadcrumbsLength = items.length;
   const lastIndex = breadcrumbsLength - 1;
 

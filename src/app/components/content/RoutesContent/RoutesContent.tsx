@@ -8,6 +8,9 @@ import cn from 'clsx';
 import { Routes, Route } from 'react-router-dom';
 
 import { PageContent } from 'app/components/content/PageContent';
+import { Container } from 'app/components/content/PageContent/container';
+
+import { BreadcrumbsProvider } from 'app/components/ui/Breadcrumbs';
 
 import { TPartialBasePageConfig, RoutePageConfig } from './definitions';
 
@@ -17,7 +20,7 @@ import { NotFoundRoute } from './NotFoundRoute';
 //----------------------------------------------------------------------------//
 
 interface RoutesContentProps {
-  defaultBreadcrumb: IBreadcrumbItem;
+  breadcrumbs: IBreadcrumbItem[];
   indexPage?: TPartialBasePageConfig;
   notFoundPage?: TPartialBasePageConfig;
   routes?: RoutePageConfig[];
@@ -25,39 +28,63 @@ interface RoutesContentProps {
 }
 
 export const RoutesContent: React.FunctionComponent<RoutesContentProps> = ({
-  defaultBreadcrumb,
+  breadcrumbs,
   indexPage,
   notFoundPage,
   routes = [],
   routeContainerClass = 'p-3 lg:p-6',
 }) => (
   <Routes>
-    {IndexRoute({ defaultBreadcrumb, page: indexPage, routes })}
+    {IndexRoute({ breadcrumbs, page: indexPage, routes })}
 
     {routes.map(
       (
-        { path, label, PageComponent, className, containerClassname },
+        {
+          path,
+          label,
+          PageComponent,
+          className,
+          containerClassname,
+          lazy = true,
+          hasSubpages = false,
+        },
         index
       ) => (
         <Route
           key={index}
           {...{
-            path,
+            path: hasSubpages ? `${path}/*` : path,
             element: (
-              <PageContent
-                lazy
-                containerClassName={cn(routeContainerClass, containerClassname)}
-                breadcrumbs={[defaultBreadcrumb, { label }]}
-              >
-                <PageComponent className={className} />
-              </PageContent>
+              <BreadcrumbsProvider items={[...breadcrumbs, { label }]}>
+                {hasSubpages ? (
+                  <Container
+                    lazy={lazy}
+                    containerClassName={cn(
+                      routeContainerClass,
+                      containerClassname
+                    )}
+                  >
+                    <PageComponent className={className} />
+                  </Container>
+                ) : (
+                  <PageContent
+                    lazy={lazy}
+                    containerClassName={cn(
+                      routeContainerClass,
+                      containerClassname
+                    )}
+                  >
+                    <PageComponent className={className} />
+                  </PageContent>
+                )}
+              </BreadcrumbsProvider>
             ),
           }}
         />
       )
     )}
 
-    {NotFoundRoute({ defaultBreadcrumb, page: notFoundPage })}
+    {NotFoundRoute({ breadcrumbs, page: notFoundPage })}
   </Routes>
 );
 

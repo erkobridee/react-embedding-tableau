@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import type { ComponentIndexPage } from 'app/components/content/RoutesContent';
 
 import * as React from 'react';
@@ -11,21 +13,34 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
   ComponentIndexPage
 > = ({ className, items }) => (
   <div className={cn('flex flex-col', className)}>
-    <div>Examples of embedding</div>
-
     {items ? (
       <>
+        <div>
+          Examples of how to embedded{' '}
+          <ExternalLink
+            className="font-medium hover:underline"
+            href="https://www.tableau.com/"
+          >
+            Tableau
+          </ExternalLink>{' '}
+          into a{' '}
+          <ExternalLink
+            className="font-medium hover:underline"
+            href="https://reactjs.org/"
+          >
+            React
+          </ExternalLink>{' '}
+          application
+        </div>
+        <br />
+
         <IndexContent className="space-y-3" items={items} />
+
         <hr />
       </>
     ) : null}
 
     <TailwindTypography className="max-w-full">
-      Examples of how to embedded{' '}
-      <ExternalLink href="https://www.tableau.com/">Tableau</ExternalLink> into
-      a <ExternalLink href="https://reactjs.org/">React</ExternalLink>{' '}
-      application
-      <br />
       <ul>
         Useful references:
         <ul>
@@ -65,6 +80,23 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
                     advantage of modern, secure methods of authentication that
                     allow users to interact with the visualization from your web
                     application.
+                  </li>
+
+                  <li>
+                    <ExternalLink href="https://www.tableau.com/events/tc/2021/new-era-tableau-embedding-introducing-embedding-api-v3">
+                      A New Era in Tableau Embedding: Introducing the Embedding
+                      API v3 | Tableau Conference 2021
+                    </ExternalLink>{' '}
+                    - It's a new era in Tableau Embedding. Introducing the
+                    Embedding API v3! In 2022, we'll release version 3 of the
+                    Tableau Embedding API, which helps you embed Tableau
+                    visualizations in web applications and build rich
+                    integrations. The Embedding API v3 replaces and improves
+                    upon the JavaScript API v2. It's currently in Developer
+                    Preview, which means it is available to you to explore
+                    today. In this episode, we'll explain the benefits of the
+                    new Embedding API v3 and show you how to get started
+                    building your next Embedded Analytics solution with it.
                   </li>
                 </ul>
               </li>

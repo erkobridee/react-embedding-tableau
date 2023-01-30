@@ -15,13 +15,13 @@ import { TPartialBasePageConfig } from './definitions';
 //----------------------------------------------------------------------------//
 
 interface NotFoundRouteProps {
-  defaultBreadcrumb: IBreadcrumbItem;
+  breadcrumbs: IBreadcrumbItem[];
   page?: TPartialBasePageConfig;
   label?: React.ReactNode;
 }
 
 export const NotFoundRoute: React.FunctionComponent<NotFoundRouteProps> = ({
-  defaultBreadcrumb,
+  breadcrumbs,
   page = {},
   label = '404',
 }) => {
@@ -33,7 +33,7 @@ export const NotFoundRoute: React.FunctionComponent<NotFoundRouteProps> = ({
       element={
         <PageContent
           containerClassName={containerClassname}
-          breadcrumbs={[defaultBreadcrumb, { label }]}
+          breadcrumbs={[...breadcrumbs, { label }]}
         >
           <PageComponent />
         </PageContent>

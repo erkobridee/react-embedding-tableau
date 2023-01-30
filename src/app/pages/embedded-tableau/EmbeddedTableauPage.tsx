@@ -41,6 +41,7 @@ const routes: RoutePageConfig[] = [
         </ExternalLink>
       </span>
     ),
+    hasSubpages: true,
   },
   {
     path: 'connected-apps',
@@ -64,13 +65,14 @@ const routes: RoutePageConfig[] = [
         </ExternalLink>
       </span>
     ),
+    hasSubpages: true,
   },
 ];
 
 export const EmbeddedTableauPage = () => (
   <RoutesContent
     {...{
-      defaultBreadcrumb,
+      breadcrumbs: [defaultBreadcrumb],
       routes: routes,
       indexPage: { PageComponent: EmbeddedTableauPageIndex },
     }}
