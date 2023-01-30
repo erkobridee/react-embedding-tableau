@@ -1,0 +1,1 @@
+import{j as e}from"./index-247850eb.js";import"./vendor-32202a65.js";const d=()=>e("div",{children:"TODO: define the Embedded Tableau Connected Apps page"}),p=d;export{d as EmbeddedTableauConnectedAppsPage,p as default};
