@@ -144,6 +144,12 @@
 
 ### Embedding Tableau
 
+- [Embedded analytics unites your web applications, products, and portals with Tableau's powerful BI capabilities | TheInformationLab](https://embedding.theinformationlab.co.uk/)
+
+  - [Learn Embedded Analytics | TheInformationLab](https://embedding.theinformationlab.co.uk/videos) - Learn how to embed a Tableau dashboard in a webpage with this video series. You will start from the basics, you learn how to get setup, how to embed your first dashboard and how to make this interact with your webpage.
+
+  - [Embedding Gallery | TheInformationLab](https://embedding.theinformationlab.co.uk/examples) - Showcasing the possibilities with embedded analytics. Examples built and maintained by The Information Lab
+
 #### On a Web Site
 
 - [Biztory Embedding Gallery](https://gallery.biztory.com/) - This site contains Biztory's knowledge about embedding Tableau, and it serves as a reference to all team members working on helping our clients embed Tableau in their applications. Moreover, it can be used to demonstrate and teach capabilities related to embedded Tableau analytics.
@@ -176,6 +182,8 @@
 
 - [Create Custom Charts with the Extensions API | A Slice of Keesh](https://sliceofkeesh.com/post/custom-charts-dashboard-extensions-api) (2021/11/08)
 
+- [[GitHub] noverliu / tableau-api](https://github.com/noverliu/tableau-api)
+
 #### On a React App
 
 - [Tableau Connected Apps Tutorial | Craig Bloodworth](https://tableau-connectedapps.theinformationlab.io/) (2022/04/25) - Get started embedding your Tableau dashboards in a React web app using Connected Apps and the Tableau Embedding API v3
@@ -194,6 +202,14 @@
 
   - [[GitHub] andre347 / tableau-react-jsapi](https://github.com/andre347/tableau-react-jsapi) - Playground for React & Tableau JS API
 
+##### Tableau React Libs
+
 - [[GitHub] coopermaruyama / tableau-react](https://github.com/coopermaruyama/tableau-react) - Tableau React component integrated with Tableau JS API.
 
   - [[CodeSandbox] usage sample](https://codesandbox.io/s/gracious-pare-c6hytd?file=/src/App.js)
+
+- [[GitHub] stoddabr / react-tableau-embed-live](https://github.com/stoddabr/react-tableau-embed-live) - Wrapps Tableau Embedded API in a React Component
+
+##### Tableau TypeScriptTypes
+
+- [[Npm] @types/tableau-js-api](https://www.npmjs.com/package/@types/tableau-js-api)
