@@ -11,13 +11,17 @@ import { PageContent } from 'app/components/content/PageContent';
 
 import { IndexItem, IndexContent } from 'app/components/content/IndexContent';
 
-import { TPartialBasePageConfig, RoutePageConfig } from './definitions';
+import {
+  ComponentIndexPage,
+  TPartialBasePageConfig,
+  RoutePageConfig,
+} from './definitions';
 
 //----------------------------------------------------------------------------//
 
 interface IndexRouteProps {
   defaultBreadcrumb: IBreadcrumbItem;
-  page?: TPartialBasePageConfig;
+  page?: TPartialBasePageConfig<ComponentIndexPage>;
   routes?: RoutePageConfig[];
 }
 
@@ -46,10 +50,6 @@ export const IndexRoute: React.FunctionComponent<IndexRouteProps> = ({
     />
   );
 
-  if (PageComponent) {
-    return wrapper(<PageComponent />);
-  }
-
   if (routes.length === 0) {
     return wrapper();
   }
@@ -63,6 +63,10 @@ export const IndexRoute: React.FunctionComponent<IndexRouteProps> = ({
         to: path,
       } as IndexItem)
   );
+
+  if (PageComponent) {
+    return wrapper(<PageComponent className={className} items={items} />);
+  }
 
   return wrapper(<IndexContent className={className} items={items} />);
 };

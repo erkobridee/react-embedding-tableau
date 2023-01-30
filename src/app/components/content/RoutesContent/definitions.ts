@@ -1,7 +1,12 @@
 import type * as React from 'react';
+import type { IndexItem } from 'app/components/content/IndexContent';
 
 export interface ComponentClassname {
   className?: string;
+}
+
+export interface ComponentIndexPage extends ComponentClassname {
+  items?: IndexItem[];
 }
 
 export interface BasePageConfig<T = ComponentClassname>
