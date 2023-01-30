@@ -9,12 +9,14 @@ import {
   RoutesContent,
 } from 'app/components/content/RoutesContent';
 
+import ExternalLink from 'app/components/ui/ExternalLink';
+
 import { EmbeddedTableauPageIndex } from './EmbeddedTableauPageIndex';
 
 //----------------------------------------------------------------------------//
 
 const TableauPublicPage = lazyDelayed(() => import('./public'));
-const TableauAnalyticsPage = lazyDelayed(() => import('./analytics'));
+const TableauConnectedAppsPage = lazyDelayed(() => import('./connected-apps'));
 
 //----------------------------------------------------------------------------//
 
@@ -28,11 +30,40 @@ const routes: RoutePageConfig[] = [
     path: 'public',
     label: 'Public',
     PageComponent: TableauPublicPage,
+    description: (
+      <span>
+        data visualizations from the{' '}
+        <ExternalLink
+          className="font-medium hover:underline"
+          href="https://public.tableau.com/app/discover"
+        >
+          Tableau Public
+        </ExternalLink>
+      </span>
+    ),
   },
   {
-    path: 'analytics',
-    label: 'Analytics',
-    PageComponent: TableauPublicPage,
+    path: 'connected-apps',
+    label: 'Connected Apps',
+    PageComponent: TableauConnectedAppsPage,
+    description: (
+      <span>
+        data visualizations from the{' '}
+        <ExternalLink
+          className="font-medium hover:underline"
+          href="https://www.tableau.com/products/cloud-bi"
+        >
+          Tableau Cloud
+        </ExternalLink>{' '}
+        or
+        <ExternalLink
+          className="font-medium hover:underline"
+          href="https://www.tableau.com/products/server"
+        >
+          Tableau Server
+        </ExternalLink>
+      </span>
+    ),
   },
 ];
 
@@ -41,7 +72,7 @@ export const EmbeddedTableauPage = () => (
     {...{
       defaultBreadcrumb,
       routes: routes,
-      // indexPage: { PageComponent: EmbeddedTableauPageIndex },
+      indexPage: { PageComponent: EmbeddedTableauPageIndex },
     }}
   />
 );
