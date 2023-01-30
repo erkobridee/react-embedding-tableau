@@ -16,10 +16,10 @@ export const IndexItemComponent: React.FunctionComponent<IndexItem> = ({
   icon,
   description,
 }) => (
-  <div className="flex items-center space-x-2">
+  <div className="flex items-start space-x-2">
     {icon}
 
-    <Link key={to} className="text-lg hover:underline" to={to}>
+    <Link key={to} className="text-lg font-medium hover:underline" to={to}>
       {label}
     </Link>
     {description ? (
