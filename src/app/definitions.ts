@@ -1,11 +1,10 @@
-import tableauLogo from 'assets/logos/tableau.svg';
-import viteLogo from 'assets/logos/vite.svg';
-import reactLogo from 'assets/logos/react.svg';
-import typescriptLogo from 'assets/logos/typescript.svg';
-import tailwindcssLogo from 'assets/logos/tailwindcss.svg';
-
-import { ReactComponent as TwitterIcon } from 'assets/icons/twitter.svg';
 import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
+import { ReactComponent as TwitterIcon } from 'assets/icons/twitter.svg';
+import reactLogo from 'assets/logos/react.svg';
+import tableauLogo from 'assets/logos/tableau.svg';
+import tailwindcssLogo from 'assets/logos/tailwindcss.svg';
+import typescriptLogo from 'assets/logos/typescript.svg';
+import viteLogo from 'assets/logos/vite.svg';
 
 //----------------------------------------------------------------------------//
 

@@ -7,6 +7,7 @@
 */
 
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import { DEFAULT_CLASSNAME } from 'app/components/ui/TailwindTypography';

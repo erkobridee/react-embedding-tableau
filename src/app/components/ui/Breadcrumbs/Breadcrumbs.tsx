@@ -1,10 +1,10 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import { ReactComponent as HomeIcon } from 'assets/icons/home.svg';
 
-import { IBreadcrumbItem, BreadcrumbItem } from './BreadcrumbItem';
-
+import { BreadcrumbItem, IBreadcrumbItem } from './BreadcrumbItem';
 import { useBreadcrumbs } from './BreadcrumbsContext';
 
 interface BreadcrumbsProps {

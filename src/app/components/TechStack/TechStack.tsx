@@ -1,8 +1,8 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import { ExternalLink } from 'app/components/ui/ExternalLink';
-
 import { techStack } from 'app/definitions';
 
 export const IconSize = {

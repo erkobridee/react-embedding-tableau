@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { HelmetProvider, Helmet as HelmetAsync } from 'react-helmet-async';
+import { Helmet as HelmetAsync, HelmetProvider } from 'react-helmet-async';
 
-import { author, appName, appNameMeaning, keywords } from 'app/definitions';
+import { appName, appNameMeaning, author, keywords } from 'app/definitions';
 
 //----------------------------------------------------------------------------//
 

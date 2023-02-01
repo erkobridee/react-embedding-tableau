@@ -1,20 +1,18 @@
 // IndexRoute
-import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
 //---===---//
 
 import * as React from 'react';
-
 import { Route } from 'react-router-dom';
 
+import { IndexContent, IndexItem } from 'app/components/content/IndexContent';
 import { PageContent } from 'app/components/content/PageContent';
-
-import { IndexItem, IndexContent } from 'app/components/content/IndexContent';
+import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
 import {
   ComponentIndexPage,
-  TPartialBasePageConfig,
   RoutePageConfig,
+  TPartialBasePageConfig,
 } from './definitions';
 
 //----------------------------------------------------------------------------//

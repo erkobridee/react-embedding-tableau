@@ -1,9 +1,10 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
-import { IBreadcrumbItem, Breadcrumbs } from 'app/components/ui/Breadcrumbs';
+import { Breadcrumbs, IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
-import { ContainerProps, Container } from './container';
+import { Container, ContainerProps } from './container';
 
 export interface PageContentProps extends ContainerProps {
   className?: string;

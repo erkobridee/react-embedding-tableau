@@ -11,8 +11,6 @@
 
   https://github.com/rafgraph/spa-github-pages
 */
-import * as React from 'react';
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -20,14 +18,12 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-import { PageLayout } from 'app/components/layout';
-
-import { HomePage } from 'app/pages/home';
-import { NotFoundPage } from 'app/pages/notfound';
+import { lazyDelayed } from 'utils/lazyDelayed';
 
 import { LazyContent } from 'app/components/content/LazyContent';
-
-import { lazyDelayed } from 'utils/lazyDelayed';
+import { PageLayout } from 'app/components/layout';
+import { HomePage } from 'app/pages/home';
+import { NotFoundPage } from 'app/pages/notfound';
 
 //----------------------------------------------------------------------------//
 

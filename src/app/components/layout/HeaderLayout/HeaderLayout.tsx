@@ -8,9 +8,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
-
 import { DarkModeToggler } from 'app/components/ui/DarkModeToggler';
-
 import { appName, headerMenuItems } from 'app/definitions';
 
 import { NavBar } from './NavBar';

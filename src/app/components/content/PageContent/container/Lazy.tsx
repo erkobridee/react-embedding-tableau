@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import {
-  LazyContentProps,
   LazyContent,
+  LazyContentProps,
 } from 'app/components/content/LazyContent';
 
 export interface LazyProps extends LazyContentProps {

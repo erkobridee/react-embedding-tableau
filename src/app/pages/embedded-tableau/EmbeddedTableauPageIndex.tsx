@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import type { ComponentIndexPage } from 'app/components/content/RoutesContent';
-
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import IndexContent from 'app/components/content/IndexContent';
-import TailwindTypography from 'app/components/ui/TailwindTypography';
+import type { ComponentIndexPage } from 'app/components/content/RoutesContent';
 import ExternalLink from 'app/components/ui/ExternalLink';
+import TailwindTypography from 'app/components/ui/TailwindTypography';
 
 export const EmbeddedTableauPageIndex: React.FunctionComponent<
   ComponentIndexPage

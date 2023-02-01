@@ -1,10 +1,11 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
-import { useDarkMode } from 'hooks/useDarkMode';
-
-import { ReactComponent as SunIcon } from 'assets/icons/sun.svg';
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg';
+import { ReactComponent as SunIcon } from 'assets/icons/sun.svg';
+
+import { useDarkMode } from 'hooks/useDarkMode';
 
 interface DarkModeTogglerProps {
   className?: string;

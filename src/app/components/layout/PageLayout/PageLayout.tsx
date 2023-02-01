@@ -5,11 +5,10 @@
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
-
-import { HeaderLayout } from 'app/components/layout/HeaderLayout';
 import { ContentLayout } from 'app/components/layout/ContentLayout';
+import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
 import { FooterLayout } from 'app/components/layout/FooterLayout';
+import { HeaderLayout } from 'app/components/layout/HeaderLayout';
 
 export const PageLayout: React.FunctionComponent<LayoutProps> = ({
   type = PageLayoutType.CONTENT,

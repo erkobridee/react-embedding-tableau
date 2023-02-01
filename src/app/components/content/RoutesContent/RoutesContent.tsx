@@ -1,19 +1,18 @@
-import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
-
 //---===---//
 
 import * as React from 'react';
-import cn from 'clsx';
+import { Route, Routes } from 'react-router-dom';
 
-import { Routes, Route } from 'react-router-dom';
+import cn from 'clsx';
 
 import { PageContent } from 'app/components/content/PageContent';
 import { Container } from 'app/components/content/PageContent/container';
+import {
+  BreadcrumbsProvider,
+  type IBreadcrumbItem,
+} from 'app/components/ui/Breadcrumbs';
 
-import { BreadcrumbsProvider } from 'app/components/ui/Breadcrumbs';
-
-import { TPartialBasePageConfig, RoutePageConfig } from './definitions';
-
+import { RoutePageConfig, TPartialBasePageConfig } from './definitions';
 import { IndexRoute } from './IndexRoute';
 import { NotFoundRoute } from './NotFoundRoute';
 

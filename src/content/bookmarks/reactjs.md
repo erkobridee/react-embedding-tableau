@@ -37,3 +37,15 @@
     - [lazy loading](https://github.com/remix-run/react-router/blob/main/examples/lazy-loading/src/App.tsx)
 
     - [auth](https://github.com/remix-run/react-router/blob/main/examples/auth/src/App.tsx)
+
+## Related Libraries
+
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components for building high‑quality design systems and web apps in React.
+
+- [shadcn/ui](https://ui.shadcn.com/) - This is not a component library. It's a collection of re-usable components built using [Radix UI](https://www.radix-ui.com/) and [Tailwind CSS](https://tailwindcss.com/).
+
+- [Preline UI](https://preline.co/)
+
+  - [[GitHub] htmlstreamofficial / preline](https://github.com/htmlstreamofficial/preline) - Preline UI is an open-source set of prebuilt UI components based on the utility-first Tailwind CSS framework.
+
+  - [Mega Menu](https://preline.co/docs/mega-menu.html) - [plugin](https://preline.co/plugins/html/mega-menu.html)

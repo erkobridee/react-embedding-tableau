@@ -1,11 +1,11 @@
+// prettier-ignore
+import 'assets/styles/global.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import 'assets/styles/global.css';
-
-import '@preline/collapse';
-
 import Providers from 'providers';
+
 import App from 'app';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

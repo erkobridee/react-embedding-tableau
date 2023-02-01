@@ -1,8 +1,8 @@
-import type { IBreadcrumbItem } from './BreadcrumbItem';
-
 //---===---//
 
 import * as React from 'react';
+
+import type { IBreadcrumbItem } from './BreadcrumbItem';
 
 //----------------------------------------------------------------------------//
 

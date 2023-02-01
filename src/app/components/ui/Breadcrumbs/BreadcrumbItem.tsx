@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import { ReactComponent as ArrowRightIcon } from 'assets/icons/arrow-right.svg';

@@ -1,6 +1,5 @@
-import { appName, appNameMeaning } from 'app/definitions';
-
 import { TechStack } from 'app/components/TechStack';
+import { appName, appNameMeaning } from 'app/definitions';
 
 export const HomePage = () => (
   <div className="home flex flex-col space-y-5 py-20 text-center md:h-full md:justify-center lg:py-0">

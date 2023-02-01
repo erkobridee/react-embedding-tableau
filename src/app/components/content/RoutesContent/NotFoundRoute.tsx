@@ -1,14 +1,11 @@
-import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
-
 //---===---//
 
 import * as React from 'react';
-
 import { Route } from 'react-router-dom';
 
-import { NotFoundPage } from 'app/pages/notfound';
-
 import { PageContent } from 'app/components/content/PageContent';
+import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
+import { NotFoundPage } from 'app/pages/notfound';
 
 import { TPartialBasePageConfig } from './definitions';
 

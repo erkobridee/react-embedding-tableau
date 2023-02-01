@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { LazyProps, Lazy } from './Lazy';
+import { Lazy, LazyProps } from './Lazy';
 
 export interface ContainerProps extends LazyProps {
   containerClassName?: string;

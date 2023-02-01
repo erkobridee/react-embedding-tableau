@@ -1,5 +1,3 @@
-import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
-
 //---===---//
 
 // import { lazyDelayed } from 'utils/lazyDelayed';
@@ -8,6 +6,7 @@ import {
   RoutePageConfig,
   RoutesContent,
 } from 'app/components/content/RoutesContent';
+import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 
 import EmbeddedTableauConnectedAppsPageIndex from './EmbeddedTableauConnectedAppsPageIndex';
 

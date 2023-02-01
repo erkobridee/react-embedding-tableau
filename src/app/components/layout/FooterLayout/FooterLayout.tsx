@@ -1,17 +1,16 @@
 import * as React from 'react';
+
 import cn from 'clsx';
 
 import { LayoutProps, PageLayoutType } from 'app/components/layout/definitions';
-
+import { IconSize, TechStack } from 'app/components/TechStack';
 import { ExternalLink } from 'app/components/ui/ExternalLink';
-import { TechStack, IconSize } from 'app/components/TechStack';
-
 import {
-  currentYear,
-  author,
-  socialLinks,
   appName,
   appNameMeaning,
+  author,
+  currentYear,
+  socialLinks,
 } from 'app/definitions';
 
 export const FooterLayout: React.FunctionComponent<LayoutProps> = ({
