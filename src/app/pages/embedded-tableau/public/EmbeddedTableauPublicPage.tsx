@@ -1,6 +1,6 @@
 //---===---//
 
-// import { lazyDelayed } from 'utils/lazyDelayed';
+import { lazyDelayed } from 'utils/lazyDelayed';
 
 import {
   RoutePageConfig,
@@ -12,7 +12,9 @@ import EmbeddedTableauPublicPageIndex from './EmbeddedTableauPublicPageIndex';
 
 //----------------------------------------------------------------------------//
 
-// const Page = lazyDelayed(() => import('./page'));
+const PublicBasicEmbedExamplePage = lazyDelayed(
+  () => import('./examples/BasicEmbed')
+);
 
 //----------------------------------------------------------------------------//
 
@@ -31,12 +33,7 @@ const routes: RoutePageConfig[] = [
   {
     path: 'basic-embed',
     label: 'Basic Embed',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Basic Embed
-      </div>
-    ),
-    lazy: false,
+    PageComponent: PublicBasicEmbedExamplePage,
   },
   {
     path: 'dynamic-load',

@@ -44,6 +44,14 @@
 
 - [Tableau Embedding API v3 | Tableau Help](https://help.tableau.com/current/api/embedding_api/en-us/index.html)
 
+  - [Tableau Embedding API version 3.1.0](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_release_notes.html#tableau-embedding-api-version-310)
+
+    - [Embedding API Reference](https://help.tableau.com/current/api/embedding_api/en-us/reference/index.html)
+
+      - [Viz](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html)
+
+        - [viz.refreshDataAsync](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html#refreshdataasync)
+
 - [A New Era in Tableau Embedding: Introducing the Embedding API v3 | Tableau Conference 2021](https://www.tableau.com/events/tc/2021/new-era-tableau-embedding-introducing-embedding-api-v3) - It's a new era in Tableau Embedding. Introducing the Embedding API v3! In 2022, we'll release version 3 of the Tableau Embedding API, which helps you embed Tableau visualizations in web applications and build rich integrations. The Embedding API v3 replaces and improves upon the JavaScript API v2. It's currently in Developer Preview, which means it is available to you to explore today. In this episode, we'll explain the benefits of the new Embedding API v3 and show you how to get started building your next Embedded Analytics solution with it.
 
 - [[GitHub] tableau / embedding-api-v3-samples](https://github.com/tableau/embedding-api-v3-samples)
@@ -69,6 +77,8 @@
   - [[GitHub] tableau / js-api-samples](https://github.com/tableau/js-api-samples) - Sample code for the Tableau JavaScript API
 
 - [API Reference](https://help.tableau.com/current/api/js_api/en-us/JavaScriptAPI/js_api_ref.htm)
+
+  - **viz.refreshDataAsync()** - Equivalent to clicking on the Refresh Data toolbar button.
 
 - [Tableau’s JavaScript API / An Introduction | Toan Hoang](https://tableau.toanhoang.com/tableaus-javascript-api-an-introduction) (2018/12/14)
 
@@ -103,6 +113,8 @@
 - [Triggering extract refreshes for Tableau Server workbooks and data sources using the REST API | by Elliott Stam - Devyx - Medium](https://medium.com/snake-charmer-python-and-analytics/triggering-extract-refreshes-for-tableau-server-workbooks-and-data-sources-using-the-rest-api-d4a8b8c001bf) (2020/04/16) - step-by-step guide to refreshing extracts with Python
 
   - [[YouTube] Triggering Tableau extract refreshes using the REST API | Devyx](https://www.youtube.com/watch?v=bkGf5VSaTQw) (2021/03/08)
+
+- [Automate Tableau Data Sources refresh using Python | by Cristian Saavedra Desmoineaux - Towards Data Science](https://towardsdatascience.com/refresh-tableau-server-data-source-and-workbooks-using-python-4baa99cc3b93) (2020/10/07)
 
 ## [Tableau Learn](https://www.tableau.com/learn)
 
@@ -184,6 +196,8 @@
 
 - [[YouTube] Auto Refresh Embedded Tableau Dashboards | Andre de Vries](https://www.youtube.com/watch?v=aLNwkdSO2Kw) (2020/08/17) - In this video I show you how to use the Tableau JavaScript API to auto refresh embedded dashboards.
 
+  - **viz.refreshDataAsync()**
+
 - [Create Custom Charts with the Extensions API | A Slice of Keesh](https://sliceofkeesh.com/post/custom-charts-dashboard-extensions-api) (2021/11/08)
 
 - [[GitHub] noverliu / tableau-api](https://github.com/noverliu/tableau-api)
@@ -208,11 +222,11 @@
 
 ##### Tableau React Libs
 
+- [[GitHub] stoddabr / react-tableau-embed-live](https://github.com/stoddabr/react-tableau-embed-live) - Wrapps Tableau Embedded API in a React Component
+
 - [[GitHub] coopermaruyama / tableau-react](https://github.com/coopermaruyama/tableau-react) - Tableau React component integrated with Tableau JS API.
 
   - [[CodeSandbox] usage sample](https://codesandbox.io/s/gracious-pare-c6hytd?file=/src/App.js)
-
-- [[GitHub] stoddabr / react-tableau-embed-live](https://github.com/stoddabr/react-tableau-embed-live) - Wrapps Tableau Embedded API in a React Component
 
 ##### Tableau TypeScriptTypes
 

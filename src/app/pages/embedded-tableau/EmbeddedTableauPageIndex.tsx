@@ -71,18 +71,6 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
                 visualizations into your own web applications.
                 <ul>
                   <li>
-                    <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/index.html">
-                      Tableau Embedding API v3
-                    </ExternalLink>{' '}
-                    - Use the Tableau Embedding API v3 to integrate Tableau
-                    visualizations into your own web applications. Harness the
-                    power of the Embedding API to add custom controls, and take
-                    advantage of modern, secure methods of authentication that
-                    allow users to interact with the visualization from your web
-                    application.
-                  </li>
-
-                  <li>
                     <ExternalLink href="https://www.tableau.com/events/tc/2021/new-era-tableau-embedding-introducing-embedding-api-v3">
                       A New Era in Tableau Embedding: Introducing the Embedding
                       API v3 | Tableau Conference 2021
@@ -97,6 +85,28 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
                     today. In this episode, we'll explain the benefits of the
                     new Embedding API v3 and show you how to get started
                     building your next Embedded Analytics solution with it.
+                  </li>
+
+                  <li>
+                    <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/index.html">
+                      Tableau Embedding API v3
+                    </ExternalLink>{' '}
+                    - Use the Tableau Embedding API v3 to integrate Tableau
+                    visualizations into your own web applications. Harness the
+                    power of the Embedding API to add custom controls, and take
+                    advantage of modern, secure methods of authentication that
+                    allow users to interact with the visualization from your web
+                    application.
+                  </li>
+
+                  <li>
+                    <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/reference/globals.html">
+                      Embedding API Reference
+                    </ExternalLink>{' '}
+                    -{' '}
+                    <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html">
+                      Interface Viz
+                    </ExternalLink>
                   </li>
                 </ul>
               </li>
@@ -130,6 +140,12 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
                 </ExternalLink>
               </li>
             </ul>
+          </li>
+          <li>
+            <ExternalLink href="https://github.com/stoddabr/react-tableau-embed-live">
+              [GitHub] stoddabr / react-tableau-embed-live
+            </ExternalLink>{' '}
+            - Wrapps Tableau Embedded API in a React Component
           </li>
         </ul>
       </ul>
