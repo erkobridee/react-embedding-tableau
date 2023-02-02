@@ -58,6 +58,8 @@
 
 - [[GitHub] tableau / embedding-api-v3-guide](https://github.com/tableau/embedding-api-v3-guide) - migration guide for moving to embedding api v3
 
+  - [TypeScript support #2](https://github.com/tableau/embedding-api-v3-guide/issues/2)
+
 - [[YouTube] What is new in V3 of the Tableau Embedding API? | Andre de Vries](https://www.youtube.com/watch?v=qadem86RLzs) (2021/12/23)
 
   - [[GitHub] andre347 / tableau-embedding-api-v3](https://github.com/andre347/tableau-embedding-api-v3) - Code snippets used for Embedding API v3 Video
@@ -203,6 +205,8 @@
 - [[GitHub] noverliu / tableau-api](https://github.com/noverliu/tableau-api)
 
 #### On a React App
+
+- [[GitHub] TheInformationLab / Tableau-Embed-Portal-Starter](https://github.com/TheInformationLab/Tableau-Embed-Portal-Starter) - React Application Template for creating portals with Embedded Tableau Dashboards
 
 - [Tableau Connected Apps Tutorial | Craig Bloodworth](https://tableau-connectedapps.theinformationlab.io/) (2022/04/25) - Get started embedding your Tableau dashboards in a React web app using Connected Apps and the Tableau Embedding API v3
 

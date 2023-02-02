@@ -142,6 +142,13 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
             </ul>
           </li>
           <li>
+            <ExternalLink href="https://github.com/TheInformationLab/Tableau-Embed-Portal-Starter">
+              [GitHub] TheInformationLab / Tableau-Embed-Portal-Starter
+            </ExternalLink>{' '}
+            - React Application Template for creating portals with Embedded
+            Tableau Dashboards
+          </li>
+          <li>
             <ExternalLink href="https://github.com/stoddabr/react-tableau-embed-live">
               [GitHub] stoddabr / react-tableau-embed-live
             </ExternalLink>{' '}
