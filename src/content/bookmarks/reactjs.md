@@ -58,6 +58,10 @@
 
 - [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components for building high‑quality design systems and web apps in React.
 
+  - [[YouTube] Animating a Radix Dropdown with Framer Motion | Sam Selikoff](https://www.youtube.com/watch?v=p8CsotWUas0) (2023/02/02)
+
+    - [[GitHub] samselikoff /2023-01-22-radix-dropdown-framer-motion](https://github.com/samselikoff/2023-01-22-radix-dropdown-framer-motion) - Demo from "Animating a Radix Dropdown with Framer Motion"
+
 - [shadcn/ui](https://ui.shadcn.com/) - This is not a component library. It's a collection of re-usable components built using [Radix UI](https://www.radix-ui.com/) and [Tailwind CSS](https://tailwindcss.com/).
 
 - [Preline UI](https://preline.co/)
