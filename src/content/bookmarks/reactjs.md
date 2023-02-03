@@ -1,10 +1,16 @@
 # [React](https://reactjs.org/)
 
+- [TypeScript + React: Typing Generic forwardRefs | fettblog.eu](https://fettblog.eu/typescript-react-generic-forward-refs/) (2021/04/13)
+
 ## React Hooks
 
 - [React Hooks Intro](https://reactjs.org/docs/hooks-intro.html)
 
+  - [useImperativeHandle | React Hooks Docs](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
+
 - [Built-in React Hooks](https://beta.reactjs.org/reference/react)
+
+  - [useImperativeHandle | API Reference - Hooks - React Docs Beta](https://beta.reactjs.org/reference/react/useImperativeHandle)
 
 - [React Hooks Cheatsheet](https://react-hooks-cheatsheet.com/usestate)
 
