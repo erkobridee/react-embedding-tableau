@@ -15,7 +15,9 @@ const TableauEmbedInner = (
   ref: React.Ref<TableauVizCustomElement>
 ) => {
   const vizRef = React.useRef<TableauVizCustomElement>(null);
-  React.useImperativeHandle(ref, async () => vizRef.current);
+  React.useImperativeHandle(ref, () =>
+    vizRef.current ? vizRef.current : ({} as TableauVizCustomElement)
+  );
 
   // TODO: define the usage of useScript
 
