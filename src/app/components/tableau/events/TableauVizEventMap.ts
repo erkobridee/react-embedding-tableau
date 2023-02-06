@@ -1,13 +1,8 @@
-interface UrlActionEvent {
-  /** The target attribute associated with URL (for example, the identifier associated with a browser tab). */
-  target: string;
-
-  /** The URL associated with the event. */
-  url: string;
-}
+import type { CustomMarkContextMenuEvent } from './CustomMarkContextMenuEvent';
+import type { UrlActionEvent } from './UrlActionEvent';
 
 export interface TableauVizEventMap {
-  custommarkcontextmenu: Event;
+  custommarkcontextmenu: CustomEvent<CustomMarkContextMenuEvent>;
   customviewloaded: Event;
   customviewremoved: Event;
   customviewsaved: Event;

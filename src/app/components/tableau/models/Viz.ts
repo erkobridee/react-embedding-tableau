@@ -1,6 +1,8 @@
-import { TDeviceType } from '../definitions/DeviceType';
-import { TToolbar } from '../definitions/Toolbar';
-import { TableauVizEventMap, TTableauEventType } from '../events';
+import type { TDeviceType } from '../definitions/DeviceType';
+import type { TTableauDialogType } from '../definitions/TableauDialogType';
+import type { TToolbar } from '../definitions/Toolbar';
+import type { TableauVizEventMap, TTableauEventType } from '../events';
+import type { Workbook } from './Workbook';
 
 // TODO: remove
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -29,6 +31,13 @@ export interface Viz {
   debug?: boolean;
 
   /**
+   * The token used for authorization
+   *
+   * Applies to: `<tableau-viz>`, `<tableau-authoring-viz>`
+   */
+  token?: string;
+
+  /**
    * Indicates whether tabs are hidden or shown.
    *
    * Applies to: `<tableau-viz>`
@@ -43,24 +52,18 @@ export interface Viz {
   toolbar?: TToolbar;
 
   /**
-   * Can be any valid CSS size specifier. If not specified, defaults to the published height of the view.
-   *
-   * @see
-   * https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html#size-of-the-embedded-view
+   * Represents height in pixels Can be any valid CSS size specifier. If not specified, defaults to the published height of the view.
    *
    * Applies to: `<tableau-viz>`, `<tableau-authoring-viz>
    */
-  height?: React.CSSProperties['height'];
+  height?: string | number;
 
   /**
-   * Can be any valid CSS size specifier. If not specified, defaults to the published width of the view.
-   *
-   * @see
-   * https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_configure.html#size-of-the-embedded-view
+   * Represents width in pixels Can be any valid CSS size specifier. If not specified, defaults to the published width of the view.
    *
    * Applies to: `<tableau-viz>`, `<tableau-authoring-viz>
    */
-  width?: React.CSSProperties['width'];
+  width: string | number;
 
   /**
    * Specifies a device layout for a dashboard, if it exists. If not specified, defaults to loading a layout based on the smallest dimension of the hosting `iframe` element.
@@ -116,20 +119,8 @@ export interface Viz {
    */
   automaticUpdatesArePaused?: boolean;
 
-  // TODO: review the attributes
-
-  //---===---//
-
-  /**
-   * Use this method to filter the viz before initialization. If used after initialization, it will re-render the viz. For filtering after initialization, use the other filtering methods, such as `applyFilterAsync`.
-   *
-   * If you add the same filter fields using the `addFilter()` method and by using the `<viz-filter>` element in the `<tableau-viz>` web component, you might experience unexpected behavior.
-   *
-   * @param fieldName - the name of the field to filter on.
-   * @param value - single value or a list of comma separated values to filter on.
-   * @returns void
-   */
-  addFilter: (fieldName: string, value: string) => void;
+  /** One Workbook is supported per visualization. */
+  workbook: Workbook;
 
   //---===---//
 
@@ -157,8 +148,93 @@ export interface Viz {
 
   //---===---//
 
-  // TODO: define the other attributes
+  /**
+   * Use this method to filter the viz before initialization. If used after initialization, it will re-render the viz. For filtering after initialization, use the other filtering methods, such as `applyFilterAsync`.
+   *
+   * If you add the same filter fields using the `addFilter()` method and by using the `<viz-filter>` element in the `<tableau-viz>` web component, you might experience unexpected behavior.
+   *
+   * @param fieldName - the name of the field to filter on.
+   * @param value - single value or a list of comma separated values to filter on.
+   * @returns void
+   */
+  addFilter: (fieldName: string, value: string) => void;
+
+  /**
+   * Display one of the export dialogs based on the dialogType parameter
+   *
+   * Throws an error if dialogType is invalid
+   *
+   * @param { TTableauDialogType } dialogType
+   *
+   * @return { Promise<void> } Promise
+   */
+  displayDialogAsync(dialogType: TTableauDialogType): Promise<void>;
+
+  /**
+   * Equivalent to clicking on Download > Image from the toolbar, which creates a PNG file of the current visualization.
+   *
+   * @return { Promise<void> } Promise
+   */
+  exportImageAsync(): Promise<void>;
+
+  /**
+   * Gets the visualization's current URL.
+   *
+   * @return { Promise<string> } Promise
+   */
+  getCurrentSrcAsync(): Promise<string>;
+
+  /**
+   * Pause layout updates. This is useful if you are resizing the visualization or performing multiple calls that could affect the layout.
+   *
+   * @return { Promise<void> } Promise
+   */
+  pauseAutomaticUpdatesAsync(): Promise<void>;
+
+  /**
+   * Redoes the last action performed on a sheet.
+   *
+   * @return { Promise<void> } Promise
+   */
+  redoAsync(): Promise<void>;
+
+  /**
+   * Equivalent to clicking on the Refresh Data toolbar button.
+   *
+   * @return { Promise<void> } Promise
+   */
+  refreshDataAsync(): Promise<void>;
+
+  /**
+   * Resume layout updates.
+   *
+   * @return { Promise<void> } Promise
+   */
+  resumeAutomaticUpdatesAsync(): Promise<void>;
+
+  /**
+   * Equivalent to clicking on the Revert All toolbar button, which restores the workbook to its starting state.
+   *
+   * @return { Promise<void> } Promise
+   */
+  revertAllAsync(): Promise<void>;
+
+  /**
+   * Toggle layout updates.
+   *
+   * @return { Promise<void> } Promise
+   */
+  toggleAutomaticUpdatesAsync(): Promise<void>;
+
+  /**
+   * Undoes the last action performed on a sheet.
+   *
+   * @return { Promise<void> } Promise
+   */
+  undoAsync(): Promise<void>;
 }
+
+//---===---//
 
 export type TableauViz = React.DetailedHTMLProps<
   React.HtmlHTMLAttributes<HTMLElement>,

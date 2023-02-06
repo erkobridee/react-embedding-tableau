@@ -6,3 +6,4 @@ export * from './SheetSizeBehavior';
 export * from './DataType';
 export * from './PeriodType';
 export * from './ParameterValueType';
+export * from './TableauDialogType';
