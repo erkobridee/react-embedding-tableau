@@ -116,6 +116,8 @@ export interface Viz {
    */
   automaticUpdatesArePaused?: boolean;
 
+  // TODO: review the attributes
+
   //---===---//
 
   /**
