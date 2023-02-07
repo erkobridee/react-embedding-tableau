@@ -233,10 +233,6 @@ export interface Viz {
 
 //---===---//
 
-export type TableauViz = React.DetailedHTMLProps<
-  React.HtmlHTMLAttributes<HTMLElement>,
-  HTMLElement
-> &
-  Viz;
+export type TableauViz = Viz;
 
-export default TableauViz;
+export default Viz;

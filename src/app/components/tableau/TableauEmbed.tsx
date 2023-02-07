@@ -4,12 +4,16 @@
 
 import * as React from 'react';
 
+import { useScript } from 'hooks/useScript';
+
 import {
   DefaultEmbeddingApiVersion,
   EmbeddingApiVersion,
   TEmbeddingApiVersion,
-} from './definitions';
-import { TableauViz } from './models';
+} from './definitions/EmbeddingApiVersion';
+import type { TToolbar } from './definitions/Toolbar';
+import { TableauEventType } from './events/TableauEventType';
+import { Viz } from './models/Viz';
 
 // TODO: remove
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -19,14 +23,17 @@ interface TableauEmbedProps {
 
   embeddingApiVersion?: TEmbeddingApiVersion;
 
-  debug?: boolean;
-
   id?: string;
 
   /**
    * Specifies the ID of an existing instance to make a copy (clone) of. This is useful if the user wants to continue analysis of an existing visualization without losing the state of the original. If the ID does not refer to an existing visualization, the cloned version is derived from the original visualization.
    */
   instanceIdToClone?: string;
+
+  debug?: boolean;
+  token?: string;
+  hideTabs?: boolean;
+  toolbar?: TToolbar;
 }
 
 const TableauEmbedInner = (
@@ -36,13 +43,13 @@ const TableauEmbedInner = (
     embeddingApiVersion = DefaultEmbeddingApiVersion,
     debug = false,
   }: TableauEmbedProps,
-  ref: React.Ref<TableauViz>
+  ref: React.Ref<Viz>
 ) => {
-  const vizRef = React.useRef<TableauViz>(null);
+  const vizRef = React.useRef<Viz>(null);
 
   /* link the internal vizRef with the passed external ref  */
   React.useImperativeHandle(ref, () =>
-    vizRef.current ? vizRef.current : ({} as TableauViz)
+    vizRef.current ? vizRef.current : ({} as Viz)
   );
 
   const embeddingApiUrl = React.useMemo(() => {
@@ -50,22 +57,34 @@ const TableauEmbedInner = (
     return debug ? url.replace('min.', '') : url;
   }, [embeddingApiVersion, debug]);
 
-  // TODO: remove
-  /*
-  (() => {
-    const div = document.createElement('div');
+  const scriptStatus = useScript(embeddingApiUrl, {
+    asModule: true,
+  });
 
-    div.addEventListener('click', () => {});
+  console.log({ viewUrl, id, embeddingApiUrl, scriptStatus, vizRef });
 
-    // vizRef.current?.addEventListener()
-  })();
-  */
+  console.log('workbook', vizRef.current?.workbook);
 
-  // TODO: define the usage of useScript
+  React.useEffect(() => {
+    const viz = document.getElementById(id) as Viz | null;
 
-  // TODO: define the code
+    const firstInteractive = async (event: Event) => console.log(event);
 
-  return null;
+    viz?.addEventListener(TableauEventType.FirstInteractive, firstInteractive);
+
+    return () => {
+      viz?.removeEventListener(
+        TableauEventType.FirstInteractive,
+        firstInteractive
+      );
+    };
+  }, []);
+
+  return (
+    <div>
+      <tableau-viz ref={vizRef as any} {...{ src: viewUrl, id }}></tableau-viz>
+    </div>
+  );
 };
 
 export const TableauEmbed = React.forwardRef(TableauEmbedInner);

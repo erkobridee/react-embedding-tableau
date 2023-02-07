@@ -1,5 +1,6 @@
-import { TDeviceType } from '../definitions/DeviceType';
-import { TToolbar } from '../definitions/Toolbar';
+import type { TDeviceType } from '../definitions/DeviceType';
+import type { TToolbar } from '../definitions/Toolbar';
+import type { VizFilter } from './VizFilter';
 
 /**
  * Maps the attributes of tableau-viz custom element
@@ -10,7 +11,7 @@ import { TToolbar } from '../definitions/Toolbar';
  *
  * If the size of the content area specified by the HTML element is invalid (for example, `height=0`), the default size of the view is 800 (width) by 600 (height) pixels.
  */
-export interface TableauVizCustomElement {
+export interface TableauVizCustomElementAttributes {
   /**
    * Specifies the URL of the view. For security, alway use HTTPS when you specify the URL.
    *
@@ -121,18 +122,20 @@ export interface TableauVizCustomElement {
   ['touch-optimize']?: boolean;
 }
 
+export type TableauVizCustomElement = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLElement>,
+  HTMLElement
+> &
+  TableauVizCustomElementAttributes;
+
 //----------------------------------------------------------------------------//
 
 /* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      // TODO: rename it later to tableau-viz
-      ['tableau-viz3']: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      > &
-        TableauVizCustomElement;
+      ['tableau-viz']: TableauVizCustomElement;
+      ['viz-filter']: VizFilter;
     }
   }
 }
