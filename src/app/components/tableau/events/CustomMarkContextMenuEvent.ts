@@ -1,6 +1,5 @@
 import type { MarksCollection } from '../models/MarksCollection';
-import type { Sheet } from '../models/Sheet';
-import type { Worksheet } from '../models/Worksheet';
+import type { TableauWorksheetEvent } from './TableauWorksheetEvent';
 
 // import type {} from '../models/Workbook'
 
@@ -9,15 +8,7 @@ import type { Worksheet } from '../models/Worksheet';
  *
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/custommarkcontextmenuevent.html
  */
-export interface CustomMarkContextMenuEvent {
-  /** The sheet which was the source of this event. */
-  sheet: Sheet;
-
-  /** The worksheet which was the source of this event. */
-  worksheet: Worksheet;
-
-  //---= methods =---//
-
+export interface CustomMarkContextMenuEvent extends TableauWorksheetEvent {
   /**
    * Id of clicked embedded menu item.
    */

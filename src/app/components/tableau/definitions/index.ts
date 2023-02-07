@@ -17,3 +17,6 @@ export * from './IncludeDataValuesOption';
 export * from './ApiMenuType';
 export * from './FilterNullOption';
 export * from './DateRangeType';
+export * from './AnnotationType';
+export * from './SelectionUpdateType';
+export * from './CategoricalValue';

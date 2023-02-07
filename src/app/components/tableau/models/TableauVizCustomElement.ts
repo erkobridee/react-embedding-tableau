@@ -10,7 +10,7 @@ import { TToolbar } from '../definitions/Toolbar';
  *
  * If the size of the content area specified by the HTML element is invalid (for example, `height=0`), the default size of the view is 800 (width) by 600 (height) pixels.
  */
-export interface CustomElement {
+export interface TableauVizCustomElement {
   /**
    * Specifies the URL of the view. For security, alway use HTTPS when you specify the URL.
    *
@@ -132,7 +132,7 @@ declare global {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > &
-        CustomElement;
+        TableauVizCustomElement;
     }
   }
 }

@@ -1,12 +1,23 @@
 import type { TApiMenuType } from '../definitions/ApiMenuType';
 import type { TFilterUpdateType } from '../definitions/FilterUpdateType';
+import type { TSelectionUpdateType } from '../definitions/SelectionUpdateType';
+import type { Annotation } from './Annotation';
 import type { ContextMenuOptions } from './ContextMenuOptions';
 import type { Dashboard } from './Dashboard';
+import type { DataSource } from './DataSource';
+import type { DataTable } from './DataTable';
+import type { DataTableReader } from './DataTableReader';
+import type { Filter } from './Filter';
 import type { FilterOptions } from './FilterOptions';
+import type { GetSummaryDataOptions } from './GetSummaryDataOptions';
+import type { GetUnderlyingDataOptions } from './GetUnderlyingDataOptions';
 import type { HierarchicalLevels } from './HierarchicalLevels';
+import type { LogicalTable } from './LogicalTable';
 import type { MarkInfo } from './MarkInfo';
+import type { MarksCollection } from './MarksCollection';
 import type { RangeFilterOptions } from './RangeFilterOptions';
 import type { RelativeDateFilterOptions } from './RelativeDateFilterOptions';
+import type { SelectionCriteria } from './SelectionCriteria';
 import type { Sheet } from './Sheet';
 import type { StoryPoint } from './StoryPoint';
 
@@ -157,21 +168,186 @@ export interface Worksheet extends Sheet {
     menuItemId: string
   ): Promise<void>;
 
-  // TODO: define
-  /*
-  getAnnotationsAsync
-  getDataSourcesAsync
-  getFiltersAsync
-  getSelectedMarksAsync
-  getSummaryDataAsync
-  getSummaryDataReaderAsync
-  getUnderlyingDataAsync
-  getUnderlyingTableDataAsync
-  getUnderlyingTableDataReaderAsync
-  getUnderlyingTablesAsync
-  removeAnnotationAsync
-  removeContextMenuAsync
-  renameContextMenuAsync
-  selectMarksByValueAsync
-  */
+  /**
+   * Retrieves a list of the annotations in the worksheet.
+   *
+   * @returns A list annotations in the worksheet.
+   *
+   * The following example shows how you might call this method.
+   *
+   * ```
+   * let annotations = await worksheet.getAnnotationsAsync();
+   * console.log(annotations);
+   * ```
+   */
+  getAnnotationsAsync(): Promise<Annotation[]>;
+
+  /**
+   * Gets the data sources for this worksheet. Note that calling this method might negatively impact performance and responsiveness of the viz that you are embedding. The method is partly asynchronous but includes some serial operations.
+   *
+   * @returns The primary data source and all of the secondary data sources for this worksheet. By convention the first data source in the array is the primary.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getdatasourcesasync
+   */
+  getDataSourcesAsync(): Promise<DataSource[]>;
+
+  /**
+   * Gets the list of filters on a worksheet. Hierarchical filters are not yet supported
+   *
+   * @returns A promise that resolves to the collection of filters used in this worksheet.
+   */
+  getFiltersAsync(): Promise<Filter[]>;
+
+  /**
+   * Gets the data for the marks which are currently selected on the worksheet. If there are no marks currently selected, an empty model is returned.
+   *
+   * @returns The marks that are selected.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getselectedmarksasync
+   */
+  getSelectedMarksAsync(): Promise<MarksCollection>;
+
+  /**
+   * Gets the summary data table for this worksheet.
+   *
+   * @param { GetSummaryDataOptions | undefined } options - Collection of options to change the behavior of the call.
+   *
+   * @returns A data table containing the summary data for the worksheet.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getsummarydataasync
+   */
+  getSummaryDataAsync(options?: GetSummaryDataOptions): Promise<DataTable>;
+
+  /**
+   * Gets a summary data table reader for this worksheet. Only one active DataTableReader for summary data is supported.
+   *
+   * @param { number | undefined } pageRowCount - The number of rows per page. The default and maximum is `10,000` rows.
+   * @param { GetSummaryDataOptions } options - Collection of options to change the behavior of the reader.
+   *
+   * @returns A data table reader to access the summary data for the worksheet.
+   */
+  getSummaryDataReaderAsync(
+    pageRowCount?: number,
+    options?: GetSummaryDataOptions
+  ): Promise<DataTableReader>;
+
+  /**
+   * Gets the underlying data table for this worksheet.
+   *
+   * @deprecated Use `Worksheet.getUnderlyingTableDataAsync`.
+   *
+   * @param { GetUnderlyingDataOptions | undefined } options - Collection of options to change the behavior of the call.
+   *
+   * @returns A data table containing the underlying data for the worksheet.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getunderlyingdataasync
+   */
+  getUnderlyingDataAsync(
+    options?: GetUnderlyingDataOptions
+  ): Promise<DataTable>;
+
+  /**
+   * Gets the underlying data table for the given logical table id. Use the `getUnderlyingTablesAsync` method to identify the logical tables.
+   *
+   * @param { string } logicalTableId - logical table id.
+   * @param { GetUnderlyingDataOptions | undefined } options - Collection of options to change the behavior of the call.
+   *
+   * @returns A data table containing the underlying data for the given logical table id
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getunderlyingtabledataasync
+   */
+  getUnderlyingTableDataAsync(
+    logicalTableId: string,
+    options?: GetUnderlyingDataOptions
+  ): Promise<DataTable>;
+
+  /**
+   * Gets a underlying data table reader for the given logical table id. Use the `getUnderlyingTablesAsync` method to identify the logical tables. Only one active DataTableReader per logical table id is supported.
+   *
+   * @param { string } logicalTableId - logical table id.
+   * @param { number | undefined } pageRowCount - The number of rows per page. The default and maximum is `10,000` rows.
+   * @param { GetUnderlyingDataOptions | undefined } options - Collection of options to change the behavior of the reader.
+   *
+   * @returns A data table reader to access the underlying data for the given logical table id.
+   */
+  getUnderlyingTableDataReaderAsync(
+    logicalTableId: string,
+    pageRowCount?: number,
+    options?: GetUnderlyingDataOptions
+  ): Promise<DataTableReader>;
+
+  /**
+   * Gets the underlying logical tables used by the worksheet. The resulting logical tables are determined by the measures in the worksheet. If a worksheet's data source contains multiple logical tables and the worksheet contains only measures from one logical table, this API will return one logical table.
+   *
+   * @returns An array of logical tables corresponding to the measures referenced by the worksheet. Use `await` only inside an Async function.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#getunderlyingtablesasync
+   */
+  getUnderlyingTablesAsync(): Promise<LogicalTable[]>;
+
+  /**
+   * Removes the corresponding annotation from the worksheet it belongs to. This is intended to be passed an Annotation object received from `getAnnotationsAsync`.
+   *
+   * @param { Annotation } annotation - The annotation to remove.
+   *
+   * @returns Empty promise that resolves when the annotation is removed.
+   *
+   * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/worksheet.html#removeannotationasync
+   */
+  removeAnnotationAsync(annotation: Annotation): Promise<void>;
+
+  /**
+   * Removes the external context menu item inserted by the appendContextMenuAsync method.
+   *
+   * The parameter menuItemId specifies the menu item to remove and is the return value from the `appendContextMenuAsync` method.
+   *
+   * Once this function is called, menu item identified by menuItemId won't be rendered to the user in corresponding context menu.
+   *
+   * @param { TApiMenuType } targetMenu - Defines where to remove new external menu item.
+   * @param { string } menuItemId - Unique identifier of external context menu item that user wants to remove.
+   */
+  removeContextMenuAsync(
+    targetMenu: TApiMenuType,
+    menuItemId: string
+  ): Promise<void>;
+
+  /**
+   * Sets the displayed header for the external context menu.
+   *
+   * The parameter menuHeader specifies the header to be displayed.
+   *
+   * Once this function is called, menuHeader will be rendered to the user as the header for corresponding context menu. If not called, a default header will be displayed.
+   *
+   * @param { TApiMenuType } targetMenu - Specifies the location of the external context menu.
+   * @param { string } menuHeader - Defines a header string to be displayed for the menu.
+   * @param { string } menuDescription - Defines a description of the menu to be displayed in a tooltip
+   */
+  renameContextMenuAsync(
+    targetMenu: TApiMenuType,
+    menuHeader: string,
+    menuDescription: string
+  ): Promise<void>;
+
+  /**
+   * Selects the marks by value, using the SelectionCriteria interface. This is intended for manual construction of the desired selections.
+   *
+   * @param { SelectionCriteria[] } selections - A list of criteria for which marks to select.
+   * @param { TSelectionUpdateType } updateType - The type of selection to make: add, remove, or replace.
+   *
+   * @returns Empty promise that resolves when the selection is complete.
+   *
+   * The following example shows how you might call this method using state names as the `SelectionCriteria`. The `SelectionUpdateType` is replace (`SelectionUpdateType.Replace`), so these values replace the marks that are currently selected.
+   *
+   *
+   * ```
+   * worksheet.selectMarksByValueAsync([{
+   *   fieldName: 'State',
+   *   value: ['Texas', 'Washington', 'California']
+   * }], SelectionUpdateType.Replace );
+   * ```
+   */
+  selectMarksByValueAsync(
+    selections: SelectionCriteria[],
+    updateType: TSelectionUpdateType
+  ): Promise<void>;
 }
