@@ -4,6 +4,8 @@
 
 import * as React from 'react';
 
+import cn from 'clsx';
+
 import { useScript } from 'hooks/useScript';
 
 import {
@@ -22,6 +24,7 @@ interface TableauEmbedProps {
   viewUrl: string;
 
   embeddingApiVersion?: TEmbeddingApiVersion;
+  className?: string;
 
   id?: string;
 
@@ -30,18 +33,25 @@ interface TableauEmbedProps {
    */
   instanceIdToClone?: string;
 
-  debug?: boolean;
   token?: string;
-  hideTabs?: boolean;
   toolbar?: TToolbar;
+  debug?: boolean;
+  hideTabs?: boolean;
+
+  // TODO: define how to pass a list of VizFilter
 }
 
 const TableauEmbedInner = (
   {
     viewUrl,
-    id = 'tableauViz',
     embeddingApiVersion = DefaultEmbeddingApiVersion,
+    className,
+    id = 'tableauViz',
+    instanceIdToClone,
+    token,
+    toolbar,
     debug = false,
+    hideTabs = false,
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
 ) => {
@@ -61,30 +71,49 @@ const TableauEmbedInner = (
     asModule: true,
   });
 
-  console.log({ viewUrl, id, embeddingApiUrl, scriptStatus, vizRef });
+  const vizFirstInteractiveHandler = async (event: Event) => {
+    const viz = vizRef.current!;
+    viz.style = { opacity: 1 };
 
-  console.log('workbook', vizRef.current?.workbook);
+    // TODO: review
+  };
 
   React.useEffect(() => {
-    const viz = document.getElementById(id) as Viz | null;
+    const viz = vizRef.current;
 
-    const firstInteractive = async (event: Event) => console.log(event);
+    // TODO: check how to handle when the token is present
 
-    viz?.addEventListener(TableauEventType.FirstInteractive, firstInteractive);
+    viz?.addEventListener(
+      TableauEventType.FirstInteractive,
+      vizFirstInteractiveHandler
+    );
 
     return () => {
       viz?.removeEventListener(
         TableauEventType.FirstInteractive,
-        firstInteractive
+        vizFirstInteractiveHandler
       );
     };
   }, [id]);
 
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
-    <div>
-      <tableau-viz ref={vizRef as any} {...{ src: viewUrl, id }}></tableau-viz>
-    </div>
+    <>
+      <tableau-viz
+        ref={vizRef}
+        {...{
+          src: viewUrl,
+          class: cn(
+            'transition-opacity motion-reduce:transition-none',
+            className
+          ),
+          id,
+          instanceIdToClone,
+          toolbar,
+          'hide-tabs': hideTabs,
+        }}
+        style={{ opacity: 0 }}
+      ></tableau-viz>
+    </>
   );
 };
 

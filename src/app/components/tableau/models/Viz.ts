@@ -13,6 +13,8 @@ import type { Workbook } from './Workbook';
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html
  */
 export interface Viz {
+  style?: React.CSSProperties;
+
   /**
    * Specifies the URL of the view. For security, alway use HTTPS when you specify the URL.
    *

@@ -1,5 +1,6 @@
 import type { TDeviceType } from '../definitions/DeviceType';
 import type { TToolbar } from '../definitions/Toolbar';
+import type { Viz } from './Viz';
 import type { VizFilter } from './VizFilter';
 
 /**
@@ -12,6 +13,9 @@ import type { VizFilter } from './VizFilter';
  * If the size of the content area specified by the HTML element is invalid (for example, `height=0`), the default size of the view is 800 (width) by 600 (height) pixels.
  */
 export interface TableauVizCustomElementAttributes {
+  ref?: React.Ref<Viz>;
+  style?: React.CSSProperties;
+
   /**
    * Specifies the URL of the view. For security, alway use HTTPS when you specify the URL.
    *
@@ -36,7 +40,7 @@ export interface TableauVizCustomElementAttributes {
    *
    * Applies to: `<tableau-viz>`
    */
-  ['hide-table']?: boolean;
+  ['hide-tabs']?: boolean;
 
   /**
    * Indicates the position of the toolbar or if it should be hidden
@@ -122,19 +126,13 @@ export interface TableauVizCustomElementAttributes {
   ['touch-optimize']?: boolean;
 }
 
-export type TableauVizCustomElement = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLElement>,
-  HTMLElement
-> &
-  TableauVizCustomElementAttributes;
-
 //----------------------------------------------------------------------------//
 
 /* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      ['tableau-viz']: TableauVizCustomElement;
+      ['tableau-viz']: TableauVizCustomElementAttributes;
       ['viz-filter']: VizFilter;
     }
   }
