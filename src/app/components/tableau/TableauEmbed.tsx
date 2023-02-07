@@ -78,8 +78,9 @@ const TableauEmbedInner = (
         firstInteractive
       );
     };
-  }, []);
+  }, [id]);
 
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
     <div>
       <tableau-viz ref={vizRef as any} {...{ src: viewUrl, id }}></tableau-viz>
