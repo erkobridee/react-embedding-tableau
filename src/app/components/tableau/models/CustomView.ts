@@ -1,9 +1,11 @@
+import type { Workbook } from './Workbook';
+
 /**
  * A named snapshot of the workbook at a specific moment.
  *
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/customview.html
  */
-export interface CustomView<W = unknown> {
+export interface CustomView {
   /** Gets or sets whether this is the default custom view. */
   default: boolean;
 
@@ -20,10 +22,10 @@ export interface CustomView<W = unknown> {
   url: string;
 
   /** Gets the Workbook to which this CustomView belongs. */
-  workbook: W;
+  workbook: Workbook;
 
   //---= methods =---/
 
   /** Updates an existing custom view */
-  saveAsync: () => Promise<CustomView<W>>;
+  saveAsync: () => Promise<CustomView>;
 }

@@ -1,10 +1,11 @@
 import type { TSheetType } from '../definitions/SheetType';
 import type { SheetSize } from './SheetSize';
+import type { Workbook } from './Workbook';
 
 /**
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/sheet.html
  */
-export interface Sheet<W = unknown> {
+export interface Sheet {
   /** The index of the sheet within the published tabs. Note that hidden tabs are still counted in the ordering, as long as they are published. */
   index: number;
 
@@ -27,7 +28,7 @@ export interface Sheet<W = unknown> {
   url: string;
 
   /** The workbook containing this sheet */
-  workbook: W;
+  workbook: Workbook;
 
   //---= methods =---//
 

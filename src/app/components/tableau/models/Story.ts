@@ -5,7 +5,7 @@ import type { StoryPointInfo } from './StoryPointInfo';
 /**
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/story.html
  */
-export interface Story<W = unknown> extends Sheet<W> {
+export interface Story extends Sheet {
   /** The currently active story point. */
   activeStoryPoint: StoryPoint;
 

@@ -4,9 +4,6 @@ import type { TToolbar } from '../definitions/Toolbar';
 import type { TableauVizEventMap, TTableauEventType } from '../events';
 import type { Workbook } from './Workbook';
 
-// TODO: remove
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * Embedding API v3 interfaces
  * @see https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_about.html
@@ -126,7 +123,7 @@ export interface Viz {
 
   addEventListener<K extends keyof TableauVizEventMap>(
     type: K,
-    listener: (this: Viz, ev: TableauVizEventMap[K]) => any,
+    listener: (this: Viz, ev: TableauVizEventMap[K]) => Promise<void> | void,
     options?: boolean | AddEventListenerOptions
   ): void;
   addEventListener(
@@ -137,7 +134,7 @@ export interface Viz {
 
   removeEventListener<K extends keyof TableauVizEventMap>(
     type: K,
-    listener: (this: Viz, ev: TableauVizEventMap[K]) => any,
+    listener: (this: Viz, ev: TableauVizEventMap[K]) => Promise<void> | void,
     options?: boolean | EventListenerOptions
   ): void;
   removeEventListener(

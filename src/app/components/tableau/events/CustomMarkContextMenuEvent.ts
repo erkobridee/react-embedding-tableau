@@ -1,5 +1,6 @@
 import type { MarksCollection } from '../models/MarksCollection';
 import type { Sheet } from '../models/Sheet';
+import type { Worksheet } from '../models/Worksheet';
 
 // import type {} from '../models/Workbook'
 
@@ -13,7 +14,7 @@ export interface CustomMarkContextMenuEvent {
   sheet: Sheet;
 
   /** The worksheet which was the source of this event. */
-  worksheet: any; // TODO: define the Worksheet
+  worksheet: Worksheet;
 
   //---= methods =---//
 
