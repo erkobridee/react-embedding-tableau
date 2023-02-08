@@ -76,6 +76,8 @@
 
 ## Libraries
 
+- [[GitHub] tatethurston / react-use-error-boundary](https://github.com/tatethurston/react-use-error-boundary) - A React hook for error boundaries in function components
+
 - [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components for building high‑quality design systems and web apps in React.
 
   - [[YouTube] Animating a Radix Dropdown with Framer Motion | Sam Selikoff](https://www.youtube.com/watch?v=p8CsotWUas0) (2023/02/02)

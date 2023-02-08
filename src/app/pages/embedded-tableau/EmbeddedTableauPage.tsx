@@ -69,11 +69,19 @@ const routes: RoutePageConfig[] = [
   },
 ];
 
+const Loading = () => (
+  <div className="flex justify-center items-center h-full w-full">
+    Loading the Tableau View...
+  </div>
+);
+
 export const EmbeddedTableauPage = () => (
   <TableauEmbedProvider
     baseClassName="transition-opacity motion-reduce:transition-none"
     hideTabs
     toolbar={Toolbar.HIDDEN}
+    loading={<Loading />}
+    jsMin={false}
   >
     <RoutesContent
       {...{

@@ -7,42 +7,30 @@ import * as React from 'react';
 
 import { TScriptStatus, useScript } from 'hooks/useScript';
 
-import type { TDeviceType } from './definitions/DeviceType';
 import {
   DefaultEmbeddingApiVersion,
   EmbeddingApiVersion,
   TEmbeddingApiVersion,
 } from './definitions/EmbeddingApiVersion';
-import type { TToolbar } from './definitions/Toolbar';
+import type { TableauEmbedBaseProps } from './definitions/TableauEmbedBaseProps';
 
-interface ITableauEmbedContext {
-  debug: boolean;
-
+interface ITableauEmbedContext extends TableauEmbedBaseProps {
   apiVersion: TEmbeddingApiVersion;
   scriptSrc: string;
   scriptStatus: TScriptStatus;
 
   baseClassName?: string;
-  token?: string;
-  device?: TDeviceType;
-  toolbar?: TToolbar;
-  hideTabs?: boolean;
 }
 
 const TableauEmbedContext = React.createContext<
   ITableauEmbedContext | undefined
 >(undefined);
 
-interface TableauEmbedProviderProps {
+interface TableauEmbedProviderProps extends TableauEmbedBaseProps {
   children: React.ReactNode;
   apiVersion?: TEmbeddingApiVersion;
   baseClassName?: string;
-  debug?: boolean;
   jsMin?: boolean;
-  token?: string;
-  device?: TDeviceType;
-  toolbar?: TToolbar;
-  hideTabs?: boolean;
 }
 
 export const TableauEmbedProvider: React.FunctionComponent<
@@ -57,6 +45,7 @@ export const TableauEmbedProvider: React.FunctionComponent<
   device,
   toolbar,
   hideTabs = false,
+  loading,
 }) => {
   let scriptSrc = EmbeddingApiVersion[apiVersion] as string;
 
@@ -85,6 +74,7 @@ export const TableauEmbedProvider: React.FunctionComponent<
     device,
     toolbar,
     hideTabs,
+    loading,
   };
 
   return (

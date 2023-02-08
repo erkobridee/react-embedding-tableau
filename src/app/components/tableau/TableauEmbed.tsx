@@ -8,18 +8,27 @@ import cn from 'clsx';
 
 import { useDidUpdate } from 'hooks/useDidUpdate';
 
-import type { TDeviceType } from './definitions/DeviceType';
-import type { TToolbar } from './definitions/Toolbar';
+import type { TableauEmbedBaseProps } from './definitions/TableauEmbedBaseProps';
 import { TableauEventType } from './events/TableauEventType';
 import type { Viz } from './models/Viz';
 import type { VizFilter } from './models/VizFilter';
 import { useTableauEmbed } from './TableauEmbedContext';
 
-interface TableauEmbedProps {
+//----------------------------------------------------------------------------//
+
+export const TableauEmbedStatus = {
+  LOADING: 'loading',
+  READY: 'ready',
+} as const;
+
+//----------------------------------------------------------------------------//
+
+interface TableauEmbedProps extends TableauEmbedBaseProps {
   viewUrl: string;
 
   className?: string;
 
+  /** default value `tableauViz` */
   id?: string;
 
   /**
@@ -27,12 +36,11 @@ interface TableauEmbedProps {
    */
   instanceIdToClone?: string;
 
-  token?: string;
-  toolbar?: TToolbar;
-  debug?: boolean;
-  hideTabs?: boolean;
-
-  device?: TDeviceType;
+  /**
+   * List of filters to be applied once defining the `<tableau-viz>` element
+   *
+   * @see — https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_filter.html
+   */
   filters?: VizFilter[];
 }
 
@@ -48,6 +56,7 @@ const TableauEmbedInner = (
     hideTabs = false,
     device,
     filters = [],
+    loading,
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
 ) => {
@@ -67,6 +76,7 @@ const TableauEmbedInner = (
     device: globalDevice,
     toolbar: globalToolbar,
     hideTabs: globalHideTabs,
+    loading: globalLoading,
     baseClassName,
   } = useTableauEmbed();
 
@@ -76,7 +86,7 @@ const TableauEmbedInner = (
     };
 
     // give an extra time to have everything ready before display it
-    setTimeout(updateVizOpacity, 150);
+    setTimeout(updateVizOpacity, 300);
   };
 
   React.useEffect(() => {
@@ -117,34 +127,52 @@ const TableauEmbedInner = (
     window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches
   );
 
-  // TODO: define a property to specify the loading element
-  return (
-    <>
-      <div style={{ position: 'absolute', opacity: isLoading ? 1 : 0 }}>
-        Loading...
-      </div>
+  const tableauVizElement = (
+    <tableau-viz
+      ref={vizRef}
+      style={{ opacity: isLoading ? 0 : 1 }}
+      {...{
+        src: viewUrl,
+        class: cn(baseClassName, className),
+        id,
+        instanceIdToClone,
+        device: device || globalDevice,
+        toolbar: toolbar || globalToolbar,
+        token: token || globalToken,
+        debug: debug || globalDebug ? true : undefined,
+        'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
+        'touch-optimize': touchOptimize ? true : undefined,
+      }}
+    >
+      {filters.map((filter, index) => (
+        <viz-filter key={index} {...filter}></viz-filter>
+      ))}
+    </tableau-viz>
+  );
 
-      <tableau-viz
-        ref={vizRef}
-        style={{ opacity: isLoading ? 0 : 1 }}
-        {...{
-          src: viewUrl,
-          class: cn(baseClassName, className),
-          id,
-          instanceIdToClone,
-          device: device || globalDevice,
-          toolbar: toolbar || globalToolbar,
-          token: token || globalToken,
-          debug: debug || globalDebug ? true : undefined,
-          'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
-          'touch-optimize': touchOptimize ? true : undefined,
+  loading = loading || globalLoading;
+
+  if (!loading) {
+    return <>{tableauVizElement}</>;
+  }
+
+  return (
+    <div style={{ display: 'flex', position: 'relative' }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          opacity: isLoading ? 1 : 0,
         }}
       >
-        {filters.map((filter, index) => (
-          <viz-filter key={index} {...filter}></viz-filter>
-        ))}
-      </tableau-viz>
-    </>
+        {loading}
+      </div>
+
+      {tableauVizElement}
+    </div>
   );
 };
 

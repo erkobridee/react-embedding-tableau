@@ -20,3 +20,5 @@ export * from './DateRangeType';
 export * from './AnnotationType';
 export * from './SelectionUpdateType';
 export * from './CategoricalValue';
+
+export * from './TableauEmbedBaseProps';
