@@ -6,6 +6,7 @@ import {
   RoutePageConfig,
   RoutesContent,
 } from 'app/components/content/RoutesContent';
+import { TableauEmbedProvider } from 'app/components/tableau/TableauEmbedContext';
 import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 import ExternalLink from 'app/components/ui/ExternalLink';
 
@@ -68,13 +69,15 @@ const routes: RoutePageConfig[] = [
 ];
 
 export const EmbeddedTableauPage = () => (
-  <RoutesContent
-    {...{
-      breadcrumbs: [defaultBreadcrumb],
-      routes: routes,
-      indexPage: { PageComponent: EmbeddedTableauPageIndex },
-    }}
-  />
+  <TableauEmbedProvider baseClassName="transition-opacity motion-reduce:transition-none">
+    <RoutesContent
+      {...{
+        breadcrumbs: [defaultBreadcrumb],
+        routes: routes,
+        indexPage: { PageComponent: EmbeddedTableauPageIndex },
+      }}
+    />
+  </TableauEmbedProvider>
 );
 
 export default EmbeddedTableauPage;
