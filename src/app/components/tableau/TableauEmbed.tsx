@@ -94,7 +94,7 @@ const TableauEmbedInner = (
     any-pointer:coarse
     https://css-tricks.com/interaction-media-features-and-their-potential-for-incorrect-assumptions/
    */
-  const touchTptimize = !!(
+  const touchOptimize = !!(
     window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches
   );
 
@@ -112,7 +112,7 @@ const TableauEmbedInner = (
           token: token || globalToken,
           debug: debug || globalDebug ? true : undefined,
           'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
-          'touch-optimize': touchTptimize ? true : undefined,
+          'touch-optimize': touchOptimize ? true : undefined,
         }}
       >
         {filters.map((filter, index) => (
