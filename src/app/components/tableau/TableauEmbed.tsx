@@ -6,24 +6,15 @@ import * as React from 'react';
 
 import cn from 'clsx';
 
-import { useScript } from 'hooks/useScript';
-
-import {
-  DefaultEmbeddingApiVersion,
-  EmbeddingApiVersion,
-  TEmbeddingApiVersion,
-} from './definitions/EmbeddingApiVersion';
-import type { TToolbar } from './definitions/Toolbar';
+import { Toolbar, TToolbar } from './definitions/Toolbar';
 import { TableauEventType } from './events/TableauEventType';
 import { Viz } from './models/Viz';
-
-// TODO: remove
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import { VizFilter } from './models/VizFilter';
+import { useTableauEmbed } from './TableauEmbedContext';
 
 interface TableauEmbedProps {
   viewUrl: string;
 
-  embeddingApiVersion?: TEmbeddingApiVersion;
   className?: string;
 
   id?: string;
@@ -38,20 +29,20 @@ interface TableauEmbedProps {
   debug?: boolean;
   hideTabs?: boolean;
 
-  // TODO: define how to pass a list of VizFilter
+  filters?: VizFilter[];
 }
 
 const TableauEmbedInner = (
   {
     viewUrl,
-    embeddingApiVersion = DefaultEmbeddingApiVersion,
     className,
     id = 'tableauViz',
     instanceIdToClone,
     token,
-    toolbar,
+    toolbar = Toolbar.HIDDEN,
     debug = false,
     hideTabs = false,
+    filters = [],
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
 ) => {
@@ -62,26 +53,23 @@ const TableauEmbedInner = (
     vizRef.current ? vizRef.current : ({} as Viz)
   );
 
-  const embeddingApiUrl = React.useMemo(() => {
-    const url = EmbeddingApiVersion[embeddingApiVersion];
-    return debug ? url.replace('min.', '') : url;
-  }, [embeddingApiVersion, debug]);
-
-  const scriptStatus = useScript(embeddingApiUrl, {
-    asModule: true,
-  });
+  const { debug: globalDebug, baseClassName } = useTableauEmbed();
 
   const vizFirstInteractiveHandler = async (event: Event) => {
     const viz = vizRef.current!;
-    viz.style = { opacity: 1 };
 
-    // TODO: review
+    const updateVizOpacity = () => {
+      viz.style = { opacity: 1 };
+    };
+
+    // give an extra time to have everything ready before display it
+    setTimeout(updateVizOpacity, 150);
   };
 
   React.useEffect(() => {
     const viz = vizRef.current;
 
-    // TODO: check how to handle when the token is present
+    if (!viz) return;
 
     viz?.addEventListener(
       TableauEventType.FirstInteractive,
@@ -94,25 +82,28 @@ const TableauEmbedInner = (
         vizFirstInteractiveHandler
       );
     };
-  }, [id]);
+  }, [vizRef.current]);
 
   return (
     <>
       <tableau-viz
         ref={vizRef}
+        style={{ opacity: 0 }}
         {...{
           src: viewUrl,
-          class: cn(
-            'transition-opacity motion-reduce:transition-none',
-            className
-          ),
+          class: cn(baseClassName, className),
           id,
           instanceIdToClone,
           toolbar,
-          'hide-tabs': hideTabs,
+          token,
+          debug: debug || globalDebug ? true : undefined,
+          'hide-tabs': hideTabs ? true : undefined,
         }}
-        style={{ opacity: 0 }}
-      ></tableau-viz>
+      >
+        {filters.map((filter, index) => (
+          <viz-filter key={index} {...filter}></viz-filter>
+        ))}
+      </tableau-viz>
     </>
   );
 };
