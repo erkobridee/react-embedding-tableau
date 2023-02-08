@@ -2,6 +2,16 @@
 
 - [TypeScript + React: Typing Generic forwardRefs | fettblog.eu](https://fettblog.eu/typescript-react-generic-forward-refs/) (2021/04/13)
 
+- [How to use Web Components with TypeScript and React | Cory Rylan](https://coryrylan.com/blog/how-to-use-web-components-with-typescript-and-react) (2021/12/30)
+
+## React Context
+
+- [Context | React Docs](https://reactjs.org/docs/context.html#gatsby-focus-wrapper)
+
+- [createContext | React Beta Docs](https://beta.reactjs.org/reference/react/createContext)
+
+- [How to use React Context effectively | Kent C. Dodds](https://kentcdodds.com/blog/how-to-use-react-context-effectively) (2021/06/05)
+
 ## React Hooks
 
 - [React Hooks Intro](https://reactjs.org/docs/hooks-intro.html)
