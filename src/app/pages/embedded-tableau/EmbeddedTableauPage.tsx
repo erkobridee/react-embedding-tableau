@@ -6,6 +6,7 @@ import {
   RoutePageConfig,
   RoutesContent,
 } from 'app/components/content/RoutesContent';
+import { Toolbar } from 'app/components/tableau/definitions/Toolbar';
 import { TableauEmbedProvider } from 'app/components/tableau/TableauEmbedContext';
 import type { IBreadcrumbItem } from 'app/components/ui/Breadcrumbs';
 import ExternalLink from 'app/components/ui/ExternalLink';
@@ -69,7 +70,11 @@ const routes: RoutePageConfig[] = [
 ];
 
 export const EmbeddedTableauPage = () => (
-  <TableauEmbedProvider baseClassName="transition-opacity motion-reduce:transition-none">
+  <TableauEmbedProvider
+    baseClassName="transition-opacity motion-reduce:transition-none"
+    hideTabs
+    toolbar={Toolbar.HIDDEN}
+  >
     <RoutesContent
       {...{
         breadcrumbs: [defaultBreadcrumb],

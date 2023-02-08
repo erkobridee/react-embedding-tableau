@@ -12,13 +12,19 @@ import {
   EmbeddingApiVersion,
   TEmbeddingApiVersion,
 } from './definitions/EmbeddingApiVersion';
+import { TToolbar } from './definitions/Toolbar';
 
 interface ITableauEmbedContext {
   debug: boolean;
+
   apiVersion: TEmbeddingApiVersion;
   scriptSrc: string;
   scriptStatus: TScriptStatus;
+
   baseClassName?: string;
+  token?: string;
+  toolbar?: TToolbar;
+  hideTabs?: boolean;
 }
 
 const TableauEmbedContext = React.createContext<
@@ -31,6 +37,9 @@ interface TableauEmbedProviderProps {
   baseClassName?: string;
   debug?: boolean;
   jsMin?: boolean;
+  token?: string;
+  toolbar?: TToolbar;
+  hideTabs?: boolean;
 }
 
 export const TableauEmbedProvider: React.FunctionComponent<
@@ -41,6 +50,9 @@ export const TableauEmbedProvider: React.FunctionComponent<
   baseClassName,
   debug = false,
   jsMin = true,
+  token,
+  toolbar,
+  hideTabs = false,
 }) => {
   let scriptSrc = EmbeddingApiVersion[apiVersion] as string;
 
@@ -65,6 +77,9 @@ export const TableauEmbedProvider: React.FunctionComponent<
     scriptSrc,
     scriptStatus,
     baseClassName,
+    token,
+    toolbar,
+    hideTabs,
   };
 
   return (

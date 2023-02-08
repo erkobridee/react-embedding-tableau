@@ -5,7 +5,7 @@ const PUBLIC_TABLEAU_URL =
 
 export const PublicBasicEmbedExample = () => (
   <div className="flex justify-center w-full">
-    <TableauEmbed viewUrl={PUBLIC_TABLEAU_URL} hideTabs />
+    <TableauEmbed viewUrl={PUBLIC_TABLEAU_URL} />
   </div>
 );
 

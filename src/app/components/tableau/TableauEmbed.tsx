@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import cn from 'clsx';
 
-import { Toolbar, TToolbar } from './definitions/Toolbar';
+import { TToolbar } from './definitions/Toolbar';
 import { TableauEventType } from './events/TableauEventType';
 import { Viz } from './models/Viz';
 import { VizFilter } from './models/VizFilter';
@@ -39,7 +39,7 @@ const TableauEmbedInner = (
     id = 'tableauViz',
     instanceIdToClone,
     token,
-    toolbar = Toolbar.HIDDEN,
+    toolbar,
     debug = false,
     hideTabs = false,
     filters = [],
@@ -53,7 +53,13 @@ const TableauEmbedInner = (
     vizRef.current ? vizRef.current : ({} as Viz)
   );
 
-  const { debug: globalDebug, baseClassName } = useTableauEmbed();
+  const {
+    debug: globalDebug,
+    token: globalToken,
+    toolbar: globalToolbar,
+    hideTabs: globalHideTabs,
+    baseClassName,
+  } = useTableauEmbed();
 
   const vizFirstInteractiveHandler = async (event: Event) => {
     const viz = vizRef.current!;
@@ -94,10 +100,10 @@ const TableauEmbedInner = (
           class: cn(baseClassName, className),
           id,
           instanceIdToClone,
-          toolbar,
-          token,
+          toolbar: toolbar || globalToolbar,
+          token: token || globalToken,
           debug: debug || globalDebug ? true : undefined,
-          'hide-tabs': hideTabs ? true : undefined,
+          'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
         }}
       >
         {filters.map((filter, index) => (
