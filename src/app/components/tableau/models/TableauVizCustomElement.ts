@@ -3,6 +3,10 @@ import type { TToolbar } from '../definitions/Toolbar';
 import type { Viz } from './Viz';
 import type { VizFilter } from './VizFilter';
 
+export interface TableauVizFilterCustomElementAttributes extends VizFilter {
+  key?: React.Key | null;
+}
+
 /**
  * Maps the attributes of tableau-viz custom element
  *
@@ -124,16 +128,24 @@ export interface TableauVizCustomElementAttributes {
    * Applies to: `<tableau-viz>`, `<tableau-authoring-viz>
    */
   ['touch-optimize']?: boolean;
+
+  key?: React.Key | null;
+  children?: JSX.Element | JSX.Element[];
 }
 
 //----------------------------------------------------------------------------//
 
+/*
+  How to use Web Components with TypeScript and React | Cory Rylan
+  https://coryrylan.com/blog/how-to-use-web-components-with-typescript-and-react
+*/
+
 /* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace JSX {
-    interface IntrinsicElements {
+    interface IntrinsicElements extends HTMLElement {
       ['tableau-viz']: TableauVizCustomElementAttributes;
-      ['viz-filter']: VizFilter;
+      ['viz-filter']: TableauVizFilterCustomElementAttributes;
     }
   }
 }
