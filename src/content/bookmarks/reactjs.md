@@ -28,9 +28,13 @@
 
 - [usehooks-ts](https://usehooks-ts.com/) - Welcome to the documentation of usehooks-ts, a React hooks library, ready to use, written in typescript.
 
-- [A Cure for React useState Hell? | builder.io](https://www.builder.io/blog/use-reducer)
-
 - [[GitHub] imbhargav5 / rooks](https://github.com/imbhargav5/rooks) - Essential React custom hooks ⚓ to super charge your components!
+
+### React.useReducer
+
+- [Using the useReducer Hook in React with TypeScript | Craig Holliday - Dev.to](https://dev.to/craigaholliday/using-the-usereducer-hook-in-react-with-typescript-27m1) (2021/05/19)
+
+- [A Cure for React useState Hell? | builder.io](https://www.builder.io/blog/use-reducer) (2023/01/12)
 
 ## [React Suspense](https://beta.reactjs.org/reference/react/Suspense)
 

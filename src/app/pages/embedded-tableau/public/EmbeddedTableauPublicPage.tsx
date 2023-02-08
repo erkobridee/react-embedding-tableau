@@ -16,6 +16,10 @@ const PublicBasicEmbedExamplePage = lazyDelayed(
   () => import('./examples/BasicEmbed')
 );
 
+const PublicDynamicLoadExample = lazyDelayed(
+  () => import('./examples/DynamicLoad')
+);
+
 //----------------------------------------------------------------------------//
 
 const breadcrumbs: IBreadcrumbItem[] = [
@@ -38,11 +42,7 @@ const routes: RoutePageConfig[] = [
   {
     path: 'dynamic-load',
     label: 'Dynamic Load',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Dynamic Load
-      </div>
-    ),
+    PageComponent: PublicDynamicLoadExample,
   },
   {
     path: 'export-pdf',

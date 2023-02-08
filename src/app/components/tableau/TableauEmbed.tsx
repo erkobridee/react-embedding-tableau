@@ -90,6 +90,14 @@ const TableauEmbedInner = (
     };
   }, [vizRef.current]);
 
+  /*
+    any-pointer:coarse
+    https://css-tricks.com/interaction-media-features-and-their-potential-for-incorrect-assumptions/
+   */
+  const touchTptimize = !!(
+    window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches
+  );
+
   return (
     <>
       <tableau-viz
@@ -104,6 +112,7 @@ const TableauEmbedInner = (
           token: token || globalToken,
           debug: debug || globalDebug ? true : undefined,
           'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
+          'touch-optimize': touchTptimize ? true : undefined,
         }}
       >
         {filters.map((filter, index) => (
