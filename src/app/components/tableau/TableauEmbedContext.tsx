@@ -7,12 +7,13 @@ import * as React from 'react';
 
 import { TScriptStatus, useScript } from 'hooks/useScript';
 
+import type { TDeviceType } from './definitions/DeviceType';
 import {
   DefaultEmbeddingApiVersion,
   EmbeddingApiVersion,
   TEmbeddingApiVersion,
 } from './definitions/EmbeddingApiVersion';
-import { TToolbar } from './definitions/Toolbar';
+import type { TToolbar } from './definitions/Toolbar';
 
 interface ITableauEmbedContext {
   debug: boolean;
@@ -23,6 +24,7 @@ interface ITableauEmbedContext {
 
   baseClassName?: string;
   token?: string;
+  device?: TDeviceType;
   toolbar?: TToolbar;
   hideTabs?: boolean;
 }
@@ -38,6 +40,7 @@ interface TableauEmbedProviderProps {
   debug?: boolean;
   jsMin?: boolean;
   token?: string;
+  device?: TDeviceType;
   toolbar?: TToolbar;
   hideTabs?: boolean;
 }
@@ -51,6 +54,7 @@ export const TableauEmbedProvider: React.FunctionComponent<
   debug = false,
   jsMin = true,
   token,
+  device,
   toolbar,
   hideTabs = false,
 }) => {
@@ -78,6 +82,7 @@ export const TableauEmbedProvider: React.FunctionComponent<
     scriptStatus,
     baseClassName,
     token,
+    device,
     toolbar,
     hideTabs,
   };

@@ -13,7 +13,6 @@ export const PublicTableauInfoFooter: React.FunctionComponent<
   PublicTableauInfoFooterProps
 > = ({ tableauUrl, label, url, code }) => (
   <>
-    {' '}
     <div className="flex space-x-3">
       <div className="font-bold">Public Tableau:</div>
 

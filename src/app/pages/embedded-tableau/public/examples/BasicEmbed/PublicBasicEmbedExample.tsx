@@ -9,7 +9,7 @@ const PUBLIC_TABLEAU_URL =
 
 export const PublicBasicEmbedExample = () => (
   <div className="flex flex-col items-center w-full space-y-3">
-    <div className="flex justify-center w-full">
+    <div className="flex justify-center h-[634px] min-w-[800px]">
       <TableauEmbed viewUrl={PUBLIC_TABLEAU_URL} />
     </div>
 

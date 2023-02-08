@@ -8,6 +8,8 @@
 
 import * as React from 'react';
 
+import cn from 'clsx';
+
 import { TableauEmbed } from 'app/components/tableau';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
@@ -20,6 +22,12 @@ const VIZ_LIST = [
 ];
 const VIZ_LIST_LENGTH = VIZ_LIST.length;
 const VIZ_LIST_LAST_INDEX = VIZ_LIST_LENGTH - 1;
+
+const buttonClassName = cn(
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800',
+  'py-2 px-4',
+  'bg-transparent border border-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 dark:border-slate-700 dark:text-slate-100'
+);
 
 interface IVizState {
   vizUrl: string;
@@ -52,7 +60,7 @@ const vizReducer = (state: IVizState, action: IVizAction) => {
       }
       break;
     case VizAction.NEXT:
-      vizIndex = vizIndex - 1;
+      vizIndex = vizIndex + 1;
       if (vizIndex > VIZ_LIST_LAST_INDEX) {
         vizIndex = 0;
       }
@@ -85,18 +93,29 @@ export const PublicDynamicLoadExample = () => {
 
   const nextButtonClickHandler = () => dispatch({ type: VizAction.NEXT });
 
-  const setVizIndex = (vizIndex?: number) =>
-    dispatch({ type: VizAction.SET_INDEX, payload: vizIndex });
+  // const setVizIndex = (vizIndex?: number) =>
+  //   dispatch({ type: VizAction.SET_INDEX, payload: vizIndex });
 
-  const { vizUrl } = state;
+  const { vizUrl, vizIndex } = state;
 
   return (
     <div className="flex flex-col items-center w-full space-y-3">
-      <div className="flex w-[800px] h-[610px]">
+      <div className="flex min-w-[800px] min-h-[635px] max-h-[700px]">
         <TableauEmbed viewUrl={vizUrl} />
       </div>
 
-      <div>Actions row</div>
+      <div className="flex space-x-3 items-center">
+        <button
+          className={buttonClassName}
+          onClick={previousButtonClickHandler}
+        >
+          Previsous
+        </button>
+        <div>{`${vizIndex + 1} / ${VIZ_LIST_LENGTH}`}</div>
+        <button className={buttonClassName} onClick={nextButtonClickHandler}>
+          Next
+        </button>
+      </div>
 
       <PublicTableauInfoFooter
         tableauUrl={vizUrl}

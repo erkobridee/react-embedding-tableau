@@ -6,10 +6,13 @@ import * as React from 'react';
 
 import cn from 'clsx';
 
-import { TToolbar } from './definitions/Toolbar';
+import { useDidUpdate } from 'hooks/useDidUpdate';
+
+import type { TDeviceType } from './definitions/DeviceType';
+import type { TToolbar } from './definitions/Toolbar';
 import { TableauEventType } from './events/TableauEventType';
-import { Viz } from './models/Viz';
-import { VizFilter } from './models/VizFilter';
+import type { Viz } from './models/Viz';
+import type { VizFilter } from './models/VizFilter';
 import { useTableauEmbed } from './TableauEmbedContext';
 
 interface TableauEmbedProps {
@@ -29,12 +32,13 @@ interface TableauEmbedProps {
   debug?: boolean;
   hideTabs?: boolean;
 
+  device?: TDeviceType;
   filters?: VizFilter[];
 }
 
 const TableauEmbedInner = (
   {
-    viewUrl,
+    viewUrl: viewUrlProp,
     className,
     id = 'tableauViz',
     instanceIdToClone,
@@ -42,10 +46,14 @@ const TableauEmbedInner = (
     toolbar,
     debug = false,
     hideTabs = false,
+    device,
     filters = [],
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
 ) => {
+  const [isLoading, setLoading] = React.useState(true);
+  const [viewUrl, setViewUrl] = React.useState(viewUrlProp);
+
   const vizRef = React.useRef<Viz>(null);
 
   /* link the internal vizRef with the passed external ref  */
@@ -56,16 +64,15 @@ const TableauEmbedInner = (
   const {
     debug: globalDebug,
     token: globalToken,
+    device: globalDevice,
     toolbar: globalToolbar,
     hideTabs: globalHideTabs,
     baseClassName,
   } = useTableauEmbed();
 
-  const vizFirstInteractiveHandler = async (event: Event) => {
-    const viz = vizRef.current!;
-
+  const vizFirstInteractiveHandler = async (/*event: Event*/) => {
     const updateVizOpacity = () => {
-      viz.style = { opacity: 1 };
+      setLoading(false);
     };
 
     // give an extra time to have everything ready before display it
@@ -90,6 +97,18 @@ const TableauEmbedInner = (
     };
   }, [vizRef.current]);
 
+  useDidUpdate(() => {
+    const viz = vizRef.current;
+
+    if (!viz) return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      setViewUrl(viewUrlProp);
+    }, 150);
+  }, [viewUrlProp]);
+
   /*
     any-pointer:coarse
     https://css-tricks.com/interaction-media-features-and-their-potential-for-incorrect-assumptions/
@@ -98,16 +117,22 @@ const TableauEmbedInner = (
     window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches
   );
 
+  // TODO: define a property to specify the loading element
   return (
     <>
+      <div style={{ position: 'absolute', opacity: isLoading ? 1 : 0 }}>
+        Loading...
+      </div>
+
       <tableau-viz
         ref={vizRef}
-        style={{ opacity: 0 }}
+        style={{ opacity: isLoading ? 0 : 1 }}
         {...{
           src: viewUrl,
           class: cn(baseClassName, className),
           id,
           instanceIdToClone,
+          device: device || globalDevice,
           toolbar: toolbar || globalToolbar,
           token: token || globalToken,
           debug: debug || globalDebug ? true : undefined,
