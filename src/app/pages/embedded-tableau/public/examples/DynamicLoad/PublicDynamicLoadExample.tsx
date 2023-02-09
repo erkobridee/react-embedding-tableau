@@ -8,13 +8,12 @@
 
 import * as React from 'react';
 
-import cn from 'clsx';
-
 import {
   TableauEmbed,
   TableauEmbedStatus,
   type TOnStatusChangeFn,
 } from 'app/components/tableau';
+import { Button } from 'app/components/ui/Button';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
 const VIZ_LIST = [
@@ -26,12 +25,6 @@ const VIZ_LIST = [
 ];
 const VIZ_LIST_LENGTH = VIZ_LIST.length;
 const VIZ_LIST_LAST_INDEX = VIZ_LIST_LENGTH - 1;
-
-const buttonClassName = cn(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:bg-slate-800 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800',
-  'py-2 px-4',
-  'bg-transparent border border-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 dark:border-slate-700 dark:text-slate-100'
-);
 
 interface IVizState {
   vizUrl: string;
@@ -117,21 +110,13 @@ export const PublicDynamicLoadExample = () => {
       </div>
 
       <div className="flex space-x-3 items-center">
-        <button
-          className={buttonClassName}
-          onClick={previousButtonClickHandler}
-          disabled={buttonsDisabled}
-        >
+        <Button onClick={previousButtonClickHandler} disabled={buttonsDisabled}>
           Previsous
-        </button>
+        </Button>
         <div>{`${vizIndex + 1} / ${VIZ_LIST_LENGTH}`}</div>
-        <button
-          className={buttonClassName}
-          onClick={nextButtonClickHandler}
-          disabled={buttonsDisabled}
-        >
+        <Button onClick={nextButtonClickHandler} disabled={buttonsDisabled}>
           Next
-        </button>
+        </Button>
       </div>
 
       <PublicTableauInfoFooter
