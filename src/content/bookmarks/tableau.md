@@ -60,6 +60,8 @@
 
   - [TypeScript support #2](https://github.com/tableau/embedding-api-v3-guide/issues/2)
 
+  - [Get Notification When the Viz failed to load #9](https://github.com/tableau/embedding-api-v3-guide/issues/9)
+
 - [[YouTube] What is new in V3 of the Tableau Embedding API? | Andre de Vries](https://www.youtube.com/watch?v=qadem86RLzs) (2021/12/23)
 
   - [[GitHub] andre347 / tableau-embedding-api-v3](https://github.com/andre347/tableau-embedding-api-v3) - Code snippets used for Embedding API v3 Video
