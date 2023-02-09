@@ -116,6 +116,17 @@ export const PublicExportOptionsExample = () => {
         </Button>
       </div>
 
+      <div className="flex space-x-3 items-center">
+        {selectedOption === 'export-image' ? (
+          <span>.</span>
+        ) : (
+          <>
+            <span>Note:</span>
+            <span>{`It's missing from the Tableau Embedded API a way to know then the user finish the export flow with the internal dialog.`}</span>
+          </>
+        )}
+      </div>
+
       <div className="flex justify-center h-[634px] min-w-[800px]">
         <TableauEmbed
           ref={vizRef}
