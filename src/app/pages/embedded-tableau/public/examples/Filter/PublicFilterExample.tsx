@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { useDidUpdate } from 'hooks/useDidUpdate';
-
 import {
   FilterChangedEvent,
   FilterUpdateType,

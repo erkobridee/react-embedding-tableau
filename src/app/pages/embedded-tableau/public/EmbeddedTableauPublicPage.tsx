@@ -26,6 +26,26 @@ const PublicExportOptionsExample = lazyDelayed(
 
 const PublicFilterExample = lazyDelayed(() => import('./examples/Filter'));
 
+const PublicMarkSelectionChangedExample = lazyDelayed(
+  () => import('./examples/MarkSelectionChanged')
+);
+
+const PublicSelectMarksExample = lazyDelayed(
+  () => import('./examples/SelectMarks')
+);
+
+const PublicResizeExample = lazyDelayed(() => import('./examples/Resize'));
+
+const PublicAnimationExample = lazyDelayed(
+  () => import('./examples/Animation')
+);
+
+const PublicGetDataExample = lazyDelayed(() => import('./examples/GetData'));
+
+const PublicGetLogicalDataExample = lazyDelayed(
+  () => import('./examples/GetLogicalData')
+);
+
 //----------------------------------------------------------------------------//
 
 const breadcrumbs: IBreadcrumbItem[] = [
@@ -61,40 +81,34 @@ const routes: RoutePageConfig[] = [
     PageComponent: PublicFilterExample,
   },
   {
-    path: 'get-data',
-    label: 'Get Data',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Get Data
-      </div>
-    ),
+    path: 'mark-selection',
+    label: 'Mark Selection Changed',
+    PageComponent: PublicMarkSelectionChangedExample,
+  },
+  {
+    path: 'select-marks',
+    label: 'Select Marks',
+    PageComponent: PublicSelectMarksExample,
   },
   {
     path: 'resize',
     label: 'Resize',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Resize
-      </div>
-    ),
-  },
-  {
-    path: 'events',
-    label: 'Events',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Events
-      </div>
-    ),
+    PageComponent: PublicResizeExample,
   },
   {
     path: 'animation',
     label: 'Animation',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Animation
-      </div>
-    ),
+    PageComponent: PublicAnimationExample,
+  },
+  {
+    path: 'get-data',
+    label: 'Get Data',
+    PageComponent: PublicGetDataExample,
+  },
+  {
+    path: 'get-logical-data',
+    label: 'Get Logical Data',
+    PageComponent: PublicGetLogicalDataExample,
   },
 ];
 
