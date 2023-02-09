@@ -1,0 +1,1 @@
+import{j as e}from"./index-9fd420fd.js";import{c as o}from"./vendor-50e95b69.js";const a="prose prose-sm prose-slate prose-a:no-underline hover:prose-a:underline dark:prose-invert lg:prose-base",i=({className:r,children:s})=>e("article",{className:o(a,r),children:s});export{i as T};
