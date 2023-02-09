@@ -1,6 +1,8 @@
 # [React](https://reactjs.org/)
 
-- [TypeScript + React: Typing Generic forwardRefs | fettblog.eu](https://fettblog.eu/typescript-react-generic-forward-refs/) (2021/04/13)
+- [TypeScript and React | fettblog.eu](https://fettblog.eu/typescript-react/)
+
+  - [TypeScript + React: Typing Generic forwardRefs | fettblog.eu](https://fettblog.eu/typescript-react-generic-forward-refs/) (2021/04/13)
 
 - [How to use Web Components with TypeScript and React | Cory Rylan](https://coryrylan.com/blog/how-to-use-web-components-with-typescript-and-react) (2021/12/30)
 
