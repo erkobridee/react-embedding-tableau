@@ -20,6 +20,10 @@ const PublicDynamicLoadExample = lazyDelayed(
   () => import('./examples/DynamicLoad')
 );
 
+const PublicExportOptionsExample = lazyDelayed(
+  () => import('./examples/ExportOptions')
+);
+
 //----------------------------------------------------------------------------//
 
 const breadcrumbs: IBreadcrumbItem[] = [
@@ -45,13 +49,9 @@ const routes: RoutePageConfig[] = [
     PageComponent: PublicDynamicLoadExample,
   },
   {
-    path: 'export-pdf',
-    label: 'Export PDF',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Export PDF
-      </div>
-    ),
+    path: 'export-options',
+    label: 'Export Options',
+    PageComponent: PublicExportOptionsExample,
   },
   {
     path: 'filter',
