@@ -2,6 +2,7 @@ import type { CustomView } from './CustomView';
 import type { Parameter } from './Parameter';
 import type { Sheet } from './Sheet';
 import type { SheetInfo } from './SheetInfo';
+import type { Worksheet } from './Worksheet';
 
 /**
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/workbook.html
@@ -11,7 +12,7 @@ export interface Workbook {
   activeCustomView?: CustomView;
 
   /** Gets the currently active sheet (the active tab). */
-  activeSheet: Sheet;
+  activeSheet: Worksheet;
 
   /** Gets the name of the workbook saved to the server. Note that this is not necessarily the file name. */
   name: string;

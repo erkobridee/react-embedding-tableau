@@ -20,5 +20,7 @@ export * from './DateRangeType';
 export * from './AnnotationType';
 export * from './SelectionUpdateType';
 export * from './CategoricalValue';
+export * from './FilterDomainType';
+export * from './HierarchicalLevelSelectionState';
 
 export * from './TableauEmbedBaseProps';

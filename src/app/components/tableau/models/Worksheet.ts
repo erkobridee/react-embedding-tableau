@@ -87,7 +87,7 @@ export interface Worksheet extends Sheet {
     fieldName: string,
     values: string[],
     updateType: TFilterUpdateType,
-    filterOptions: FilterOptions
+    filterOptions?: FilterOptions
   ): Promise<string>;
 
   /**
