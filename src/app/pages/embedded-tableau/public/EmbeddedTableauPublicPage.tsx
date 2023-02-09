@@ -24,6 +24,8 @@ const PublicExportOptionsExample = lazyDelayed(
   () => import('./examples/ExportOptions')
 );
 
+const PublicFilterExample = lazyDelayed(() => import('./examples/Filter'));
+
 //----------------------------------------------------------------------------//
 
 const breadcrumbs: IBreadcrumbItem[] = [
@@ -56,11 +58,7 @@ const routes: RoutePageConfig[] = [
   {
     path: 'filter',
     label: 'Filter',
-    PageComponent: () => (
-      <div>
-        <strong>TODO:</strong> define the page - Filter
-      </div>
-    ),
+    PageComponent: PublicFilterExample,
   },
   {
     path: 'get-data',
