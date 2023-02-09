@@ -129,8 +129,14 @@ export interface TableauVizCustomElementAttributes {
    */
   ['touch-optimize']?: boolean;
 
+  //---===---//
+  // extra attributes added
+
   key?: React.Key | null;
+
   children?: JSX.Element | JSX.Element[];
+
+  ['data-status']?: string;
 }
 
 //----------------------------------------------------------------------------//

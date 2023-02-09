@@ -1,5 +1,11 @@
 /*
-  https://fettblog.eu/typescript-react-generic-forward-refs/
+  Tableau Embedding API known issues
+
+  Missing TypeScript support #2
+  https://github.com/tableau/embedding-api-v3-guide/issues/2
+
+  Get Notification When the Viz failed to load #9 - there is no way to listen for errors
+  https://github.com/tableau/embedding-api-v3-guide/issues/9
 */
 
 import * as React from 'react';
@@ -13,13 +19,11 @@ import { TableauEventType } from './events/TableauEventType';
 import type { Viz } from './models/Viz';
 import type { VizFilter } from './models/VizFilter';
 import { useTableauEmbed } from './TableauEmbedContext';
-
-//----------------------------------------------------------------------------//
-
-export const TableauEmbedStatus = {
-  LOADING: 'loading',
-  READY: 'ready',
-} as const;
+import {
+  TableauEmbedStatus,
+  TOnStatusChangeFn,
+  useTableauEmbedReducer,
+} from './useTableauEmbedReducer';
 
 //----------------------------------------------------------------------------//
 
@@ -42,6 +46,8 @@ interface TableauEmbedProps extends TableauEmbedBaseProps {
    * @see — https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_filter.html
    */
   filters?: VizFilter[];
+
+  onStatusChange?: TOnStatusChangeFn;
 }
 
 const TableauEmbedInner = (
@@ -57,11 +63,16 @@ const TableauEmbedInner = (
     device,
     filters = [],
     loading,
+    onStatusChange = () => undefined,
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
 ) => {
-  const [isLoading, setLoading] = React.useState(true);
-  const [viewUrl, setViewUrl] = React.useState(viewUrlProp);
+  const { viewUrl, status, setReady } = useTableauEmbedReducer(viewUrlProp);
+
+  const isLoading = [
+    `${TableauEmbedStatus.IDLE}`,
+    `${TableauEmbedStatus.LOADING}`,
+  ].includes(status);
 
   const vizRef = React.useRef<Viz>(null);
 
@@ -81,43 +92,37 @@ const TableauEmbedInner = (
   } = useTableauEmbed();
 
   const vizFirstInteractiveHandler = async (/*event: Event*/) => {
-    const updateVizOpacity = () => {
-      setLoading(false);
-    };
-
     // give an extra time to have everything ready before display it
-    setTimeout(updateVizOpacity, 300);
+    setTimeout(() => {
+      setReady();
+    }, 300);
   };
 
-  React.useEffect(() => {
-    const viz = vizRef.current;
+  React.useEffect(
+    () => {
+      const viz = vizRef.current;
 
-    if (!viz) return;
+      if (!viz) return;
 
-    viz?.addEventListener(
-      TableauEventType.FirstInteractive,
-      vizFirstInteractiveHandler
-    );
-
-    return () => {
-      viz?.removeEventListener(
+      viz?.addEventListener(
         TableauEventType.FirstInteractive,
         vizFirstInteractiveHandler
       );
-    };
-  }, [vizRef.current]);
+
+      return () => {
+        viz?.removeEventListener(
+          TableauEventType.FirstInteractive,
+          vizFirstInteractiveHandler
+        );
+      };
+    },
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    []
+  );
 
   useDidUpdate(() => {
-    const viz = vizRef.current;
-
-    if (!viz) return;
-
-    setLoading(true);
-
-    setTimeout(() => {
-      setViewUrl(viewUrlProp);
-    }, 150);
-  }, [viewUrlProp]);
+    onStatusChange(status);
+  }, [status]);
 
   /*
     any-pointer:coarse
@@ -142,6 +147,7 @@ const TableauEmbedInner = (
         debug: debug || globalDebug ? true : undefined,
         'hide-tabs': hideTabs || globalHideTabs ? true : undefined,
         'touch-optimize': touchOptimize ? true : undefined,
+        'data-status': status,
       }}
     >
       {filters.map((filter, index) => (
@@ -176,8 +182,15 @@ const TableauEmbedInner = (
   );
 };
 
+/*
+  TypeScript + React: Typing Generic forwardRefs
+  https://fettblog.eu/typescript-react-generic-forward-refs/
+*/
 export const TableauEmbed = React.forwardRef(TableauEmbedInner);
 
 TableauEmbed.displayName = 'TableauEmbed';
 
 export default TableauEmbed;
+
+export type { TOnStatusChangeFn } from './useTableauEmbedReducer';
+export { TableauEmbedStatus } from './useTableauEmbedReducer';

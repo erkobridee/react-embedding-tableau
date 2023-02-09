@@ -10,7 +10,11 @@ import * as React from 'react';
 
 import cn from 'clsx';
 
-import { TableauEmbed } from 'app/components/tableau';
+import {
+  TableauEmbed,
+  TableauEmbedStatus,
+  type TOnStatusChangeFn,
+} from 'app/components/tableau';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
 const VIZ_LIST = [
@@ -98,21 +102,34 @@ export const PublicDynamicLoadExample = () => {
 
   const { vizUrl, vizIndex } = state;
 
+  const [buttonsDisabled, setButtonsDisabled] = React.useState(true);
+  const onTableauEmbedStatusChangeHandler: TOnStatusChangeFn = (status) => {
+    setButtonsDisabled(status !== TableauEmbedStatus.READY);
+  };
+
   return (
     <div className="flex flex-col items-center w-full space-y-3">
       <div className="flex min-w-[800px] min-h-[635px] max-h-[700px]">
-        <TableauEmbed viewUrl={vizUrl} />
+        <TableauEmbed
+          viewUrl={vizUrl}
+          onStatusChange={onTableauEmbedStatusChangeHandler}
+        />
       </div>
 
       <div className="flex space-x-3 items-center">
         <button
           className={buttonClassName}
           onClick={previousButtonClickHandler}
+          disabled={buttonsDisabled}
         >
           Previsous
         </button>
         <div>{`${vizIndex + 1} / ${VIZ_LIST_LENGTH}`}</div>
-        <button className={buttonClassName} onClick={nextButtonClickHandler}>
+        <button
+          className={buttonClassName}
+          onClick={nextButtonClickHandler}
+          disabled={buttonsDisabled}
+        >
           Next
         </button>
       </div>
