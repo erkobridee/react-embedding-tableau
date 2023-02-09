@@ -129,7 +129,9 @@ const TableauEmbedInner = (
     https://css-tricks.com/interaction-media-features-and-their-potential-for-incorrect-assumptions/
    */
   const touchOptimize = !!(
-    window.matchMedia && window.matchMedia('(any-pointer:coarse)').matches
+    window &&
+    window.matchMedia &&
+    window.matchMedia('(any-pointer:coarse)').matches
   );
 
   const tableauVizElement = (
@@ -194,3 +196,4 @@ export default TableauEmbed;
 
 export type { TOnStatusChangeFn } from './useTableauEmbedReducer';
 export { TableauEmbedStatus } from './useTableauEmbedReducer';
+export type { VizFilter } from './models/VizFilter';
