@@ -4,7 +4,7 @@ import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/compo
 // const PUBLIC_TABLEAU_URL =
 //   'https://public.tableau.com/views/DataSchoolproject2_0/Superstore';
 
-const PUBLIC_TABLEAU_URL = //'';
+const PUBLIC_TABLEAU_URL =
   'https://public.tableau.com/views/RegionalSampleWorkbook/Storms';
 
 export const PublicBasicEmbedExample = () => (
