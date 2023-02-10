@@ -37,11 +37,18 @@ export const EmbeddedTableauPublicPageIndex: React.FunctionComponent<
         Useful references:
         <ul>
           <li>
+            <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/tutorial/tutorial.htm">
+              Tableau Embedding API v3 Tutorial
+            </ExternalLink>
+          </li>
+
+          <li>
             <ExternalLink href="https://github.com/tableau/embedding-api-v3-samples#embedding-api-v3-samples">
               [GitHub] tableau / embedding-api-v3-samples
             </ExternalLink>{' '}
             - This repository contains samples for the Tableau Embedding API V3.
           </li>
+
           <li>
             <ExternalLink href="https://github.com/andre347/tableau-react-jsapi">
               [GitHub] andre347 / tableau-react-jsapi

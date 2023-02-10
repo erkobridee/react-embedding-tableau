@@ -100,6 +100,12 @@ export const EmbeddedTableauPageIndex: React.FunctionComponent<
                   </li>
 
                   <li>
+                    <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/tutorial/tutorial.htm">
+                      Tableau Embedding API v3 Tutorial
+                    </ExternalLink>
+                  </li>
+
+                  <li>
                     <ExternalLink href="https://help.tableau.com/current/api/embedding_api/en-us/reference/globals.html">
                       Embedding API Reference
                     </ExternalLink>{' '}
