@@ -127,6 +127,12 @@ export const PublicFilterExample = () => {
   return (
     <div className="flex flex-col items-center w-full space-y-3">
       <div className="flex space-x-3 items-center">
+        <span>
+          <strong>ui status: </strong> {status}
+        </span>
+      </div>
+
+      <div className="flex space-x-3 items-center">
         <span className="font-bold">{FILTER_NAME}</span>
 
         <Select

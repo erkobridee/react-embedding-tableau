@@ -89,6 +89,12 @@ export const PublicExportOptionsExample = () => {
   return (
     <div className="flex flex-col items-center w-full space-y-3">
       <div className="flex space-x-3 items-center">
+        <span>
+          <strong>ui status: </strong> {status}
+        </span>
+      </div>
+
+      <div className="flex space-x-3 items-center">
         <Select
           disabled={isDisabled}
           value={selectedOption}
@@ -118,7 +124,7 @@ export const PublicExportOptionsExample = () => {
 
       <div className="flex space-x-3 items-center">
         {selectedOption === 'export-image' ? (
-          <span>.</span>
+          <span className="text-transparent">.</span>
         ) : (
           <>
             <span>Note:</span>
