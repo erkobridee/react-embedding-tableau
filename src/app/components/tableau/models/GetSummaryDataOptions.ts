@@ -16,7 +16,7 @@ export interface GetSummaryDataOptions {
   ignoreSelection?: boolean;
 
   /** Specify which properties to return in DataValues. The default is `IncludeDataValuesOption.AllValues`. All properties not requested will be undefined in the DataValue results. This is a performance optimization only, and will be ignored in Tableau versions prior to 2021.2. */
-  includeDataValuesOption: TIncludeDataValuesOption;
+  includeDataValuesOption?: TIncludeDataValuesOption;
 
   /** The number of rows of data that you want to return. A value of `0` will attempt to return all rows. `0` is the default if maxRows is not specified. `getUnderlyingTableDataAsync` - maximum number of rows returned is capped at `10,000` regardless of maxRows. `getSummaryDataAsync` - maximum number of rows returned is not capped, but performance may suffer with large row counts. */
   maxRows?: number;
