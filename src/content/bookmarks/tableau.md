@@ -44,13 +44,15 @@
 
 - [Tableau Embedding API v3 | Tableau Help](https://help.tableau.com/current/api/embedding_api/en-us/index.html)
 
+  - [Tableau Embedding API v3 Tutorial](https://help.tableau.com/current/api/embedding_api/en-us/tutorial/tutorial.htm)
+
   - [Tableau Embedding API version 3.1.0](https://help.tableau.com/current/api/embedding_api/en-us/docs/embedding_api_release_notes.html#tableau-embedding-api-version-310)
 
-    - [Embedding API Reference](https://help.tableau.com/current/api/embedding_api/en-us/reference/index.html)
+  - [Embedding API Reference](https://help.tableau.com/current/api/embedding_api/en-us/reference/index.html)
 
-      - [Viz](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html)
+    - [Viz](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html)
 
-        - [viz.refreshDataAsync](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html#refreshdataasync)
+      - [viz.refreshDataAsync](https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/viz.html#refreshdataasync)
 
 - [A New Era in Tableau Embedding: Introducing the Embedding API v3 | Tableau Conference 2021](https://www.tableau.com/events/tc/2021/new-era-tableau-embedding-introducing-embedding-api-v3) - It's a new era in Tableau Embedding. Introducing the Embedding API v3! In 2022, we'll release version 3 of the Tableau Embedding API, which helps you embed Tableau visualizations in web applications and build rich integrations. The Embedding API v3 replaces and improves upon the JavaScript API v2. It's currently in Developer Preview, which means it is available to you to explore today. In this episode, we'll explain the benefits of the new Embedding API v3 and show you how to get started building your next Embedded Analytics solution with it.
 
