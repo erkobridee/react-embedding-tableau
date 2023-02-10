@@ -47,6 +47,9 @@ interface TableauEmbedProps extends TableauEmbedBaseProps {
    */
   filters?: VizFilter[];
 
+  width?: React.CSSProperties['width'];
+  height?: React.CSSProperties['height'];
+
   onStatusChange?: TOnStatusChangeFn;
 }
 
@@ -63,6 +66,8 @@ const TableauEmbedInner = (
     device,
     filters = [],
     loading,
+    width,
+    height,
     onStatusChange = () => undefined,
   }: TableauEmbedProps,
   ref: React.Ref<Viz>
@@ -119,6 +124,26 @@ const TableauEmbedInner = (
     /* eslint-disable-next-line react-hooks/exhaustive-deps */
     []
   );
+
+  React.useEffect(() => {
+    const viz = vizRef.current;
+
+    if (!viz || (!width && !height)) return;
+
+    const vizElShadowRoot = (viz as unknown as any)['shadowRoot'];
+    const innerIframe = vizElShadowRoot.children[0];
+
+    const parseValue = (value: string) =>
+      /^\d+$/.test(value) ? `${value}px` : value;
+
+    if (width) {
+      innerIframe.style.width = parseValue(`${width}`);
+    }
+
+    if (height) {
+      innerIframe.style.height = parseValue(`${height}`);
+    }
+  }, [width, height]);
 
   useDidUpdate(() => {
     onStatusChange(status);
