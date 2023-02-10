@@ -94,6 +94,8 @@ export const PublicFilterExample = () => {
   ) => {
     const filter = (await event.detail.getFilterAsync()) as CategoricalFilter;
 
+    if (filter.fieldName !== FILTER_NAME) return;
+
     const appliedValuesLength = filter?.appliedValues?.length ?? 0;
 
     if (appliedValuesLength === 0) {
