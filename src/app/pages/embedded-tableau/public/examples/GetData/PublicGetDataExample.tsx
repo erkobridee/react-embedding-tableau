@@ -156,7 +156,7 @@ export const PublicGetDataExample = () => {
         </Button>
       </div>
 
-      <div className="flex justify-center h-[600px] min-w-[800px]">
+      <div className="flex justify-center h-[650px] min-w-[800px]">
         <TableauEmbed
           ref={vizRef}
           viewUrl={PUBLIC_TABLEAU_URL}
