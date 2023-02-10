@@ -163,6 +163,34 @@ export const MarkSelectionChanged = () => {
           </div>
         </>
       ) : null}
+
+      <hr className="border-divider my-4 sm:mx-auto lg:my-6 w-full" />
+      <ul>
+        <span className="text-lg">Useful events:</span>
+
+        <li className="flex gap-2">
+          <span className="font-bold">First Interactive</span>
+          <span className="italic">
+            Fired when a viz first becomes interactive
+          </span>
+        </li>
+
+        <li className="flex gap-2">
+          <span className="font-bold">Filter Changed</span>
+          <span className="italic">
+            Raised when any filter has changed state. You can use this event
+            type with TableauViz objects.
+          </span>
+        </li>
+
+        <li className="flex gap-2">
+          <span className="font-bold">Mark Selection Changed</span>
+          <span className="italic">
+            The selected marks on a visualization have changed. You can use this
+            event type with TableauViz objects.
+          </span>
+        </li>
+      </ul>
     </div>
   );
 };
