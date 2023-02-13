@@ -208,8 +208,19 @@ export const PublicAnimationExample = () => {
         />
       </div>
 
-      <div className="flex flex-col gap-3 items-center">
+      <div className="flex gap-3 items-center">
         Years range: 1960 until 2011
+      </div>
+
+      <div className="flex gap-3 items-center">
+        <div>
+          <span className="font-bold">NOTE:</span> <span>This</span>{' '}
+          <span className="italic">animation</span>{' '}
+          <span>
+            runs by incremeting the Year filter on the defined animation timer ({' '}
+            {`${timer} ms`} ).
+          </span>
+        </div>
       </div>
 
       <PublicTableauInfoFooter
