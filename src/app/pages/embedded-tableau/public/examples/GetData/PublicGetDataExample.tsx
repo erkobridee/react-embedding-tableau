@@ -54,7 +54,7 @@ interface IParsedDataItem<V = string | number | Date>
 type TParsedMarksDataRow = IParsedDataItem[];
 type TParsedMarksData = TParsedMarksDataRow[];
 
-const parseMarksData = (marksData: DataTable): TParsedMarksData => {
+const parseData = (marksData: DataTable): TParsedMarksData => {
   const parsedColumns = marksData.columns.map<IParsedColumnItem>(
     ({ fieldName, dataType }) => ({
       fieldId: slugify(fieldName),
@@ -124,7 +124,7 @@ export const PublicGetDataExample = () => {
       options
     );
 
-    const parsedData = parseMarksData(underlyingTableData);
+    const parsedData = parseData(underlyingTableData);
 
     setData(parsedData);
 
