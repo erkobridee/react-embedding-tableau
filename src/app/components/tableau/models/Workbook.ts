@@ -7,12 +7,12 @@ import type { Worksheet } from './Worksheet';
 /**
  * @see https://help.tableau.com/current/api/embedding_api/en-us/reference/interfaces/workbook.html
  */
-export interface Workbook {
+export interface Workbook<W extends Sheet = Sheet> {
   /** Gets the currently active custom view, or undefined if no custom view is active. */
   activeCustomView?: CustomView;
 
   /** Gets the currently active sheet (the active tab). */
-  activeSheet: Worksheet;
+  activeSheet: W;
 
   /** Gets the name of the workbook saved to the server. Note that this is not necessarily the file name. */
   name: string;
