@@ -177,7 +177,8 @@ export const PublicGetDataExample = () => {
           <div className="flex space-x-3 items-center font-bold">
             Data Selected ( {dataLength} )
           </div>
-          <div className="flex gap-3 items-center flex-wrap">
+          <div className="flex gap-3 items-center justify-center flex-wrap max-h-[30rem] overflow-auto relative">
+            <div className="sticky top-0 left-0 right-0 h-5 w-full bg-gradient-to-b from-[var(--color-bg-app)] to-transparent"></div>
             {data.map((mark, index) => (
               <div
                 key={index}
@@ -196,6 +197,7 @@ export const PublicGetDataExample = () => {
                 ))}
               </div>
             ))}
+            <div className="sticky bottom-0 left-0 right-0 h-5 w-full bg-gradient-to-b from-transparent to-[var(--color-bg-app)]"></div>
           </div>
         </>
       ) : null}

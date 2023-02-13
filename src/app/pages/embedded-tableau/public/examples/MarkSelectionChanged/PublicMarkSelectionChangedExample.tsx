@@ -146,7 +146,7 @@ export const MarkSelectionChanged = () => {
           <div className="flex space-x-3 items-center font-bold">
             Marks Selected ( {parsedMarksDataLength} )
           </div>
-          <div className="flex gap-3 items-center flex-wrap">
+          <div className="flex gap-3 items-center justify-center flex-wrap">
             {parsedMarksData.map((mark, index) => (
               <div
                 key={index}
