@@ -97,7 +97,7 @@ const routes: RoutePageConfig[] = [
   },
   {
     path: 'animation',
-    label: 'Animation',
+    label: '[TODO] Animation',
     PageComponent: PublicAnimationExample,
   },
   {
@@ -107,7 +107,7 @@ const routes: RoutePageConfig[] = [
   },
   {
     path: 'get-logical-data',
-    label: 'Get Logical Data',
+    label: '[TODO] Get Logical Data',
     PageComponent: PublicGetLogicalDataExample,
   },
 ];
