@@ -9,7 +9,7 @@ import {
 import type { TableauViz } from 'app/components/tableau/models/Viz';
 import type { Worksheet } from 'app/components/tableau/models/Worksheet';
 import { Button } from 'app/components/ui/Button';
-import { Input } from 'app/components/ui/Input';
+import { InputRangeField } from 'app/components/ui/InputRangeField';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
 //----------------------------------------------------------------------------//
@@ -169,23 +169,18 @@ export const PublicAnimationExample = () => {
       </div>
 
       <div className="flex flex-col gap-3 items-center">
-        <div className="flex gap-3 items-center">
-          <span className="font-bold w-30 text-right">Animation Timer</span>
-          <Input
-            type="number"
-            name="width"
-            value={timerValue}
-            onChange={onInputChangeHandler}
-            onBlur={onInputBlurhandler}
-            className={inputFieldClassName}
-            min={TimerLimits.min}
-            max={TimerLimits.max}
-            step={10}
-            disabled={isDisabledTimerField}
-          ></Input>
-          <span className="text-sm">Limits</span>
-          <span className="text-sm italic">{`min: ${TimerLimits.min} and max: ${TimerLimits.max}`}</span>
-        </div>
+        <InputRangeField
+          label="Animation Timer"
+          name="width"
+          value={timerValue}
+          onChange={onInputChangeHandler}
+          onBlur={onInputBlurhandler}
+          className={inputFieldClassName}
+          min={TimerLimits.min}
+          max={TimerLimits.max}
+          step={10}
+          disabled={isDisabledTimerField}
+        />
 
         <div className="flex gap-3 items-center">
           <span>{`Timer value in use: ${timer} (ms)`}</span>

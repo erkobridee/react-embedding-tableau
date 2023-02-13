@@ -7,7 +7,7 @@ import {
 } from 'app/components/tableau';
 import type { TableauViz } from 'app/components/tableau/models/Viz';
 import { Button } from 'app/components/ui/Button';
-import { Input } from 'app/components/ui/Input';
+import { InputRangeField } from 'app/components/ui/InputRangeField';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
 //----------------------------------------------------------------------------//
@@ -114,40 +114,30 @@ export const PublicResizeExample = () => {
       </div>
 
       <div className="flex flex-col gap-3">
-        <div className="flex gap-3 items-center">
-          <span className="font-bold w-12 text-right">Width</span>
-          <Input
-            type="number"
-            name="width"
-            value={widthValue}
-            onChange={onInputChangeHandler}
-            onBlur={onInputBlurhandler}
-            className={inputFieldClassName}
-            min={WidthLimits.min}
-            max={WidthLimits.max}
-            step={10}
-            disabled={isDisabled}
-          ></Input>
-          <span className="text-sm">Limits</span>
-          <span className="text-sm italic">{`min: ${WidthLimits.min} and max: ${WidthLimits.max}`}</span>
-        </div>
-        <div className="flex gap-3 items-center">
-          <span className="font-bold w-12 text-right">Height</span>
-          <Input
-            type="number"
-            name="height"
-            value={heightValue}
-            onChange={onInputChangeHandler}
-            onBlur={onInputBlurhandler}
-            className={inputFieldClassName}
-            min={HeightLimits.min}
-            max={HeightLimits.max}
-            step={10}
-            disabled={isDisabled}
-          ></Input>
-          <span className="text-sm">Limits</span>
-          <span className="text-sm italic">{`min: ${HeightLimits.min} and max: ${HeightLimits.max}`}</span>
-        </div>
+        <InputRangeField
+          label="Width"
+          value={widthValue}
+          onChange={onInputChangeHandler}
+          onBlur={onInputBlurhandler}
+          className={inputFieldClassName}
+          min={WidthLimits.min}
+          max={WidthLimits.max}
+          step={10}
+          disabled={isDisabled}
+        />
+
+        <InputRangeField
+          label="Height"
+          name="height"
+          value={heightValue}
+          onChange={onInputChangeHandler}
+          onBlur={onInputBlurhandler}
+          className={inputFieldClassName}
+          min={HeightLimits.min}
+          max={HeightLimits.max}
+          step={10}
+          disabled={isDisabled}
+        />
 
         <div className="flex gap-3 items-center justify-center w-full">
           <span>{`${widthValue} x ${heightValue} px`}</span>
