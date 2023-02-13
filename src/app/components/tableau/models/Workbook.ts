@@ -25,7 +25,7 @@ export interface Workbook {
   /**
    * Activates the sheet, either by name or index, and returns a promise of the sheet that was activated.
    */
-  activateSheetAsync(sheetNameOrIndex: string | number): Promise<Sheet>;
+  activateSheetAsync(sheetNameOrIndex: string | number): Promise<Worksheet>;
 
   /**
    * Modifies the given parameter and assigns it a new value. The new value must fall within the domain restrictions defined by `allowableValues`. If the domain restriction is `ParameterValueType.Range`, be sure to check the `allowableValues` before assigning a new value. If the new value is out of range, the updated value will be set to either the `minValue` or the `maxValue` of the allowable range. If a step size is also specified and the new value does not fall on the step intervals, the updated value will be set to the closest, lower step, or closest, earlier date. If the domain restriction is type `ParameterValueType.List`, and there are aliases defined for the list, the aliased value should be passed to the method.

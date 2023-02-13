@@ -97,7 +97,7 @@ const routes: RoutePageConfig[] = [
   },
   {
     path: 'animation',
-    label: '[TODO] Animation',
+    label: 'Animation',
     PageComponent: PublicAnimationExample,
   },
   {
