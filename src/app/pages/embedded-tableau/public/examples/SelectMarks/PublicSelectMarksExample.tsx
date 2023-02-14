@@ -11,6 +11,7 @@ import {
 import type { MarksSelectedEvent } from 'app/components/tableau/events/MarksSelectedEvent';
 import type { SelectionCriteria } from 'app/components/tableau/models/SelectionCriteria';
 import type { TableauViz } from 'app/components/tableau/models/Viz';
+import type { Worksheet } from 'app/components/tableau/models/Worksheet';
 import { Button } from 'app/components/ui/Button';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
@@ -48,7 +49,7 @@ export const PublicSelectMarksExample = () => {
   const getActiveSheet = () => {
     const viz = vizRef.current;
     if (!viz) return;
-    return viz.workbook.activeSheet;
+    return viz.workbook.activeSheet as Worksheet;
   };
 
   const processDone = () => {
@@ -77,32 +78,36 @@ export const PublicSelectMarksExample = () => {
     });
   };
 
-  React.useEffect(() => {
-    const viz = vizRef.current;
-    if (!viz) return;
+  React.useEffect(
+    () => {
+      const viz = vizRef.current;
+      if (!viz) return;
 
-    viz.addEventListener(
-      TableauEventType.FilterChanged,
-      onTableauEmbedFilterChangeHandler
-    );
-
-    viz.addEventListener(
-      TableauEventType.MarkSelectionChanged,
-      onTableauEmbedMarkSelectionChangeHandler
-    );
-
-    return () => {
-      viz.removeEventListener(
+      viz.addEventListener(
         TableauEventType.FilterChanged,
         onTableauEmbedFilterChangeHandler
       );
 
-      viz.removeEventListener(
+      viz.addEventListener(
         TableauEventType.MarkSelectionChanged,
         onTableauEmbedMarkSelectionChangeHandler
       );
-    };
-  }, []);
+
+      return () => {
+        viz.removeEventListener(
+          TableauEventType.FilterChanged,
+          onTableauEmbedFilterChangeHandler
+        );
+
+        viz.removeEventListener(
+          TableauEventType.MarkSelectionChanged,
+          onTableauEmbedMarkSelectionChangeHandler
+        );
+      };
+    },
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+    []
+  );
 
   const clearSelectionBtnClickHandler = async () => {
     const sheet = getActiveSheet();

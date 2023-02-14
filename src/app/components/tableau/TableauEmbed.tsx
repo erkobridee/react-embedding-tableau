@@ -130,6 +130,7 @@ const TableauEmbedInner = (
 
     if (!viz || (!width && !height)) return;
 
+    /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
     const vizElShadowRoot = (viz as unknown as any)['shadowRoot'];
     const innerIframe = vizElShadowRoot.children[0];
 

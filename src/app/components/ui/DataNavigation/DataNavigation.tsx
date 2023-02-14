@@ -14,7 +14,7 @@ export const DataNavigation: React.FunctionComponent<DataNavigationProps> = ({
   page = 0,
   pagesCount,
   maxButtons = 10,
-  onPageChange = (_: number) => undefined,
+  onPageChange = () => undefined,
 }) => {
   const [currentPageInputValue, setCurrentPageInputValue] = React.useState(
     page + 1

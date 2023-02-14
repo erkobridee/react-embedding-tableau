@@ -216,7 +216,9 @@ export const PublicGetLogicalDataExample = () => {
 
     const pageReader = await getPageReader();
 
-    const currentPageDataTable = await pageReader!.getPageAsync(pageNumber);
+    if (!pageReader) return;
+
+    const currentPageDataTable = await pageReader.getPageAsync(pageNumber);
 
     const parsedData = parseData(currentPageDataTable);
 
