@@ -11,6 +11,7 @@ import {
 } from 'app/components/tableau';
 import type { CategoricalFilter } from 'app/components/tableau/models/CategoricalFilter';
 import type { TableauViz } from 'app/components/tableau/models/Viz';
+import type { Worksheet } from 'app/components/tableau/models/Worksheet';
 import { Select } from 'app/components/ui/Select';
 import { PublicTableauInfoFooter } from 'app/pages/embedded-tableau/public/components/PublicTableauInfoFooter';
 
@@ -75,7 +76,7 @@ export const PublicFilterExample = () => {
 
     if (dataStatus !== 'ready') return;
 
-    const sheet = viz.workbook?.activeSheet;
+    const sheet = viz.workbook?.activeSheet as Worksheet;
 
     setStatus(UiStatus.DISABLED);
     if (selectedOption) {
