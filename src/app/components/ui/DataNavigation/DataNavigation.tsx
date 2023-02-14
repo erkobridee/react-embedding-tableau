@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { useDidUpdate } from 'hooks/useDidUpdate';
 
-// import cn from 'clsx';
-
 import { Input } from 'app/components/ui/Input';
 import { Pagination, PaginationProps } from 'app/components/ui/Pagination';
 
@@ -13,7 +11,6 @@ export const DataNavigation: React.FunctionComponent<DataNavigationProps> = ({
   disabled = false,
   page = 0,
   pagesCount,
-  maxButtons = 10,
   onPageChange = () => undefined,
 }) => {
   const [currentPageInputValue, setCurrentPageInputValue] = React.useState(
@@ -50,20 +47,17 @@ export const DataNavigation: React.FunctionComponent<DataNavigationProps> = ({
   };
 
   const paginationChangeHandler = (page: number) => {
-    setCurrentPageInputValue(page);
+    setCurrentPageInputValue(page + 1);
     triggerPageChange(page);
   };
 
   return (
     <div className="flex gap-4 items-center">
-      <span>TODO: finish the implementation</span>
-
       <Pagination
         {...{
           disabled,
           page,
           pagesCount,
-          maxButtons,
           onPageChange: paginationChangeHandler,
         }}
       />
@@ -79,6 +73,7 @@ export const DataNavigation: React.FunctionComponent<DataNavigationProps> = ({
           value={currentPageInputValue}
           onChange={currentPageInputChangeHandler}
           onBlur={currentPageInputBlurHandler}
+          disabled={disabled}
         />
         <span>{`/ ${pagesCount}`}</span>
       </div>

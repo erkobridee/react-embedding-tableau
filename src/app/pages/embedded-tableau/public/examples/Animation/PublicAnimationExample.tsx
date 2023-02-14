@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { buildNumbersRangeArray } from 'utils/buildNumbersRangeArray';
+
 import {
   FilterUpdateType,
   TableauEmbed,
@@ -33,13 +35,6 @@ const TimerLimits = {
 };
 
 const defaultTimer = 1000; // 1s
-
-// inclusive range
-const buildNumbersRangeArray = (start = 0, end = 10, step = 1) =>
-  Array.from(
-    Array.from(Array(Math.ceil((end - start + 1) / step)).keys()),
-    (x) => start + x * step
-  );
 
 const YEARS_TO_FILTER = buildNumbersRangeArray(1960, 2011);
 const YEARS_TO_FILTER_LAST_ITEM = YEARS_TO_FILTER[YEARS_TO_FILTER.length - 1];

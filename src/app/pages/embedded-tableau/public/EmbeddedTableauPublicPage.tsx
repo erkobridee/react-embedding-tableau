@@ -107,7 +107,7 @@ const routes: RoutePageConfig[] = [
   },
   {
     path: 'get-logical-data',
-    label: '[TODO] Get Logical Data',
+    label: 'Get Logical Data',
     PageComponent: PublicGetLogicalDataExample,
   },
 ];
