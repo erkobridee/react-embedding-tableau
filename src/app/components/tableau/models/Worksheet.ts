@@ -1,6 +1,7 @@
 import type { TApiMenuType } from '../definitions/ApiMenuType';
 import type { TFilterUpdateType } from '../definitions/FilterUpdateType';
 import type { TSelectionUpdateType } from '../definitions/SelectionUpdateType';
+import type { SheetType } from '../definitions/SheetType';
 import type { Annotation } from './Annotation';
 import type { ContextMenuOptions } from './ContextMenuOptions';
 import type { Dashboard } from './Dashboard';
@@ -30,6 +31,8 @@ export interface Worksheet extends Sheet {
 
   /** The StoryPoint object to which this worksheet belongs. If the worksheet is not in a story, it returns null. */
   parentStoryPoint: StoryPoint | null;
+
+  sheetType: (typeof SheetType)['Worksheet'];
 
   //---= methods =---//
 

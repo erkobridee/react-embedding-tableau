@@ -1,3 +1,4 @@
+import type { SheetType } from '../definitions/SheetType';
 import type { Sheet } from './Sheet';
 import type { StoryPoint } from './StoryPoint';
 import type { StoryPointInfo } from './StoryPointInfo';
@@ -11,6 +12,8 @@ export interface Story extends Sheet {
 
   /** An array of StoryPointInfo objects. */
   storyPointsInfo: StoryPointInfo[];
+
+  sheetType: (typeof SheetType)['Story'];
 
   //---= methods =---//
 

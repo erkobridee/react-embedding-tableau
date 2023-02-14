@@ -1,4 +1,5 @@
 import type { TFilterUpdateType } from '../definitions/FilterUpdateType';
+import type { SheetType } from '../definitions/SheetType';
 import type { DashboardObject } from './DashboardObject';
 import type { Filter } from './Filter';
 import type { FilterOptions } from './FilterOptions';
@@ -15,6 +16,8 @@ export interface Dashboard extends Sheet {
 
   /** Returns the StoryPoint object to which this Dashboard belongs. If the Dashboard doesn't belong to a story, it returns null. */
   parentStoryPoint: StoryPoint | null;
+
+  sheetType: (typeof SheetType)['Dashboard'];
 
   /**
    * This is a helper method and is equivalent to looping through all of the objects in a dashboard and collecting all of the objects whose type is worksheet. You can use this property to iterate through all of the worksheets in the dashboard.
