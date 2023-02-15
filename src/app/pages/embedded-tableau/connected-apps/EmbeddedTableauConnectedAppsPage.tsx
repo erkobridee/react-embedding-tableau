@@ -30,7 +30,7 @@ const breadcrumbs: IBreadcrumbItem[] = [
 const routes: RoutePageConfig[] = [
   {
     path: 'basic-embed',
-    label: 'Basic Embed',
+    label: '[TODO - implement] Basic Embed',
     PageComponent: () => (
       <div>
         <strong>TODO:</strong> define the page - Basic Embed

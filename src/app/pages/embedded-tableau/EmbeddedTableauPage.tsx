@@ -45,7 +45,7 @@ const routes: RoutePageConfig[] = [
   },
   {
     path: 'connected-apps',
-    label: 'Connected Apps',
+    label: '[TODO - implement] Connected Apps',
     PageComponent: TableauConnectedAppsPage,
     description: (
       <span>
